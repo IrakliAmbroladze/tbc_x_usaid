@@ -1,0 +1,15 @@
+.app-header{
+  height: 10%;
+  background-color: rgb(186, 220, 248);
+  display: flex;
+  justify-content: space-between
+;
+}
+
+img{
+  height: 100%;
+}
+
+b{
+  padding: 10px;
+}
