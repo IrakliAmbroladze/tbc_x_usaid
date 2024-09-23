@@ -6,7 +6,7 @@ export default function Footer() {
     <div className='app-footer'>
       <div>
         <b> ჩვენ შესახებ</b>
-        <div className='footer-info'> მოსაყოლი ბევირა ... </div>
+        <div className='footer-info'> მოსაყოლი ბევრია ... </div>
         
       </div>
       <div>
