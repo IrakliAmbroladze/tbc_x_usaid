@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.css';
-import luarsabi from './luarsabi.webp';
+import luarsabi from './assets/luarsabi.webp';
 
 export default function Main() {
   return (
