@@ -3,6 +3,7 @@
   background-color: rgb(130, 188, 253);
   display: flex;
   justify-content: space-evenly;
+  /* padding-top: 10px; */
 }
 
 .footer-info{
