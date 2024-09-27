@@ -1,16 +1,18 @@
 import React from 'react'
 import './ItemGrid.css'
-
+import { Item_card } from '../item_data/Item_data'
+import { products } from '../item_data/Item_data'
+import { keyboard } from '@testing-library/user-event/dist/keyboard'
+import ProductCart from '../productCart'
 
 export function ItemGrid() {
+
   return (
     <div className='item_grid'>
-      <div className='column1'>column 1</div>
-      <div className='column2'>column 2</div>
-      <div className='column3'>column 3</div>
-      <div className='column4'>column 4</div>
-      <div className='column5'>column 5</div>
-      <div className='column6'>column 6</div>
+      {products.map((product, key) =>
+        <ProductCart key={key} data={product}/>
+
+      )}
     </div>
   )
 }
