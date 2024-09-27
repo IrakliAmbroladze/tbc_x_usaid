@@ -1,6 +1,5 @@
 import React from 'react';
 import './Main.css';
-import luarsabi from '../../assets/luarsabi.webp';
 import { ItemGrid } from '../item_grid/ItemGrid';
 
 export default function Main() {
