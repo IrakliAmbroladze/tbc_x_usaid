@@ -8,7 +8,9 @@ export default function Header() {
       
       
       <img src={logo} alt="Logo" />
-      <b>მთავარი</b>
+      <a href='/'>Home</a>
+      <a href='/contact'>Contact</a>
+      <a href='/about'>About</a>
     </div>
   )
 }
