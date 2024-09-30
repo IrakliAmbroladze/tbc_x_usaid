@@ -4,7 +4,7 @@ import { ItemGrid } from '../../item_grid/ItemGrid';
 
 export default function Main() {
   return (
-    <main className='app-main'>
+    <main className='home-main'>
 {/*       
       <img src={luarsabi}  />
       <div> 
