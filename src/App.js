@@ -2,8 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from './components/header/Header';
-import Main from './components/main/Main';
+import Main from './components/Pages/main/Main';
 import Footer from './components/footer/Footer';
+import Contact from './components/Pages/contact/Contact';
+import About from './components/Pages/about/About';
 
 function App() {
   return (
@@ -21,13 +23,6 @@ function App() {
   );
 }
 
-function Contact(){
-  return <h2 style={{color: "red"}}>Contact page</h2>
-}
 
-function About (){
-  return <h2>About page</h2>
-
-}
 
 export default App;
