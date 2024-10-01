@@ -1,6 +1,13 @@
+import './Assignement3.css'
+
 export default function Assignement3(){
-  // return <div>{list}</div>
-  return <div></div>
+  return (
+    <main className="assignement3-main"> 
+      
+    </main>
+    // return <div>{list}</div>
+
+  )
 }
 
 const obj = {
