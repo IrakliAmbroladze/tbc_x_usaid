@@ -17,7 +17,6 @@ main {
   flex: 1;
   padding: 2rem;
   display: flex;
-  align-items:center;
   justify-content: center;
 }
 
@@ -60,7 +59,15 @@ nav{
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-items: first baseline;
+  justify-content:center;
   align-items: center;
-  row-gap: 50px;
+  row-gap: 20px;
+}
+
+.cartClass{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
