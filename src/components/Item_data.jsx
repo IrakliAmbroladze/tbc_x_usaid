@@ -1,10 +1,9 @@
-import React from 'react'
-import imageProduct1 from '../../assets/images/1.jpg'
-import imageProduct2 from '../../assets/images/2.jpg'
-import imageProduct3 from '../../assets/images/3.jpg'
-import imageProduct4 from '../../assets/images/4.jpg'
-import imageProduct5 from '../../assets/images/5.jpg'
-import imageProduct6 from '../../assets/images/6.jpg'
+import imageProduct1 from '../assets/images/1.jpg'
+import imageProduct2 from '../assets/images/2.jpg'
+import imageProduct3 from '../assets/images/3.jpg'
+import imageProduct4 from '../assets/images/4.jpg'
+import imageProduct5 from '../assets/images/5.jpg'
+import imageProduct6 from '../assets/images/6.jpg'
 
 export const products = [
   {
@@ -42,5 +41,5 @@ export const products = [
     name: 'sixth table',
     image: imageProduct6,
     description: "some description"
-  }
+  }  
 ];

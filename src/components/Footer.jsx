@@ -1,9 +1,6 @@
-import React from 'react';
-import './Footer.css';
-
 export default function Footer() {
   return (
-    <div className='app-footer'>
+    <footer className='app-footer'>
       <div>
         <b> ჩვენ შესახებ</b>
         <div className='footer-info'> მოსაყოლი ბევრია ... </div>
@@ -27,6 +24,6 @@ export default function Footer() {
 
       </div>
       
-    </div>
+    </footer>
   )
 }

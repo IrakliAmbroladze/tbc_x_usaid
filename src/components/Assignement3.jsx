@@ -1,4 +1,4 @@
-import './Assignement3.css'
+// import './Assignement3.css'
 
 export default function Assignement3(){
     return <div>{list}</div>
