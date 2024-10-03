@@ -8,7 +8,6 @@ const ProductCart =(props) => {
       <h4>{name}</h4>
       <div>{description}</div>
       <div>
-      {/* <p>{price}</p> */}
       <button>
         Add to cart
       </button>
