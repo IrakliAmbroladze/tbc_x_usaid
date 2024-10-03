@@ -16,6 +16,9 @@ header {
 main {
   flex: 1;
   padding: 2rem;
+  display: flex;
+  align-items:center;
+  justify-content: center;
 }
 
 footer {
@@ -50,12 +53,14 @@ a:hover {
 
 nav{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .item_grid{
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;  
+  justify-items: first baseline;
+  align-items: center;
+  row-gap: 50px;
 }
