@@ -1,5 +1,5 @@
 import { products } from './Item_data'
-import ProductCart from './productCart'
+import ProductCart from './ProductCart'
 
 export function ItemGrid() {
 
