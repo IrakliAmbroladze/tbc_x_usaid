@@ -1,5 +1,9 @@
+import { BlogGrid } from "./BlogGrid";
+
 export default function Blog (){
    return(
-    <div> hello form Blog</div>
+    <div>
+      <BlogGrid />
+    </div>
    )
 }
