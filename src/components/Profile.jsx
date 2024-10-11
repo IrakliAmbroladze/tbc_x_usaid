@@ -7,7 +7,7 @@ export default function Profile (){
         <h1>User profile</h1>
         <img 
           className="avatar"
-          src={avatar} 
+          src={avatar.src} 
           alt="user_photo" 
           width={100}
           height={100}
