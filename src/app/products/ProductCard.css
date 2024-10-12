@@ -1,0 +1,72 @@
+.main {
+  width: 100vw;
+  min-height: 79vh;
+  background-color: var(--background-color);
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  z-index: 1;
+  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.moreCardBtn{
+  margin-left: 20px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.pagination {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: #f9f0db;
+}
+
+.pagination button {
+  margin: 0 10px;
+  padding: 5px 20px;
+  font-size: 12px;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  grid-gap: 1rem;
+  justify-items: space-evenly;
+}
+
+
+.item {
+  width: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-img {
+  width: 7.5rem;
+}
+
+.item-desc {
+  font-size: 0.9rem;
+}
+
+.button {
+  background-color: var(--primary-color);
+  padding: 0.6rem;
+  border: 0.1rem solid var(--primary-color);
+  border-radius: 0.3rem;
+  color: white;
+}
+
+.button:hover {
+  border-color: black;
+  background-color: white;
+  color: var(--primary-color);
+}
