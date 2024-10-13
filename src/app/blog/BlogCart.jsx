@@ -1,5 +1,5 @@
 import React from 'react'
-import BtnReadMore from './small/BtnReadMore';
+import BtnReadMore from '../components/small/BtnReadMore';
 
 const BlogCart =(props) => {
   const {id, name, image, description} = props.data;
