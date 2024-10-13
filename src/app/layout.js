@@ -1,8 +1,8 @@
 import '../index.css'
  
 export const metadata = {
-  title: 'React App',
-  description: 'Web site created with Next.js.',
+  title: 'Killers',
+  description: 'Pest service',
 }
 
 export default function RootLayout({children}) {
