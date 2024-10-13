@@ -1,5 +1,6 @@
 import { products } from './Item_data'
 import ProductCart from './ProductCart'
+import '../global.css'
 
 export function ItemGrid() {
 
