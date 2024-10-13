@@ -1,16 +1,16 @@
-import { NavLink } from 'react-router-dom';
+import Link from "next/link"
 
 export default function Header() {
   return (
     <header>
       <nav>
-        <NavLink to="/" exact>Home</NavLink> | 
-        <NavLink to="/assignement-3">Assignment 3</NavLink> | 
-        <NavLink to="/profile">Profile</NavLink> | 
-        <NavLink to="/products">Products</NavLink> | 
-        <NavLink to="/blog">BLOG</NavLink> | 
-        <NavLink to="/contact">Contact</NavLink> | 
-        <NavLink to="/about">About</NavLink>
+        <Link href="/">Home</Link> | 
+        <Link href="/assignement-3">Assignment 3</Link> | 
+        <Link href="/profile">Profile</Link> | 
+        <Link href="/products">Products</Link> | 
+        <Link href="/blog">BLOG</Link> | 
+        <Link href="/contact">Contact</Link> | 
+        <Link href="/about">About</Link>
       </nav>
 
     </header>
