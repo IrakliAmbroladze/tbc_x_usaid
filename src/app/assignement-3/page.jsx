@@ -1,8 +1,4 @@
-// import './Assignement3.css'
 
-export default function Assignement3(){
-    return <div>{list}</div>
-}
 
 const obj = {
   id: '10002',
@@ -36,21 +32,6 @@ const list = <table>
   </table>
 
 
-
-// export default function Assignement3() {
-//   // Transform the object into an array of rows using reduce
-//   return (
-//     <div>
-//       <table border="1">
-//         <thead>
-//           <tr>
-//             <th>Key</th>
-//             <th>Value</th>
-//             <th>Position</th>
-//           </tr>
-//         </thead>
-//         <tbody>{list}</tbody>
-//       </table>
-//     </div>
-//   );
-// }
+export default function Assignement3(){
+    return <>{list}</>
+}
