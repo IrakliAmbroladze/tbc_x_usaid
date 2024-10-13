@@ -1,4 +1,5 @@
 import Header from "./header/Header"
+import './global.css'
 
 export const metadata = {
   title: 'Killers',
