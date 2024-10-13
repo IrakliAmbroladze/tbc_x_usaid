@@ -22,7 +22,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: antiquewhite;
 }
 
 * {
@@ -42,23 +41,35 @@ a {
   }
 }
 
-.App {
+
+
+
+
+
+
+/* .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
+} */
 
 header {
+  width: 100vw;
   background-color: rgb(35, 40, 45);
   color: white;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 2px -2px gray;
   padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 main {
   flex: 1;
+  margin-top: 60px;
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -105,7 +116,7 @@ nav{
   grid-template-columns: 1fr 1fr 1fr;
   justify-content:center;
   align-items: center;
-  /* row-gap: 20px; */
+  row-gap: 20px;
 }
 
 .cartClass{
@@ -118,4 +129,7 @@ nav{
 
 .container {
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
