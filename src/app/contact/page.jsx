@@ -1,6 +1,8 @@
 
 export default function Contact(){
   return (
+    <div className="container">
+
     <main className='contact-main'>
       <b>Contact page</b>
       <div className='contactInfo'>
@@ -47,5 +49,6 @@ export default function Contact(){
       </div>
     </main>
 
+    </div>
   )
 }
