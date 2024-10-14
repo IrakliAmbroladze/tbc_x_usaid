@@ -42,49 +42,20 @@ a {
 }
 
 
-
-
-
-
-
-/* .App {
+.page-wrapper{
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-} */
-
-header {
-  width: 100vw;
-  background-color: rgb(35, 40, 45);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 2px -2px gray;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
 }
 
 main {
+  margin-top: 80px; 
   flex: 1;
-  margin-top: 60px;
-  padding: 2rem;
   display: flex;
   justify-content: center;
 }
-
-footer {
-  background-color: rgb(35, 40, 45);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 -4px 2px -2px gray;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 20px;
-}
+  
+ 
 
 table, th, td {
   border: 1px solid black;
@@ -94,21 +65,7 @@ th, td {
   padding: 10px;
 }
 
-a{
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-  padding: 0 6%;
-}
 
-a:hover {
-  color: rgb(199, 195, 195);
-}
-
-nav{
-  display: flex;
-  justify-content: space-evenly;
-}
 
 .item_grid{
   background-color: rgb(255, 255, 255);
@@ -128,8 +85,8 @@ nav{
 }
 
 .container {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1110px;
+  margin-left: auto;
+  margin-right: auto;
 }
