@@ -41,5 +41,24 @@ export const blogs = [
     name: 'sixth blog',
     image: blogImage6,
     description: "some description"
+  },
+
+  {
+    id: 7,
+    name: 'fourth blog',
+    image: blogImage4,
+    description: "some description"
+  },
+  {
+    id: 8,
+    name: 'fifth blog',
+    image: blogImage5,
+    description: "some description"
+  },
+  {
+    id: 9,
+    name: 'sixth blog',
+    image: blogImage6,
+    description: "some description"
   }  
 ];
