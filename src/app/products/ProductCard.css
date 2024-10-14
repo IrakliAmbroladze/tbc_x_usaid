@@ -58,11 +58,11 @@
 }
 
 .button {
-  background-color: var(--primary-color);
+  background-color: black;
   padding: 0.6rem;
   border: 0.1rem solid var(--primary-color);
   border-radius: 0.3rem;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .button:hover {
