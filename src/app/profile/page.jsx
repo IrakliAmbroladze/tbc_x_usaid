@@ -2,7 +2,7 @@ import avatar from '../assets/images/avatar.jpg';
 
 export default function Profile (){
    return(
-    <div className="container">
+    <div className="container margin-top-20px">
       
         <h1>User profile</h1>
         <img 

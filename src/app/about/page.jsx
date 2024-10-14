@@ -1,6 +1,6 @@
 export default function About (){
   return (
-    <div className="container">
+    <div className="container margin-top-20px">
 
     <main className='about-main'>
       <b>About page</b>

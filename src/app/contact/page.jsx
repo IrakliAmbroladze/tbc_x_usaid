@@ -1,7 +1,7 @@
 
 export default function Contact(){
   return (
-    <div className="container">
+    <div className="container margin-top-20px">
 
     <main className='contact-main'>
       <b>Contact page</b>

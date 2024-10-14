@@ -4,7 +4,7 @@ import BlogCart from './BlogCart'
 export function BlogGrid() {
 
   return (
-    <div className="container">
+    <div className="container margin-top-20px">
 
     <div className='item_grid'>
       {blogs.map((product, key) =>
