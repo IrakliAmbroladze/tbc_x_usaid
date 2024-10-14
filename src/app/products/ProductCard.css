@@ -1,17 +1,3 @@
-.main {
-  width: 100vw;
-  min-height: 79vh;
-  background-color: var(--background-color);
-  padding: 2rem;
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: scroll;
-  z-index: 1;
-  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.2);
-}
-
 .moreCardBtn{
   margin-left: 20px;
   text-decoration: none;
@@ -35,14 +21,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-
   grid-gap: 1rem;
   justify-items: space-evenly;
 }
 
 
 .item {
-  width: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +39,7 @@
 
 .item-desc {
   font-size: 0.9rem;
-}
+} 
 
 .button {
   background-color: black;
