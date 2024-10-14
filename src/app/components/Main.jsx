@@ -2,8 +2,9 @@ import { ItemGrid } from './ItemGrid';
 
 export default function Main() {
   return (
-    <main className="container">
+      <div className="container">
+
       <ItemGrid />
-    </main>
+      </div>
   )
 }
