@@ -1,6 +1,7 @@
+import './footer.css'
 export default function Footer() {
   return (
-    <footer className='app-footer'>
+    <footer className='footer'>
       <div>
         <b> ჩვენ შესახებ</b>
         <div className='footer-info'> მოსაყოლი ბევრია ... </div>
