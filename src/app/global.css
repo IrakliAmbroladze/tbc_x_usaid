@@ -48,6 +48,13 @@ a {
   flex-direction: column;
 }
 
+.default-layout{
+  padding-top: 80px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 main {
   margin-top: 80px; 
   flex: 1;
