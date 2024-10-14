@@ -1,0 +1,12 @@
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
