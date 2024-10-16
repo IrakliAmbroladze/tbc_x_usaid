@@ -11,10 +11,6 @@ export const ProductCard = (props) => {
           src={props.product.thumbnail} 
           alt={props.product.title}
           className="item-img"
-          style={{
-            height: '100%',
-            width: '100%',
-          }}
           />
 
         </div>
