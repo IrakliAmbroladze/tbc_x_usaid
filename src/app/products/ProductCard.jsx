@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export const ProductCard = (props) => {
   return (
-    <div className="item">
+    <div key={props.product.id} className="item">
         <div style={{
           height: 120
         }}>
