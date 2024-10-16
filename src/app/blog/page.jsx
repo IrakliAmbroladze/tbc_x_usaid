@@ -13,7 +13,6 @@ export default function Blog() {
          const response = await fetch(postsURL);
          const data = await response.json();
          setPostList(data.posts);
-         console.log(data.posts);
         } catch (error) {
           setPostList([]);
         }
