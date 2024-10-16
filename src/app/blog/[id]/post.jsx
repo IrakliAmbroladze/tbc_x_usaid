@@ -1,5 +1,4 @@
 export default function Post(props) {
-  console.log(props);
   return (
     <div key={props.post.id} className="container margin-top-20px margin-bottom-20px">
       <h1>{props.post.title}</h1>
