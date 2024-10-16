@@ -8,7 +8,7 @@ export const ProductCard = (props) => {
           height: 120
         }}>
         <img 
-          src={props.product.images[0]} 
+          src={props.product.thumbnail} 
           alt={props.product.title}
           className="item-img"
           style={{
