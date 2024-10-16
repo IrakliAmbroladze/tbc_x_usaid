@@ -4,16 +4,7 @@ import Link from "next/link"
 export const ProductCard = (props) => {
   return (
     <div key={props.product.id} className="item">
-        <div style={{
-          height: 120
-        }}>
-        <img 
-          src={props.product.thumbnail} 
-          alt={props.product.title}
-          className="item-img"
-          />
-
-        </div>
+        <img src={props.product.thumbnail} alt={props.product.title}className="item-img"/>
         <h4 className="item-name">{props.product.title}</h4>
         <div>${props.product.price}</div>
         <p className="item-desc">{props.product.description}</p>
