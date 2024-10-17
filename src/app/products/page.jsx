@@ -3,5 +3,13 @@ import { ProductList } from "./ProductList";
 
 export default async function Products() {
   const productList = await fetchProducts();
-  return <ProductList productList={productList} />;
+  return (
+    <>
+      <h2 
+        style={{textAlign: "center"}}
+        className="margin-top-20px"
+      >Item Shop</h2>
+      <ProductList productList={productList} />
+    </>
+  );
 }
