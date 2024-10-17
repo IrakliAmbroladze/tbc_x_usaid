@@ -1,8 +1,8 @@
 export function SortingButtons() {
   return (
     <div>
-      <button>Price Asc</button>
-      <button>Price Desc</button>
+      <button>Asc ↓</button>
+      <button>Desc ↑</button>
     </div>
   )
 }
