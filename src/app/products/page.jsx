@@ -1,6 +1,7 @@
 import { fetchProducts } from "./fetchProducts";
 import { ProductList } from "./ProductList";
 import { SortingButtons } from "../components/small/SortingButtons.jsx";
+import { Search } from "./search";
 
 export default async function Products({searchParams}) {
   const { sortBy, order } = searchParams;
@@ -14,7 +15,7 @@ export default async function Products({searchParams}) {
 
   const searchAndSorting = (
     <div style={{display: "flex", justifyContent: "space-between"}}>
-      <input placeholder='search'></input>
+      <Search />
       <SortingButtons />
     </div>
   ); 
