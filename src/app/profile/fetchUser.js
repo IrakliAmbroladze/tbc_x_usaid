@@ -1,6 +1,6 @@
 export async function fetchUser() {
 
-  let userURL = 'https://dummyjson.com/users/20';
+  let userURL = 'https://dummyjson.com/users/2';
   
   try {
     const response = await fetch(userURL);
