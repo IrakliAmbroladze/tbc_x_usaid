@@ -1,5 +1,10 @@
-export default function WelcomeImage(){
+import Image from "next/image";
+import Welcome_Image from '../../assets/images/welcome-image.jpg';
+
+export default function WelcomeImage() {
   return (
-    <h1 className="welcomeImage"> hello from welcome image</h1>
-  )
+     <div className="welcomeImage"> 
+      <Image className="pestMan" src={Welcome_Image} alt="Welcome_Image" fill/>
+    </div>
+  );
 }
