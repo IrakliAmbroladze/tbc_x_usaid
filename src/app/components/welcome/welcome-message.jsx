@@ -1,4 +1,5 @@
 import BtnGlobal from '../small/btn-global'
+import Link from 'next/link'
 
 export default function WelcomeMessage(){
   return (
@@ -10,13 +11,10 @@ export default function WelcomeMessage(){
         <strong>disinsection </strong> 
         <span>and </span> 
         <strong>deratization</strong> procedures.
-        {/* <div> */}
-        {/* </div> */}
       </p>
-      {/* <p> */}
-
+      <Link href="/login">
         <BtnGlobal height='4rem' width='10rem'>Login ⭬</BtnGlobal>
-      {/* </p> */}
+      </Link>
     </div>
 
   )
