@@ -1,0 +1,25 @@
+.btnGlobal {
+  margin-top: 10px;
+  margin-right: 10px;
+  /* background-color: rgb(94, 166, 196); */
+  background-color: rgb(34, 46, 70);
+  color: white;
+  padding: 5px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnGlobal:hover {
+  /* background-color: rgb(34, 46, 70); */
+  background-color: rgb(0, 16, 45);
+  /* background-color: rgb(93, 195, 223); */
+  transform: scale(1.05);    
+}
+
+.btnGlobal:active {
+  transform: scale(0.98);   
+}
