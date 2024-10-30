@@ -1,0 +1,49 @@
+.welcome{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcomeHeaderLogo{
+  /* height: 150px; */
+  /* width: 20%; */
+  /* height: 20vh; */
+  /* height: ; */
+}
+
+.welcomeContent{
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.welcomeHeader{
+  display: flex;
+  background-color: rgb(34, 46, 70);
+  width: 100%;
+  height: 30vh;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  color: white;
+  /* align-content:end; */
+  padding: 10px;
+  padding-right: 30px;
+  font-size: xx-large;
+  align-items: end;
+  justify-content: space-between;
+  
+}
+
+
+.welcomeMessage{
+  background-color: #f9fafb;
+  border-radius: 8px;
+  width: 40%;
+}
+
+
+.welcomeImage{
+  background-color: rgb(255, 255, 255);
+  flex: 1;
+}
