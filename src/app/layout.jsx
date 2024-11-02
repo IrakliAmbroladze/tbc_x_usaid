@@ -1,6 +1,7 @@
 import Header from "./header/Header"
 import Footer from "./footer/footer"
 import './global.css'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export const metadata = {
   title: 'Killers',
@@ -10,9 +11,11 @@ export const metadata = {
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <body className="page-wrapper">
-         {children}
-      </body>
+      <UserProvider>
+        <body className="page-wrapper">
+          {children}
+        </body>
+      </UserProvider>
     </html>
   )
 }

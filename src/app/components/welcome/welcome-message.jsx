@@ -12,9 +12,10 @@ export default function WelcomeMessage(){
         <span>and </span> 
         <strong>deratization</strong> procedures.
       </p>
-      <Link href="/login">
+      <Link href="/api/auth/login">
         <BtnGlobal height='4rem' width='10rem'>Login ⭬</BtnGlobal>
       </Link>
+      <a href="/api/auth/logout">Logout</a>
     </div>
 
   )
