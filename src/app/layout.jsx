@@ -1,5 +1,3 @@
-import Header from "./header/Header"
-import Footer from "./footer/footer"
 import './global.css'
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 
