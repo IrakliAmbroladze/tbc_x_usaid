@@ -12,7 +12,7 @@ export default function Header() {
         <Link href="/blog">BLOG</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/about">About</Link>
-        <Link href="/api/auth/logout">Logout</Link>
+        <a href="/api/auth/logout">Logout</a>
       </nav>
     </header>
   )
