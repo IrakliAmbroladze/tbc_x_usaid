@@ -1,7 +1,7 @@
 import { getSession } from '@auth0/nextjs-auth0';
 import { redirect } from "next/navigation";
-import Header from '../header/Header.jsx'
-import Footer from '../footer/Footer.jsx'
+import Header from '../components/header/Header.jsx'
+import Footer from '../components/footer/Footer.jsx'
 
 
 export default async function layout({children}) {

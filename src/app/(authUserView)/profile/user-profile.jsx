@@ -6,7 +6,7 @@ import {AuthContext} from './context'
 
 export async function UserProfile() {
   const user = useContext(AuthContext);
-  console.log(user)
+  // console.log(user)
   return (
     <div key={user.id} className="profile-card">
         
