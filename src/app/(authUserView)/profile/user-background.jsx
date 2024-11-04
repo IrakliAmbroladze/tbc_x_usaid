@@ -1,12 +1,13 @@
-import {ButtonEditProfile} from "./edit-profile-button"
-import { UserBio } from "./user-bio";
+import { getSession } from "@auth0/nextjs-auth0";
 
-export function UserBackground(props) {
-  const user = props.user;
+
+export async function UserBackground() {
+  const { user } = await getSession();
+
   return (
     <div className="userBackground">
-      <ButtonEditProfile />
-      <UserBio user={user} /> 
+      <button className="editBtn"> Edit</button>
+      <div className="userContact" >Email: {user.email || 'not available'}</div>
     </div>
   )
 }

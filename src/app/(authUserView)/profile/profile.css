@@ -24,9 +24,9 @@ body {
     margin-right: auto;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(135deg, #7cc2c9 50%, #9CD3D8 50%);
-    box-shadow: 4px 4px 10px 5px gray;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #222e46 50%, #ffe2c1 50%);
+    box-shadow: 2px -2px 10px 2px gray;
+    border-radius: 8px;
     flex: 1;
 }
 
