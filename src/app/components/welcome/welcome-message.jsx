@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function WelcomeMessage(){
   return (
-    <div className="welcomeMessage bg-[#f9fafb] dark:bg-stone-700 dark:text-white">
+    <div className="welcomeMessage text-black bg-[#f9fafb] dark:bg-stone-700 dark:text-white">
       <p style={{marginBottom: '2rem'}}>
         <strong>Welcome to Killers. </strong> 
         <span>This is a pest service company to help you in making </span>

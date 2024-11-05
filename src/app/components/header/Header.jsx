@@ -1,5 +1,6 @@
 import './header.css'
 import Link from "next/link"
+import ThemeToggle from '../ThemeToggle'
 
 export default function Header() {
   return (
@@ -14,6 +15,10 @@ export default function Header() {
         <Link href="/about">About</Link>
         <a href="/api/auth/logout">Logout</a>
       </nav>
+      <div>
+
+        <ThemeToggle />
+      </div>
     </header>
   )
 }
