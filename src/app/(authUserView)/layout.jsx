@@ -14,7 +14,7 @@ export default async function layout({children}) {
   return (
     <div className="page-wrapper">
       <Header />
-      <div className="default-layout">
+      <div className="default-layout dark:text-white">
         <main>{children}</main>
         <Footer/>
       </div>
