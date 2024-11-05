@@ -21,6 +21,7 @@ export function Search() {
 
   return (
     <input 
+    className='bg-stone-100 placeholder-slate-900'
     placeholder='search'
     onChange={(e) => {
       handleSearch(e.target.value);
