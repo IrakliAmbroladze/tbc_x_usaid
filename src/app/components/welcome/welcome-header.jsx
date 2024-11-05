@@ -6,7 +6,7 @@ export default function WelcomeHeader(){
     <>
     <div className="welcomeHeader">
       <Image className="welcomeHeaderLogo" src={Logo} width={200} alt="logo"/>
-       <h1>Pest Service</h1>
+       <h1 className="text-7xl">Pest Service</h1>
     </div>
     </>
   )
