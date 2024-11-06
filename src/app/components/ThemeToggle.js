@@ -18,11 +18,13 @@ export default function ThemeToggle() {
   return (
 
     <div className='flex'>
-      <div className='mr-5'>
+      <div className='mr-1'>
         <b>Theme color</b>
         </div>
     <div className='flex text-black'>
-    <select onChange={(e) => setTheme(e.target.value)} >
+    <select 
+    className='dark:text-white dark:bg-black border border-black rounded-md' 
+    onChange={(e) => setTheme(e.target.value)} >
       <option value="light">Light Mode</option>
       <option value="dark">Dark Mode</option>
       <option value="system">System Default</option>
