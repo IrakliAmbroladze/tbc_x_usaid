@@ -25,7 +25,7 @@ body {
     margin-right: auto;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(135deg, #222e46 50%, #ffe2c1 50%);
+    background: linear-gradient(135deg, rgba(34, 46, 70, 0.15) 50%, rgba(255, 226, 193, 0.15) 50%);
     /* box-shadow: 2px -2px 10px 2px gray; */
     border-radius: 8px;
     flex: 1;
