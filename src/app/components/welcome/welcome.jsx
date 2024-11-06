@@ -6,7 +6,7 @@ import WelcomeContent from "./welcome-content"
 export default function Welcome(){
   return (
 
-    <div className='welcome container  margin-top-20px margin-bottom-20px'>
+    <div className='welcome container margin-bottom-20px'>
       <WelcomeHeader />
       <WelcomeContent />
     </div>
