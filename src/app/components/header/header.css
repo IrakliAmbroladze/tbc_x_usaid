@@ -1,9 +1,9 @@
 .header {
-  background-color: rgb(34, 46, 70);
-  color: white;
+  /* background-color: #222e46; */
+  /* color: white; */
   text-align: center;
-  box-shadow: 0 4px 2px -2px gray;
-  height: 80px;
+  box-shadow: 0 2px 5px -2px gray;
+  height: 50px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -21,12 +21,12 @@
 }
 
 .header a{
-  color: white;
+  /* color: white; */
   text-decoration: none;
   transition: 0.3s;
   padding: 10px;
 }
 
 .header a:hover {
-  color: rgb(199, 195, 195);
+  color: #c7c3c3;
 }

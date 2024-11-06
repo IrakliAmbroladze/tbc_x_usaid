@@ -1,14 +1,16 @@
 import Welcome from './components/welcome/welcome'
-import ThemeToggle from './components/ThemeToggle'
+import Header from './components/header/Header'
+// import ThemeToggle from './components/ThemeToggle'
 
 
 export default function Page() {
   return (
 <>
-<div className='container'>
+{/* <div className='container'>
 
 <ThemeToggle />
-</div>
+</div> */}
+<Header />
 <Welcome />
 
 </>    

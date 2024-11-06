@@ -13,7 +13,7 @@ export default async function layout({children}) {
   }
   return (
     <div className="page-wrapper">
-      <Header />
+      {/* <Header /> */}
       <div className="default-layout dark:text-white">
         <main>{children}</main>
         <Footer/>
