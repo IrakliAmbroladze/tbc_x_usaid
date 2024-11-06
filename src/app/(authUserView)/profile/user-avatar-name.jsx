@@ -5,7 +5,7 @@ export async function AvatarAndName() {
   return (
     <>
       <img className="userImg" src={user.picture || null} alt="User-image"></img>
-      <div className="userName">
+      <div className="absolute z-30 top-1/4 left-1/4 text-black dark:text-white">
         <h1 className="text-2xl" style={{marginLeft: "-30px"}}>{user.nickname || user.name || ''}</h1>
       </div>
     </>
