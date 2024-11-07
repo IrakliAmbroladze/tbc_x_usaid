@@ -1,10 +1,14 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+ 
+const withNextIntl = createNextIntlPlugin();
+ 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Outputs a Single-Page Application (SPA).
-  distDir: './dist', // Changes the build output directory to ./dist/.
+  distDir: './dist',
   images: {
     domains: ["cdn.dummyjson.com"],
   }
-}
+};
  
-export default nextConfig
+export default withNextIntl(nextConfig);
+
