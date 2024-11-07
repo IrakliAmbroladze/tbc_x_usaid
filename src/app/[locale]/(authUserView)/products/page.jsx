@@ -1,6 +1,6 @@
 import { fetchProducts } from "./fetchProducts.js";
 import { ProductList } from "./ProductList.jsx";
-import { SortingButtons } from "../../components/small/SortingButtons.jsx";
+import { SortingButtons } from "../../../components/small/SortingButtons.jsx";
 import { Search } from "./search.jsx";
 
 export default async function Products({searchParams}) {

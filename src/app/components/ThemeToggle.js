@@ -1,7 +1,11 @@
 "use client";
 import { useEffect, useState } from 'react';
+import {useTranslations} from 'next-intl';
+
 
 export default function ThemeToggle() {
+  const t = useTranslations('ThemeToggle');
+
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage.theme ? localStorage.theme : "system"
   );
@@ -19,15 +23,15 @@ export default function ThemeToggle() {
 
     <div className='flex'>
       <div className='mr-1'>
-        <b>Theme color</b>
+        <b>{t('theme')}</b>
         </div>
     <div className='flex text-black'>
     <select 
     className='dark:text-white dark:bg-black border border-black rounded-md' 
     onChange={(e) => setTheme(e.target.value)} >
-      <option value="light">Light Mode</option>
-      <option value="dark">Dark Mode</option>
-      <option value="system">System Default</option>
+      <option value="light">{t('light')}</option>
+      <option value="dark">{t('dark')}</option>
+      <option value="system">{t('system')}</option>
     </select>
     </div>
     </div>
