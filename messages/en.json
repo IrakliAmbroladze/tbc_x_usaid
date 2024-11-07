@@ -3,5 +3,23 @@
     "login": "Login",
     "logout": "Logout",
     "pestService": "Pest Service"
+  },
+
+  "Header": {
+    "home": "Home",
+    "assignment 3": "Assignment 3",
+    "profile": "Profile",
+    "products": "Products",
+    "blog": "BLOG",
+    "contact": "Contact",
+    "about": "About",
+    "logout": "Logout"
+  },
+  "ThemeToggle": {
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+
   }
 }

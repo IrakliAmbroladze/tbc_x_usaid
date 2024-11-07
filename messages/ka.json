@@ -3,5 +3,24 @@
     "login": "შესვლა",
     "logout": "გამოსვლა",
     "pestService": "სანიტარული სერვისი"
+  },
+
+  "Header": {
+    "home": "მთავარი",
+    "assignment 3": "დავალება 3",
+    "profile": "პროფილი",
+    "products": "პროდუქტები",
+    "blog": "ბლოგი",
+    "contact": "კონტაქტი",
+    "about": "ჩვენ შესახებ",
+    "logout": "გამოსვლა"
+  },
+  
+  "ThemeToggle": {
+    "theme": "ფონი",
+    "light": "ღია",
+    "dark": "მუქი",
+    "system": "სისტემის"
+
   }
 }
