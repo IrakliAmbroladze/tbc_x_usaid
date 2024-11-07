@@ -1,7 +1,11 @@
 import BtnGlobal from '../small/btn-global'
 import Link from 'next/link'
+import {useTranslations} from 'next-intl';
+
 
 export default function WelcomeMessage(){
+  const t = useTranslations('HomePage');
+
   return (
     <div className="welcomeMessage text-black bg-[#f9fafb] dark:bg-stone-700 dark:text-white">
       <p style={{marginBottom: '2rem'}}>
@@ -13,9 +17,9 @@ export default function WelcomeMessage(){
         <strong>deratization</strong> procedures.
       </p>
       <Link href="/api/auth/login">
-        <BtnGlobal height='4rem' width='10rem'>Login ⭬</BtnGlobal>
+        <BtnGlobal height='4rem' width='10rem'>{t('login')} ⭬</BtnGlobal>
       </Link>
-      <a href="/api/auth/logout">Logout</a>
+      <a href="/api/auth/logout">{t('logout')}</a>
     </div>
 
   )
