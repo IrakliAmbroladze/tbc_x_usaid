@@ -1,6 +1,6 @@
 import { getSession } from '@auth0/nextjs-auth0';
 import { redirect } from "next/navigation";
-import Footer from '../components/footer/Footer.jsx'
+import Footer from '../../components/footer/Footer.jsx'
 
 
 export default async function layout({children}) {

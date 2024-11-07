@@ -1,6 +1,6 @@
 import './global.css'
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-import Header from './components/Header'
+import Header from '../components/Header'
 
 export const metadata = {
   title: 'Killers',
@@ -28,7 +28,7 @@ export default function RootLayout({children}) {
       </head>
       <UserProvider>
         <body className="page-wrapper bg-white dark:bg-stone-800">
-          <Header />
+          {/* <Header /> */}
           {children}
         </body>
       </UserProvider>

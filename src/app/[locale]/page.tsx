@@ -5,10 +5,10 @@ import Welcome from '../components/welcome/welcome'
 export default function HomePage() {
   const t = useTranslations('HomePage');
   return (
-    <div>
-      <h1>{t('title')}</h1>
-      <Link href="/about">{t('about')}</Link>
+    <main>
+      <h1>{t('login')}</h1>
+      <Link href="/about">{t('logout')}</Link>
       <Welcome />
-    </div>
+    </main>
   );
 }

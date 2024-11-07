@@ -1,5 +1,5 @@
 import './welcome.css'
-import '../../global.css'
+import '../../[locale]/global.css'
 import WelcomeHeader from "./welcome-header"
 import WelcomeContent from "./welcome-content"
 
