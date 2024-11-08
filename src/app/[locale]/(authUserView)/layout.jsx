@@ -11,13 +11,10 @@ export default async function layout({children}) {
     redirect("/");
   }
   return (
-    <div className="page-wrapper">
-      {/* <Header /> */}
-      <div className="default-layout dark:text-white">
-        <main>{children}</main>
-        <Footer/>
-      </div>
-    </div>
+    <>
+      <main>{children}</main>
+      <Footer/>
+    </>
   )
 }
 

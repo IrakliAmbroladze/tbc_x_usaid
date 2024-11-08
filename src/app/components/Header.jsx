@@ -2,6 +2,7 @@
 import ThemeToggle from './ThemeToggle'
 import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/routing';
+import Language from '../components/language'
 
 
 
@@ -20,10 +21,8 @@ export default function Header() {
         <Link href="/about" className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400">{t('about')}</Link>
         <a href="/api/auth/logout" className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400">{t('logout')}</a>
       </nav>
-      <div >
-
         <ThemeToggle />
-      </div>
+        <Language/>
     </header>
   )
 }

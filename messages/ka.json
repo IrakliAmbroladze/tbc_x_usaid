@@ -22,5 +22,10 @@
     "dark": "მუქი",
     "system": "სისტემის"
 
+  },
+
+  "Language": {
+    "english": "ინგ",
+    "georgian": "ქარ"
   }
 }

@@ -20,6 +20,10 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
 
+  "Language": {
+    "english": "Eng",
+    "georgian": "Geo"
   }
 }
