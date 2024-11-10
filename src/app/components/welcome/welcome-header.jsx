@@ -9,7 +9,7 @@ export default function WelcomeHeader(){
   return (
     <>
     <div className="welcomeHeader">
-      <Image className="welcomeHeaderLogo" src={'/assets/images/killer_logo_white-blue.png'} height="64" width={200} alt="logo"/>
+      <Image className="welcomeHeaderLogo" src={'/assets/images/killer_logo_white-blue.png'} height={200} width={200} alt="logo"/>
        <h1 className="text-7xl">{t('pestService')}</h1>
     </div>
     </>
