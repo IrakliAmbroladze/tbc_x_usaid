@@ -1,5 +1,4 @@
 import BtnGlobal from '../small/btn-global'
-import Link from 'next/link'
 import {useTranslations} from 'next-intl';
 
 
@@ -16,9 +15,7 @@ export default function WelcomeMessage(){
         <span>and </span> 
         <strong>deratization</strong> procedures.
       </p>
-      <Link href="/api/auth/login">
-        <BtnGlobal height='4rem' width='10rem'>{t('login')} ⭬</BtnGlobal>
-      </Link>
+      <BtnGlobal href='/api/auth/login' height='4rem' width='10rem'>{t('login')} ⭬</BtnGlobal>
       <a href="/api/auth/logout">{t('logout')}</a>
     </div>
 
