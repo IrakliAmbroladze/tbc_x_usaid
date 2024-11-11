@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {useTranslations} from 'next-intl';
 
  
-export default function UnauthUserAlert (){
+export default function UnAuthUserAlert (){
   const t = useTranslations('HomePage');
 
  
