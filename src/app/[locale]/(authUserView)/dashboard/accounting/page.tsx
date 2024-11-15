@@ -1,7 +1,5 @@
-import React from 'react'
+import Accounting from 'app/components/accounting'
 
 export default function page() {
-  return (
-    <div>Accounting page</div>
-  )
+  return <Accounting/>
 }

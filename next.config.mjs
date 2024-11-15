@@ -14,6 +14,13 @@ const nextConfig = {
         pathname: '/**',
         search: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.klipfolio.com',
+        port: '',
+        pathname: '/website/public/**',
+        search: '',
+      },
     ],
   }
 };

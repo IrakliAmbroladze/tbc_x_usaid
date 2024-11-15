@@ -1,3 +1,5 @@
-export default function page() {
-  return 'Orders page'
+import Orders from "app/components/orders";
+
+export default function OrdersPage() {
+  return <Orders/>
 }
