@@ -6,7 +6,15 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   distDir: './dist',
   images: {
-    domains: ["cdn.dummyjson.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.dummyjson.com',
+        port: '',
+        pathname: '/**',
+        search: '',
+      },
+    ],
   }
 };
  
