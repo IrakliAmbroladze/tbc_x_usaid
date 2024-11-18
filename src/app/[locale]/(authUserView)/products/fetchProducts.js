@@ -1,24 +1,11 @@
-export async function fetchProducts(query, sortBy, order) {
-  let productsURL;
-  if (query) {
-    if (sortBy && order) {
-      productsURL = `https://dummyjson.com/products/search?q=${query}&sortBy=${sortBy}&order=${order}`;
-    } else {
-      productsURL = `https://dummyjson.com/products/search?q=${query}`;
-    }
-  } else {
-    if (sortBy && order) {
-      productsURL = `https://dummyjson.com/products?sortBy=${sortBy}&order=${order}`;
-    } else {
-      productsURL = `https://dummyjson.com/products`;
-    }
-  }
-
+export async function fetchProducts() {
+  let productsURL = "http://localhost:3000/api/products";
   try {
     const response = await fetch(productsURL);
     const data = await response.json();
-    return data.products;
+    return data;  
   } catch (error) {
-    return "";
+    console.error(error);
+    return []; 
   }
 }

@@ -1,10 +1,10 @@
 import "./ProductCard.css"
 import Link from "next/link"
 
-export const ProductCard = (props) => {
+export default function ProductCard(props) {
   return (
     <div key={props.product.id} className="item">
-        <img src={props.product.thumbnail} alt={props.product.title}className="item-img"/>
+        <img src={props.product.image} alt={props.product.title}className="item-img"/>
         <h4 className="item-name">{props.product.title}</h4>
         <div>${props.product.price}</div>
         <p className="item-desc">{props.product.description}</p>
