@@ -2,7 +2,7 @@
 import ThemeToggle from './ThemeToggle'
 import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/routing';
-import Language from '../components/language'
+import Language from './language'
 
 
 

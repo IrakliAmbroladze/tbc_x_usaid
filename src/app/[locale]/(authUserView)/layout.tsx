@@ -1,6 +1,6 @@
 import { getSession } from '@auth0/nextjs-auth0';
-import UnAuthUserAlert from '../../components/UnAuthUserAlert.jsx';
-import AuthUserView from '../../components/AuthUserView.jsx';
+import UnAuthUserAlert from '../../components/UnAuthUserAlert';
+import AuthUserView from '../../components/AuthUserView';
 
 export default async function layout({children}) {
   const session = await getSession();

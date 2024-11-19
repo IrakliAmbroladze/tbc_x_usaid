@@ -1,7 +1,7 @@
 import { fetchProducts } from "./fetchProducts.js";
-import { ProductList } from "./ProductList.jsx";
-import { SortingButtons } from "../../../components/small/SortingButtons.jsx";
-import { Search } from "./search.jsx";
+import { ProductList } from "./ProductList";
+import { SortingButtons } from "../../../components/small/SortingButtons";
+import { Search } from "./search";
 
 export default async function Products({ params, searchParams }) {
   const { query, sortBy, order } = searchParams || "";
