@@ -1,7 +1,9 @@
 import { PostList } from "./PostList";
-import {fetchPosts} from "./fetchPosts";
+import { fetchPosts } from "./fetchPosts";
 
-export default async function Blog() {
+export default async function Blog({ params }) {
   const postList = await fetchPosts();
-  return <PostList postList={postList} />
+  const locale = params?.locale || "en";
+
+  return <PostList postList={postList} locale={locale} />;
 }
