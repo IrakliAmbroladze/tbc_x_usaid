@@ -1,11 +1,11 @@
 import "./ProductCard.css";
 import Link from "next/link";
 
-export const ProductCard = (props) => {
+export default function ProductCard(props) {
   return (
     <div key={props.product.id} className="item">
       <img
-        src={props.product.thumbnail}
+        src={props.product.image}
         alt={props.product.title}
         className="item-img"
       />
@@ -23,4 +23,4 @@ export const ProductCard = (props) => {
       </div>
     </div>
   );
-};
+}
