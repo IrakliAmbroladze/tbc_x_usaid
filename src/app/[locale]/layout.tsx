@@ -1,36 +1,42 @@
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {routing} from '../../i18n/routing';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from '../../i18n/routing';
 import Header from '../components/Header';
-import './global.css'
+import './global.css';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
- 
-export const metadata = {
+import { Metadata } from 'next';
+
+// Define metadata
+export const metadata: Metadata = {
   title: 'Killers',
   description: 'Pest service',
+};
+
+// Define a type for locales
+type Locale = typeof routing.locales[number];
+
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  params: { locale: Locale };
 }
 
 export default async function LocaleLayout({
   children,
-  params: {locale}
-}: {
-  children: React.ReactNode;
-  params: {locale: string};
-}) {
-  // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  params: { locale },
+}: LocaleLayoutProps) {
+  // Validate locale
+  if (!routing.locales.includes(locale)) {
     notFound();
   }
- 
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
- 
+
+  // Pass the locale as an object to getMessages
+  const messages = await getMessages({ locale });
+
   return (
     <html lang={locale}>
       <head>
-      <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -46,19 +52,13 @@ export default async function LocaleLayout({
         />
       </head>
       <UserProvider>
-      <body className="page-wrapper bg-white dark:bg-stone-800">
-        {/* <div> */}
-        <NextIntlClientProvider messages={messages}>
-        <Header />
-          <div className='default-layout'>
-
-          {children}
-          </div>
-        </NextIntlClientProvider>
-          {/* </div> */}
-      </body>
+        <body className="page-wrapper bg-white dark:bg-stone-800">
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            <div className="default-layout">{children}</div>
+          </NextIntlClientProvider>
+        </body>
       </UserProvider>
-
     </html>
   );
 }
