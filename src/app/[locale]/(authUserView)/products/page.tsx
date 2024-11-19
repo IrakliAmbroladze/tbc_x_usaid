@@ -1,10 +1,23 @@
-import { fetchProducts } from "./fetchProducts.js";
+import React from "react";
+import { fetchProducts } from "./fetchProducts";
 import { ProductList } from "./ProductList";
 import { SortingButtons } from "../../../components/small/SortingButtons";
 import { Search } from "./search";
 
-export default async function Products({ params, searchParams }) {
-  const { query, sortBy, order } = searchParams || "";
+interface ProductsProps {
+  params: { locale: string };
+  searchParams?: {
+    query?: string;
+    sortBy?: string;
+    order?: string;
+  };
+}
+
+export default async function Products({
+  params,
+  searchParams,
+}: ProductsProps): Promise<JSX.Element> {
+  const { query = "", sortBy = "", order = "" } = searchParams || {};
   const productList = await fetchProducts(query, sortBy, order);
   const { locale } = params;
 

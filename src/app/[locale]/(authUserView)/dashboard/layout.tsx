@@ -1,7 +1,13 @@
-import SideNav from '../../../components/dashboard/sidenav';
+import React from "react";
+import SideNav from "../../../components/dashboard/sidenav";
+
 export const experimental_ppr = true;
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps): JSX.Element {
   return (
     <div className="flex flex-1 flex-col md:flex-row md:overflow-hidden">
       <div className="w-full flex-none md:w-64">

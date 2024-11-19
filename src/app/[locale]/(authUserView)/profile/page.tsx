@@ -1,12 +1,13 @@
-import { AvatarAndName} from "./user-avatar-name"
-import { UserBackground } from "./user-background"
-import "./profile.css"
+import React from "react";
+import { AvatarAndName } from "./user-avatar-name";
+import { UserBackground } from "./user-background";
+import "./profile.css";
 
-export default function Profile (){
+export default function Profile(): JSX.Element {
   return (
     <div className="profile-card">
-      <AvatarAndName/>
-      <UserBackground/>
+      <AvatarAndName />
+      <UserBackground />
     </div>
-  )
+  );
 }

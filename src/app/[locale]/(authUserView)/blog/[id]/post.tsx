@@ -1,13 +1,24 @@
-export default function Post(props) {
+interface PostProps {
+  post: {
+    id: string | number;
+    title: string;
+    body: string;
+    tags: string[];
+  };
+}
+
+export default function Post({ post }: PostProps): JSX.Element {
   return (
-    <div key={props.post.id} className="container margin-top-20px margin-bottom-20px">
-      <h1>{props.post.title}</h1>
+    <div key={post.id} className="container margin-top-20px margin-bottom-20px">
+      <h1>{post.title}</h1>
       <div className="margin-top-20px"></div>
-      <p>{props.post.body}</p>
+      <p>{post.body}</p>
       <div className="margin-top-20px"></div>
-      <p>{props.post.tags.map((tag) => (
-          <i> | {`${tag} `} </i>
-          ))}</p>
+      <p>
+        {post.tags.map((tag, index) => (
+          <i key={index}> | {`${tag} `} </i>
+        ))}
+      </p>
     </div>
-  )
+  );
 }

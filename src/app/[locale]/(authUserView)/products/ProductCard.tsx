@@ -1,21 +1,33 @@
+import React from "react";
 import "./ProductCard.css";
 import Link from "next/link";
 
-export default function ProductCard(props) {
+interface ProductCardProps {
+  product: {
+    id: string | number;
+    title: string;
+    image: string;
+    description: string;
+    price: number;
+  };
+  locale: string;
+}
+
+export default function ProductCard({ product, locale }: ProductCardProps): JSX.Element {
   return (
-    <div key={props.product.id} className="item">
+    <div key={product.id} className="item">
       <img
-        src={props.product.image}
-        alt={props.product.title}
+        src={product.image}
+        alt={product.title}
         className="item-img"
       />
-      <h4 className="item-name">{props.product.title}</h4>
-      <div>${props.product.price}</div>
-      <p className="item-desc">{props.product.description}</p>
+      <h4 className="item-name">{product.title}</h4>
+      <div>${product.price}</div>
+      <p className="item-desc">{product.description}</p>
       <div>
         <button className="button">Add to Cart</button>
         <Link
-          href={`/${props.locale}/products/${props.product.id}`}
+          href={`/${locale}/products/${product.id}`}
           className="moreCardBtn"
         >
           more details
