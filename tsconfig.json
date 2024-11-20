@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/app/[locale]/(authUserView)/error.jsx", "src/app/components/AuthUserView.jsx", "src/app/components/UnAuthUserAlert.jsx"  ],
+, "src/app/[locale]/(authUserView)/error.jsx", "src/app/components/AuthUserView.tsx", "src/app/components/UnAuthUserAlert.tsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,5 +1,5 @@
 export async function fetchPosts() {
-  const apiURL = '/api/posts'; // Internal API endpoint
+  const apiURL = 'http://localhost:3000/api/posts'; 
   try {
     const response = await fetch(apiURL);
     const data = await response.json();

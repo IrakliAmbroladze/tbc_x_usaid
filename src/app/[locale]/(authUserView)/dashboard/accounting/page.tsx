@@ -1,5 +1,6 @@
-import Accounting from 'app/components/accounting'
+import React from "react";
+import Accounting from "app/components/accounting";
 
-export default function page() {
-  return <Accounting/>
+export default function AccountingPage(): JSX.Element {
+  return <Accounting />;
 }
