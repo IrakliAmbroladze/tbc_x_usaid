@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import imageProduct1 from "../assets/images/1.jpg";
 import imageProduct2 from "../assets/images/2.jpg";
 import imageProduct3 from "../assets/images/3.jpg";

@@ -1,5 +1,6 @@
 import React from "react";
 import BtnAddCart from "./small/BtnAddCart";
+import { StaticImageData } from "next/image";
 
 interface ProductCartProps {
   data: {
