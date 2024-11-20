@@ -1,5 +1,6 @@
 export async function fetchProducts() {
-  let productsURL = "http://localhost:3000/api/products";
+  const appUrl = process.env.AUTH0_BASE_URL
+  let productsURL = `${appUrl}/api/products`;
   try {
     const response = await fetch(productsURL);
     const data = await response.json();
