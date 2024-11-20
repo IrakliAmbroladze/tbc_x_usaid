@@ -1,10 +1,15 @@
+import React from "react";
 import Footer from "./footer/Footer";
 
-export default function AuthUserView({children}) {
+interface AuthUserViewProps {
+  children: React.ReactNode;
+}
+
+export default function AuthUserView({ children }: AuthUserViewProps): JSX.Element {
   return (
     <>
       <main>{children}</main>
-      <Footer/>
+      <Footer />
     </>
-  )
+  );
 }
