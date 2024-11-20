@@ -1,12 +1,19 @@
-export async function fetchProducts() {
-  const appUrl = process.env.AUTH0_BASE_URL
-  let productsURL = `${appUrl}/api/products`;
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  [key: string]: any;
+};
+
+export async function fetchProducts(): Promise<Product[]> {
+  const appUrl = process.env.AUTH0_BASE_URL;
+  const productsURL = `${appUrl}/api/products`;
   try {
     const response = await fetch(productsURL);
-    const data = await response.json();
-    return data;  
+    return response.json();
   } catch (error) {
-    console.error(error);
-    return []; 
+    console.error("Error fetching products:", error);
+    return [];
   }
 }
