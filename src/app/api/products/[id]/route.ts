@@ -1,11 +1,19 @@
-import { createClient } from "@supabase/supabase-js";
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-async function fetchProduct(id) {
+const supabaseUrl = process.env.SUPABASE_URL!;
+const supabaseKey = process.env.SUPABASE_KEY!;
+const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
+
+interface Product {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  [key: string]: any; // Extend with additional fields as necessary
+}
+
+async function fetchProduct(id: string): Promise<Product | null> {
   try {
-    // Query Supabase to fetch the product by ID
     const { data, error } = await supabase
       .from("products")
       .select("*")
@@ -19,11 +27,14 @@ async function fetchProduct(id) {
     return data;
   } catch (error) {
     console.error("Error fetching product:", error);
-    throw error;
+    return null;
   }
 }
 
-export async function GET(req, { params }) {
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } }
+): Promise<Response> {
   const { id } = params;
 
   try {
