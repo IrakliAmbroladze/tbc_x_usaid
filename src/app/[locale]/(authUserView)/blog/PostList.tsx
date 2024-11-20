@@ -2,7 +2,7 @@ import { PostCard } from "./PostCard";
 import "./PostCard.css";
 
 interface PostListProps {
-  postList: Array<{ id: string | number; title: string; body: string; tags: string[] }>;
+  postList: Array<{ id: string | number; title_ka: string; body_ka: string; tags: string[] }>;
   locale: string;
 }
 

@@ -1,10 +1,11 @@
 export async function fetchPosts() {
-  const productsURL = 'https://dummyjson.com/posts';
+  const apiURL = 'http://localhost:3000/api/posts'; 
   try {
-    const response = await fetch(productsURL);
+    const response = await fetch(apiURL);
     const data = await response.json();
-    return data.posts;
+    return data;
   } catch (error) {
+    console.error('Error fetching posts:', error);
     return "";
   }
 }
