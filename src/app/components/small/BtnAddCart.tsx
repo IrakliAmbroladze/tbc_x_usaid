@@ -1,7 +1,5 @@
-export default function BtnAddCart () {
-  return(
-    <button>
-      Add to cart
-    </button>
-  );
+import React from "react";
+
+export default function BtnAddCart(): JSX.Element {
+  return <button>Add to cart</button>;
 }

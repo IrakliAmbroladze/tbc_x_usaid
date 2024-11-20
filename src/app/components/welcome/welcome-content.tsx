@@ -1,11 +1,12 @@
-import WelcomeMessage from './welcome-message'
-import WelcomeImage from './welcome-image'
+import React from "react";
+import WelcomeMessage from "./welcome-message";
+import WelcomeImage from "./welcome-image";
 
-export default function WelcomeContent(){
+export default function WelcomeContent(): JSX.Element {
   return (
-    <div className='welcomeContent'>
+    <div className="welcomeContent">
       <WelcomeMessage />
       <WelcomeImage />
     </div>
-  )
+  );
 }

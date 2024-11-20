@@ -1,22 +1,22 @@
-export default function Footer() {
+import React from "react";
+
+export default function Footer(): JSX.Element {
   return (
-    <footer className='flex bg-gray-50 footer text-center justify-evenly'>
-      
-      <div>
-        <b> ჩვენ შესახებ</b>
-        <div> მოსაყოლი ბევრია ... </div>
-      </div>
+    <footer className="flex bg-gray-50 footer text-center justify-evenly">
+      <section>
+        <b>ჩვენ შესახებ</b>
+        <div>მოსაყოლი ბევრია ...</div>
+      </section>
 
-      <div>
-        <b> პროდუქტები</b>
+      <section>
+        <b>პროდუქტები</b>
         <div>ყავა და ლუდი</div>
-      </div>
+      </section>
 
-      <div>
-        <b> კონტაქტი</b>
-        <div>mail@mail.ge T: +995 ... </div>
-      </div>
-      
+      <section>
+        <b>კონტაქტი</b>
+        <div>mail@mail.ge T: +995 ...</div>
+      </section>
     </footer>
-  )
+  );
 }
