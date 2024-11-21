@@ -1,7 +1,7 @@
 export interface singlePost {
   id: string | number;
   title_ka: string;
-  title_en: String;
+  title_en: string;
   body_ka: string;
   body_en: string;
   tags: string[];
@@ -17,7 +17,10 @@ export async function fetchPost(id: string): Promise<singlePost | null> {
   const apiURL = 'http://localhost:3000'
   try {
     const response = await fetch(`${apiURL}/api/posts/${id}`);
-    return response.json();
+    if (!response.ok) {
+      throw new Error("Failed to fetch posts");
+    }
+    return await response.json();
   } catch (error) {
     console.error("Error fetching post:", error);
     return null;

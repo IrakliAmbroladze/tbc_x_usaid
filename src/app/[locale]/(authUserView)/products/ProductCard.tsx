@@ -2,23 +2,20 @@ import React from "react";
 import "./ProductCard.css";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Product } from "./fetchProducts";
 
 interface ProductCardProps {
-  product: {
-    id: string | number;
-    title_ka: string;
-    title_en: string;
-    image: string;
-    description_ka: string;
-    description_en: string;
-    price: number;
-  };
+  product: Product;
   locale: string;
 }
 
-export default function ProductCard({ product, locale }: ProductCardProps): JSX.Element {
+export default function ProductCard({
+  product,
+  locale,
+}: ProductCardProps): JSX.Element {
   const title = locale === "ka" ? product.title_ka : product.title_en;
-  const description = locale === "ka" ? product.description_ka : product.description_en;
+  const description =
+    locale === "ka" ? product.description_ka : product.description_en;
   const t = useTranslations("Add");
 
   return (

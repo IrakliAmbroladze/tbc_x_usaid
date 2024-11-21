@@ -2,7 +2,6 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
-
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const GET = async () => {
@@ -22,14 +21,6 @@ export const GET = async () => {
         headers: { "Content-Type": "application/json" },
       });
     }
-
-    // products = products.map((product) => {
-    //   return {
-    //     ...product,
-    //     title: product.title.replace(/\n/g, ''),
-    //     description: product.description.replace(/\n/g, ''),
-    //   };
-    // });
 
     return new Response(JSON.stringify(products), {
       status: 200,

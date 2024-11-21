@@ -16,6 +16,9 @@ export default function Post({ post, locale }: PostProps): JSX.Element {
     post.tag_003_en,
   ].filter(Boolean); 
 
+  console.log(post);
+  
+
   return (
     <div
       key={post.id}
