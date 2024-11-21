@@ -5,14 +5,11 @@
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"]
     },
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "noImplicitAny": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -33,9 +30,16 @@
     "./dist/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "src/app/[locale]/(authUserView)/error.jsx", "src/app/components/AuthUserView.jsx", "src/app/components/UnAuthUserAlert.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    ".next/types/**/*.ts",
+    "src/app/[locale]/(authUserView)/error.jsx",
+    "src/app/components/AuthUserView.tsx",
+    "src/app/components/UnAuthUserAlert.tsx",
+    "src/app/[locale]/(authUserView)/loading.tsx",
+    "src/app/api/auth/[auth0]/route.js",
+    "src/app/api/products/route.js",
+    "src/app/components/ThemeToggle.js",
+    "src/app/components/language.js",
+    "src/app/api/posts/[id]/route.js"
+  ],
+  "exclude": ["node_modules"]
 }
