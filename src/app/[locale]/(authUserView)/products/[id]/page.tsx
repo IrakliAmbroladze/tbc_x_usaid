@@ -6,7 +6,9 @@ interface ProductPageProps {
   params: { id: string; locale?: string };
 }
 
-export default async function ProductPage({ params }: ProductPageProps): Promise<JSX.Element> {
+export default async function ProductPage({
+  params,
+}: ProductPageProps): Promise<JSX.Element> {
   const { id, locale } = params;
   const product = await fetchProduct(id);
 

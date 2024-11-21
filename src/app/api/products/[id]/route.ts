@@ -5,11 +5,13 @@ const supabaseKey = process.env.SUPABASE_KEY!;
 const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 
 interface Product {
-  id: string;
-  title: string;
-  description: string;
+  id: string | number;
+  title_ka: string;
+  title_en: string;
+  image: string;
+  description_ka: string;
+  description_en: string;
   price: number;
-  [key: string]: any; // Extend with additional fields as necessary
 }
 
 async function fetchProduct(id: string): Promise<Product | null> {
@@ -24,7 +26,7 @@ async function fetchProduct(id: string): Promise<Product | null> {
       throw error;
     }
 
-    return data;
+    return data as Product;
   } catch (error) {
     console.error("Error fetching product:", error);
     return null;
