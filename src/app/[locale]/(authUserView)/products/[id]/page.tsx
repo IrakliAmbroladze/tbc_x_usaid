@@ -11,6 +11,8 @@ export default async function ProductPage({
 }: ProductPageProps): Promise<JSX.Element> {
   const { id, locale } = params;
   const product = await fetchProduct(id);
-
+  if (!product) {
+    return <p>product does not exist</p>;
+  }
   return <Product key={product.id} product={product} locale={locale} />;
 }

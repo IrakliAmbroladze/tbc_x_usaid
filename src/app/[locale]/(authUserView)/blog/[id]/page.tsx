@@ -5,9 +5,13 @@ interface postPageProps {
   params: { id: string; locale?: string };
 }
 
-export default async function PostPage({ params }: postPageProps): Promise<JSX.Element> {
+export default async function PostPage({
+  params,
+}: postPageProps): Promise<JSX.Element> {
   const { id, locale } = params;
   const post = await fetchPost(id);
-
-  return <Post key={id} post={post} locale={locale}/>;
+  if (!post) {
+    return <p>post does not exist</p>;
+  }
+  return <Post key={id} post={post} locale={locale} />;
 }

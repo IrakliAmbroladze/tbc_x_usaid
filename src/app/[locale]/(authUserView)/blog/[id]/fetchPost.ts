@@ -14,7 +14,7 @@ export interface singlePost {
 }
 
 export async function fetchPost(id: string): Promise<singlePost | null> {
-  const apiURL = 'http://localhost:3000'
+  const apiURL = "http://localhost:3000";
   try {
     const response = await fetch(`${apiURL}/api/posts/${id}`);
     if (!response.ok) {
