@@ -28,5 +28,10 @@
   "Language": {
     "english": "ინგ",
     "georgian": "ქარ"
+  },
+
+  "Add": {
+    "Add to cart": "კალათაში დამატება",
+    "More details": "მეტი დეტალები"
   }
 }
