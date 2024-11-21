@@ -1,12 +1,20 @@
+import { FC } from "react";
 import { PostCard } from "./PostCard";
 import "./PostCard.css";
-
+ 
 interface PostListProps {
-  postList: Array<{ id: string | number; title_ka: string; body_ka: string; tags: string[] }>;
+  postList: Array<{
+    id: number;
+    title_en: string;
+    title_ka: string;
+    body_en: string;
+    body_ka: string;
+    tags: string[];
+  }>;
   locale: string;
 }
-
-export const PostList = ({ postList, locale }: PostListProps): JSX.Element => {
+ 
+export const PostList: FC<PostListProps> = ({ postList, locale }) => {
   return (
     <div className="container margin-top-20px margin-bottom-20px">
       <h2 style={{ textAlign: "center" }}>B L O G</h2>
