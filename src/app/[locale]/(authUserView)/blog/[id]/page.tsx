@@ -9,5 +9,5 @@ export default async function PostPage({ params }: postPageProps): Promise<JSX.E
   const { id, locale } = params;
   const post = await fetchPost(id);
 
-  return <Post key={post.id} post={post} locale={locale} />;
+  return <Post key={id} post={post} locale={locale}/>;
 }
