@@ -1,16 +1,16 @@
+import { Post } from "./fetchPosts";
 import { PostCard } from "./PostCard";
-import "./PostCard.css";
 
 interface PostListProps {
-  postList: Array<{ id: string | number; title_ka: string; body_ka: string; tags: string[] }>;
+  postList: Post[];
   locale: string;
 }
 
 export const PostList = ({ postList, locale }: PostListProps): JSX.Element => {
   return (
-    <div className="container margin-top-20px margin-bottom-20px">
-      <h2 style={{ textAlign: "center" }}>B L O G</h2>
-      <div className="postItems margin-top-20px">
+    <div className="container mx-auto mt-8 mb-8 px-4">
+      <h2 className="text-center text-2xl font-bold text-gray-800">B L O G</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {postList.map((post) => (
           <PostCard key={post.id} post={post} locale={locale} />
         ))}
