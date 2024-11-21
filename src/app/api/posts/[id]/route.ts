@@ -5,11 +5,15 @@ const supabaseKey = process.env.SUPABASE_KEY!;
 const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 
 interface post {
-  id: string;
+  id: number;
+  title_en: string;
+  title_ka: string;
+  body_en: string;
+  body_ka: string;
+  tags: string[];
+  body: string;
   title: string;
-  description: string;
-  price: number;
-  [key: string]: any; 
+  views: string;
 }
 
 async function fetchpost(id: string): Promise<post | null> {
@@ -38,15 +42,12 @@ export async function GET(
   const { id } = params;
 
   try {
-    console.log(`Fetching post with id: ${id}`);
     const post = await fetchpost(id);
 
     if (!post) {
       console.error(`post not found with id: ${id}`);
       return new Response("post not found", { status: 404 });
     }
-
-    console.log(`Fetched post: ${JSON.stringify(post)}`);
 
     return new Response(JSON.stringify(post), { status: 200 });
   } catch (error) {

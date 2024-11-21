@@ -6,7 +6,7 @@ interface PostListProps {
   postList: Post[];
   locale: string;
 }
- 
+
 export const PostList: FC<PostListProps> = ({ postList, locale }) => {
   return (
     <div className="container mx-auto mt-8 mb-8 px-4">

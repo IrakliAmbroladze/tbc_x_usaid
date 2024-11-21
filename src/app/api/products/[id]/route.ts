@@ -40,15 +40,12 @@ export async function GET(
   const { id } = params;
 
   try {
-    console.log(`Fetching product with id: ${id}`);
     const product = await fetchProduct(id);
 
     if (!product) {
       console.error(`Product not found with id: ${id}`);
       return new Response("Product not found", { status: 404 });
     }
-
-    console.log(`Fetched product: ${JSON.stringify(product)}`);
 
     return new Response(JSON.stringify(product), { status: 200 });
   } catch (error) {
