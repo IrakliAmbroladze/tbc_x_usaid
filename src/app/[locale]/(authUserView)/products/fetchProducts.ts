@@ -1,10 +1,12 @@
-type Product = {
-  id: number;
-  title: string;
-  description: string;
+export interface Product {
+  id: string | number;
+  title_ka: string;
+  title_en: string;
+  image: string;
+  description_ka: string;
+  description_en: string;
   price: number;
-  [key: string]: any;
-};
+}
 
 export async function fetchProducts(): Promise<Product[]> {
   const appUrl = process.env.AUTH0_BASE_URL;

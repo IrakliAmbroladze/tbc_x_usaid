@@ -1,16 +1,9 @@
 import React from "react";
 import "../ProductCard.css";
+import { SingleProduct } from "./fetchProduct";
 
 interface ProductProps {
-  product: {
-    id: string | number;
-    title_ka: string;
-    title_en: String;
-    image: string;
-    description_ka: string;
-    description_en: string;
-    price: number;
-  };
+  product: SingleProduct;
   locale?: string;
 }
 
@@ -19,7 +12,8 @@ export default function Product({
   locale,
 }: ProductProps): JSX.Element {
   const title = locale === "ka" ? product.title_ka : product.title_en;
-  const description = locale === "ka" ? product.description_ka : product.description_en;
+  const description =
+    locale === "ka" ? product.description_ka : product.description_en;
   return (
     <div
       key={product.id}

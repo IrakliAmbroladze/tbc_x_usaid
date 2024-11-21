@@ -1,17 +1,10 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import "./ProductCard.css";
+import { Product } from "./fetchProducts";
 
 interface ProductListProps {
-  productList: Array<{
-    id: string | number;
-    title_ka: string;
-    title_en: string;
-    image: string;
-    description_ka: string;
-    description_en: string;
-    price: number;
-  }>;
+  productList: Product[];
   locale: string;
 }
 

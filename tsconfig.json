@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/app/[locale]/(authUserView)/error.jsx", "src/app/components/AuthUserView.tsx", "src/app/components/UnAuthUserAlert.tsx", "src/app/[locale]/(authUserView)/loading.js", "src/app/api/auth/[auth0]/route.js", "src/app/api/products/route.js", "src/app/components/ThemeToggle.js", "src/app/components/language.js"  ],
+, "src/app/[locale]/(authUserView)/error.jsx", "src/app/components/AuthUserView.tsx", "src/app/components/UnAuthUserAlert.tsx", "src/app/[locale]/(authUserView)/loading.js", "src/app/api/auth/[auth0]/route.js", "src/app/api/products/route.js", "src/app/components/ThemeToggle.js", "src/app/components/language.js", "src/app/api/posts/[id]/route.js"  ],
   "exclude": [
     "node_modules"
   ]
