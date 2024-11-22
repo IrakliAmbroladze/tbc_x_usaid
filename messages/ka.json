@@ -16,13 +16,12 @@
     "about": "ჩვენ შესახებ",
     "logout": "გამოსვლა"
   },
-  
+
   "ThemeToggle": {
     "theme": "ფონი",
     "light": "ღია",
     "dark": "მუქი",
     "system": "სისტემის"
-
   },
 
   "Language": {
@@ -32,6 +31,8 @@
 
   "Add": {
     "Add to cart": "კალათაში დამატება",
-    "More details": "მეტი დეტალები"
+    "More details": "მეტი დეტალები",
+    "Read more": "მეტის წაკითხვა",
+    "views": "ნახვები"
   }
 }

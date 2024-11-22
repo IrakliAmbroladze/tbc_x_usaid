@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Post } from "./fetchPosts";
+import { useTranslations } from "next-intl";
 
 interface PostCardProps {
   post: Post;
@@ -7,6 +8,7 @@ interface PostCardProps {
 }
 
 export const PostCard = ({ post, locale }: PostCardProps): JSX.Element => {
+  const t = useTranslations("Add");
 
   const title = locale === "ka" ? post.title_ka : post.title_en;
   const body = locale === "ka" ? post.body_ka : post.body_en;
@@ -19,13 +21,13 @@ export const PostCard = ({ post, locale }: PostCardProps): JSX.Element => {
       <p className="text-sm text-gray-600 line-clamp-3 mb-4">{body}</p>
       <div className="mt-auto flex justify-between">
         <div className="flex justify-center text-black pt-2 font-medium text-sm ">
-          views: {post.views}
+          {t("views")}: {post.views}
         </div>
         <Link
           href={`/${locale}/blog/${post.id}`}
           className="bg-black text-white py-2 px-4 font-medium text-sm rounded-md hover:bg-gray-500  ease-in-out"
         >
-          Read more
+          {t("Read more")}
         </Link>
       </div>
     </div>

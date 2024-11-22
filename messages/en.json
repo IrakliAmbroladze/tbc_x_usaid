@@ -27,9 +27,11 @@
     "english": "Eng",
     "georgian": "Geo"
   },
-  
+
   "Add": {
     "Add to cart": "Add to cart",
-    "More details": "More details"
+    "More details": "More details",
+    "Read more": "Read more",
+    "views": "views"
   }
 }
