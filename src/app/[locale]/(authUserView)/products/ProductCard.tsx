@@ -19,13 +19,13 @@ export default function ProductCard({
   const t = useTranslations("Add");
 
   return (
-    <div key={product.id} className="item">
+    <div key={product.id} className="item ">
       <img
         src={product.image}
         alt={title || "პროდუქტის სურათი"}
         className="item-img"
       />
-      <h4 className="item-name">{title || "სათაური არ არის ხელმისაწვდომი"}</h4>
+      <h4 className="item-name ">{title || "სათაური არ არის ხელმისაწვდომი"}</h4>
       <div>{product.price} ₾</div>
       <p className="item-desc">
         {description || "აღწერა არ არის ხელმისაწვდომი"}

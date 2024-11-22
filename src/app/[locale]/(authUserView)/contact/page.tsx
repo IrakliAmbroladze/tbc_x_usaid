@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact(): JSX.Element {
   return (
-    <div className="container margin-top-20px">
+    <div className="container margin-top-20px dark:text-white">
       <main className="contact-main">
         <b>Contact page</b>
         <div className="contactInfo">

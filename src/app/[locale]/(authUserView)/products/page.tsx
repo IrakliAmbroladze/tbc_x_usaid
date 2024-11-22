@@ -15,7 +15,7 @@ export default async function Products({
   const { locale } = params;
 
   return (
-    <div className="container">
+    <div className="container dark:text-white">
       <h2 style={{ textAlign: "center" }} className="margin-top-20px">
         Item Shop
       </h2>
