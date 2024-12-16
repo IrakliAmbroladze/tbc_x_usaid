@@ -34,5 +34,18 @@
     "More details": "More details",
     "Read more": "Read more",
     "views": "views"
+  },
+
+  "Pricing": {
+    "title": "Choose Your Plan",
+    "freeBody": "Perfect for getting started.",
+    "basicBody": "Great for small teams projects.",
+    "select": "Select",
+    "free": "Free",
+    "basic": "Basic",
+    "freeOption1": "Basic Features",
+    "freeOption2": "Community Support",
+    "basicOption1": "All Free Features",
+    "basicOption2": "Access to dashboard"
   }
 }
