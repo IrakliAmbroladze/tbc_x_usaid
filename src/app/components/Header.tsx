@@ -53,6 +53,12 @@ export default function Header(): JSX.Element {
         >
           {t("about")}
         </Link>
+        <Link
+          href="/pricing"
+          className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
+        >
+          {t("pricing")}
+        </Link>
         <a
           href="/api/auth/logout"
           className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
