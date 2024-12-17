@@ -43,9 +43,11 @@
     "select": "Select",
     "free": "Free",
     "basic": "Basic",
+    "subscribe": "Subscribe",
     "freeOption1": "Basic Features",
     "freeOption2": "Community Support",
     "basicOption1": "All Free Features",
-    "basicOption2": "Access to dashboard"
+    "basicOption2": "Access to dashboard",
+    "alert": "Thanks! you have chosen a free plan"
   }
 }

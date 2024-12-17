@@ -1,6 +1,7 @@
 import BtnGlobal from "app/components/small/btn-global";
 import { useTranslations } from "next-intl";
 import React from "react";
+import CheckoutForm from "./CheckoutForm";
 
 export default function BasicPlan() {
   const t = useTranslations("Pricing");
@@ -17,9 +18,7 @@ export default function BasicPlan() {
         <li>✔ {t("basicOption2")}</li>
       </ul>
 
-      <BtnGlobal href="" height="2rem" width="15rem">
-        {t("select")} {t("basic")}
-      </BtnGlobal>
+      <CheckoutForm uiMode={"hosted"} />
     </div>
   );
 }
