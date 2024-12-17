@@ -18,7 +18,7 @@ export default function BasicPlan() {
         <li>✔ {t("basicOption2")}</li>
       </ul>
 
-      <CheckoutForm uiMode={"hosted"} />
+      <CheckoutForm uiMode="hosted" />
     </div>
   );
 }
