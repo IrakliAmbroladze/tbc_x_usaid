@@ -4,8 +4,6 @@ import type Stripe from "stripe";
 
 import React, { useState } from "react";
 
-// import CustomDonationInput from "@/components/CustomDonationInput";
-
 // import { formatAmountForDisplay } from "../../../utils/get-stripejs";
 import * as config from "../../../config";
 import { createCheckoutSession } from "../../../actions/stripe";
@@ -15,6 +13,7 @@ import {
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
 import { useTranslations } from "next-intl";
+import CustomDonationInput from "./CustomDonationInput";
 // import StripeTestCards from "./StripeTestCards";
 
 interface CheckoutFormProps {
@@ -53,7 +52,7 @@ export default function CheckoutForm(props: CheckoutFormProps): JSX.Element {
     <>
       <form action={formAction}>
         <input type="hidden" name="uiMode" value={props.uiMode} />
-        {/* <CustomDonationInput
+        <CustomDonationInput
           className="checkout-style"
           name="customDonation"
           min={config.MIN_AMOUNT}
@@ -61,8 +60,9 @@ export default function CheckoutForm(props: CheckoutFormProps): JSX.Element {
           step={config.AMOUNT_STEP}
           currency={config.CURRENCY}
           onChange={handleInputChange}
-          value={input.customDonation}
-        /> */}
+          // value={input.customDonation}
+          value={24}
+        />
         {/* <StripeTestCards /> */}
         <button
           type="submit"
