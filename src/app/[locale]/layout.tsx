@@ -1,20 +1,20 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '../../i18n/routing';
-import Header from '../components/Header';
-import './global.css';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
-import { Metadata } from 'next';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "../../i18n/routing";
+import Header from "../components/Header";
+import "./global.css";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
+import { Metadata } from "next";
 
 // Define metadata
 export const metadata: Metadata = {
-  title: 'Killers',
-  description: 'Pest service',
+  title: "Killers",
+  description: "Pest service",
 };
 
 // Define a type for locales
-type Locale = typeof routing.locales[number];
+type Locale = (typeof routing.locales)[number];
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -34,7 +34,7 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -52,7 +52,7 @@ export default async function LocaleLayout({
         />
       </head>
       <UserProvider>
-        <body className="page-wrapper bg-white dark:bg-stone-800">
+        <body className="page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground">
           <NextIntlClientProvider messages={messages}>
             <Header />
             <div className="default-layout">{children}</div>

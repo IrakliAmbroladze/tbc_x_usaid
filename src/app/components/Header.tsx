@@ -3,6 +3,7 @@ import ThemeToggle from "./ThemeToggle";
 import { useTranslations } from "next-intl";
 import { Link } from "../../i18n/routing";
 import Language from "./language";
+import HeaderAuth from "./header-auth";
 
 export default function Header(): JSX.Element {
   const t = useTranslations("Header");
@@ -65,6 +66,7 @@ export default function Header(): JSX.Element {
         >
           {t("logout")}
         </a>
+        <HeaderAuth />
       </nav>
       <ThemeToggle />
       <Language />

@@ -17,6 +17,12 @@
       "@/components/*": ["components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/app/api/posts/[id]/route.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/app/api/posts/[id]/route.js",
+    "src/app/actions/actions.js"
+  ],
   "exclude": ["node_modules"]
 }

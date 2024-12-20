@@ -39,7 +39,8 @@
     "src/app/api/products/route.js",
     "src/app/components/ThemeToggle.js",
     "src/app/components/language.js",
-    "src/app/api/posts/[id]/route.js"
+    "src/app/api/posts/[id]/route.js",
+    "src/app/actions/actions.tsx"
   ],
   "exclude": ["node_modules"]
 }
