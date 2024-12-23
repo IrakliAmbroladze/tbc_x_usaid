@@ -2,7 +2,7 @@
 
 import { encodedRedirect } from "../../utils/utils";
 import { createClient } from "../../utils/supabase/server";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const signUpAction = async (formData: FormData) => {
@@ -128,7 +128,11 @@ export const resetPasswordAction = async (formData: FormData) => {
 };
 
 export const signOutAction = async () => {
+  const myCookies = cookies();
+
+  const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
+
   const supabase = await createClient();
   await supabase.auth.signOut();
-  return redirect("/sign-in");
+  return redirect(`/${langCookie}/sign-in`);
 };
