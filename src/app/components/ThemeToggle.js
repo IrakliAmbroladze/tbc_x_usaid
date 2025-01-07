@@ -1,10 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
 
 export default function ThemeToggle() {
-  const t = useTranslations("ThemeToggle");
-
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage.theme
       ? localStorage.theme
@@ -27,19 +24,21 @@ export default function ThemeToggle() {
 
   return (
     <div className="flex">
-      <div className="mr-1">
-        <b>{t("theme")}</b>
-      </div>
-      <div className="flex text-black">
-        <select
-          className="dark:text-white dark:bg-black border border-black rounded-md"
-          onChange={(e) => setTheme(e.target.value)}
-        >
-          <option value="light">{t("light")}</option>
-          <option value="dark">{t("dark")}</option>
-          <option value="system">{t("system")}</option>
-        </select>
-      </div>
+      <select
+        className="focus:outline-none appearance-none bg-transparent text-2xl p-1 cursor-pointer dark:bg-stone-800 dark:bg-opacity-90"
+        onChange={(e) => setTheme(e.target.value)}
+        value={theme}
+      >
+        <option value="light" className=" dark:text-white text-center">
+          ☀︎
+        </option>
+        <option value="dark" className=" dark:text-white text-center">
+          ☽
+        </option>
+        <option value="system" className=" dark:text-white text-center">
+          모
+        </option>
+      </select>
     </div>
   );
 }

@@ -10,9 +10,7 @@ export default function Language() {
   const router = useRouter();
   const localActive = useLocale();
 
-  const onSelectChange = (e) => {
-    const nextLocale = e.target.value;
-
+  const onSelectChange = (nextLocale) => {
     startTransition(() => {
       const currentPath = window.location.pathname;
       const newPath = currentPath.replace(`/${localActive}`, `/${nextLocale}`);
@@ -21,17 +19,15 @@ export default function Language() {
   };
 
   return (
-    <label className="m-2">
-      <p className="sr-only">change language</p>
-      <select
-        defaultValue={localActive}
-        className="px-2 dark:text-white dark:bg-black border border-black rounded-md"
-        onChange={onSelectChange}
+    <div className="m-2">
+      <p className="sr-only">Change language</p>
+      <button
+        onClick={() => onSelectChange(localActive === "en" ? "ka" : "en")}
+        className="focus:outline-none bg-transparent text-xs p-1 cursor-pointer dark:bg-stone-800 dark:bg-opacity-90"
         disabled={isPending}
       >
-        <option value="en">{t("english")}</option>
-        <option value="ka">{t("georgian")}</option>
-      </select>
-    </label>
+        {localActive === "en" ? t("english") : t("georgian")}
+      </button>
+    </div>
   );
 }
