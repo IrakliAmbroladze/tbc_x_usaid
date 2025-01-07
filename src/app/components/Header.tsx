@@ -23,7 +23,6 @@ export default function Header(): JSX.Element {
         >
           {t("dashboard")}
         </Link>
-        {/* <Link href="/assignment-3" className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400">{t("assignment 3")}</Link> */}
         <Link
           href="/profile"
           className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
@@ -43,29 +42,11 @@ export default function Header(): JSX.Element {
           {t("blog")}
         </Link>
         <Link
-          href="/contact"
-          className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
-        >
-          {t("contact")}
-        </Link>
-        <Link
-          href="/about"
-          className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
-        >
-          {t("about")}
-        </Link>
-        <Link
           href="/pricing"
           className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
         >
           {t("pricing")}
         </Link>
-        <a
-          href="/api/auth/logout"
-          className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
-        >
-          {t("logout")}
-        </a>
         <HeaderAuth />
       </nav>
       <ThemeToggle />
