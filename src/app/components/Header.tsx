@@ -22,19 +22,31 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
 export default function Header(): JSX.Element {
   const t = useTranslations("Header");
 
+  const navLinks = [
+    { href: "/", label: t("home") },
+    { href: "/dashboard", label: t("dashboard") },
+    { href: "/products", label: t("products") },
+    { href: "/blog", label: t("blog") },
+    { href: "/pricing", label: t("pricing") },
+    { href: "/profile", label: t("profile") },
+  ];
+
   return (
-    <header className="text-center shadow-md h-12 fixed top-0 w-full z-50 flex justify-center items-center dark:text-white bg-white dark:bg-stone-800 bg-opacity-[92%] dark:bg-opacity-[92%]">
-      <nav className="flex justify-center flex-wrap gap-3 m-10">
-        <NavLink href="/">{t("home")}</NavLink>
-        <NavLink href="/dashboard">{t("dashboard")}</NavLink>
-        <NavLink href="/profile">{t("profile")}</NavLink>
-        <NavLink href="/products">{t("products")}</NavLink>
-        <NavLink href="/blog">{t("blog")}</NavLink>
-        <NavLink href="/pricing">{t("pricing")}</NavLink>
-        <HeaderAuth />
-      </nav>
-      <ThemeToggle />
-      <Language />
+    <header className="fixed top-0 z-50 flex h-12 w-full items-center justify-center bg-white bg-opacity-90 shadow-md dark:bg-stone-800 dark:bg-opacity-90 dark:text-white">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <nav className="flex gap-3" aria-label="Main Navigation">
+          {navLinks.map(({ href, label }) => (
+            <NavLink key={href} href={href}>
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
+          <HeaderAuth />
+          <ThemeToggle />
+          <Language />
+        </div>
+      </div>
     </header>
   );
 }
