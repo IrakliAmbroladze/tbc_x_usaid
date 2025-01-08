@@ -9,7 +9,7 @@ export interface SingleProduct {
 }
 
 export async function fetchProduct(id: string): Promise<SingleProduct | null> {
-  const appUrl = process.env.AUTH0_BASE_URL;
+  const appUrl = process.env.BASE_URL;
   try {
     const response = await fetch(`${appUrl}/api/products/${id}`);
     if (!response.ok) {
