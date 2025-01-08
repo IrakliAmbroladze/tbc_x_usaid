@@ -1,13 +1,15 @@
-import React from "react";
-import { getSession } from "@auth0/nextjs-auth0";
+import { createClient } from "utils/supabase/server";
 
 interface User {
   email?: string;
 }
 
 export async function UserBackground(): Promise<JSX.Element> {
-  const session = await getSession();
-  const user: User = session?.user || {};
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <div className="userBackground">

@@ -1,5 +1,5 @@
-import React from "react";
-import { getSession } from "@auth0/nextjs-auth0";
+import Image from "next/image";
+import { createClient } from "utils/supabase/server";
 
 interface User {
   picture?: string;
@@ -8,14 +8,18 @@ interface User {
 }
 
 export async function AvatarAndName(): Promise<JSX.Element> {
-  const session = await getSession();
-  const user: User = session?.user || {};
+  const supabase = await createClient();
 
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   return (
     <>
-      <img
+      <Image
         className="userImg"
-        src={user.picture || ""}
+        src="/assets/images/avatar.jpg"
+        height={2000}
+        width={2000}
         alt="User-image"
       />
       <div className="absolute z-30 top-1/4 left-1/4 text-black dark:text-white">

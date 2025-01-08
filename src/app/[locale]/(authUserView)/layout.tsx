@@ -1,4 +1,4 @@
-import { getSession, Session } from "@auth0/nextjs-auth0";
+import { createClient } from "../../../utils/supabase/server";
 import UnAuthUserAlert from "../../components/UnAuthUserAlert";
 import AuthUserView from "../../components/AuthUserView";
 
@@ -9,8 +9,11 @@ interface LayoutProps {
 export default async function Layout({
   children,
 }: LayoutProps): Promise<JSX.Element> {
-  const session: Session | null | undefined = await getSession();
-  const user = session?.user;
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return user ? <AuthUserView>{children}</AuthUserView> : <UnAuthUserAlert />;
 }
