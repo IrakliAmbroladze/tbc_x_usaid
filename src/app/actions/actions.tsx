@@ -40,6 +40,10 @@ export const signUpAction = async (formData: FormData) => {
 };
 
 export const signInAction = async (formData: FormData) => {
+  const myCookies = cookies();
+
+  const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
+
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const supabase = await createClient();
@@ -50,7 +54,8 @@ export const signInAction = async (formData: FormData) => {
   });
 
   if (error) {
-    return encodedRedirect("error", "/sign-in", error.message);
+    console.log("Error happened");
+    return redirect(`/${langCookie}/profile`);
   }
 
   return redirect("/");
