@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 import Header from "../components/Header";
 import "./global.css";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
 import { Metadata } from "next";
 
 // Define metadata
@@ -51,14 +50,12 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <UserProvider>
-        <body className="page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground">
-          <NextIntlClientProvider messages={messages}>
-            <Header />
-            <div className="default-layout">{children}</div>
-          </NextIntlClientProvider>
-        </body>
-      </UserProvider>
+      <body className="page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground">
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <div className="default-layout">{children}</div>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }
