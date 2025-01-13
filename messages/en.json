@@ -48,6 +48,17 @@
     "freeOption2": "Community Support",
     "basicOption1": "All Free Features",
     "basicOption2": "Access to dashboard",
-    "alert": "Thanks! you have chosen a free plan"
+    "alert": "Thanks! you have chosen a free plan",
+    "processing": "Processing..."
+  },
+  "ThankYou": {
+    "title": "Thank You!",
+    "message": "Your subscription has been successfully activated.",
+    "details": "If you have any questions, feel free to contact our support team.",
+    "returnHome": "Return to Homepage",
+    "returnPricing": "Return to Pricing page",
+    "invalidSession": "Invalid Session",
+    "noAccess": "No Access!",
+    "loading": "Loading..."
   }
 }

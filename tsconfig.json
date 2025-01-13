@@ -40,7 +40,9 @@
     "src/app/components/ThemeToggle.js",
     "src/app/components/language.js",
     "src/app/api/posts/[id]/route.js",
-    "src/app/actions/actions.tsx"
+    "src/app/actions/actions.tsx",
+    "src/app/[locale]/pricing/components/basic-plan.jsx",
+    "src/app/[locale]/pricing/page.tsx"
   ],
   "exclude": ["node_modules"]
 }
