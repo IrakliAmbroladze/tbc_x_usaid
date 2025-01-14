@@ -1,22 +1,23 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { stripe } from "app/lib/stripe";
+import { createClient } from "../../../utils/supabase/server";
 
 export async function POST(req: Request): Promise<Response> {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   try {
     const {
       items,
-    }: { items: { name: string; price: number; quantity: number }[] } =
+    }: { items: { name: string; priceId: string; quantity: number }[] } =
       await req.json();
 
     const transformedItems = items.map((item) => ({
-      price_data: {
-        currency: "GEL",
-        product_data: {
-          name: item.name,
-        },
-        unit_amount: item.price * 100, // Prices in cents
-      },
+      price: item.priceId,
       quantity: item.quantity,
     }));
 
@@ -26,7 +27,9 @@ export async function POST(req: Request): Promise<Response> {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: transformedItems,
-      mode: "payment",
+      mode: "subscription",
+      customer_email: user?.email,
+
       success_url: `${process.env.NEXT_PUBLIC_URL}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/${langCookie}/pricing`,
     });

@@ -14,7 +14,7 @@ if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
 
 interface Subscription {
   name: string;
-  price: number;
+  priceId: string;
   quantity: number;
 }
 
@@ -33,8 +33,8 @@ const Pricing: React.FC = () => {
   const [basicPlanLoading, setBasicPlanLoading] = useState(false);
 
   const subscription: Subscription = {
-    name: "Subscribe",
-    price: 24,
+    name: "Product 1",
+    priceId: "price_1Qh48zLiYgWQWDVcEOexsUMj", // Stripe price ID for a subscription
     quantity: 1,
   };
 
