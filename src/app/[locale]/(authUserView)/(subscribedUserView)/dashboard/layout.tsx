@@ -1,5 +1,5 @@
 import React from "react";
-import SideNav from "../../../components/dashboard/sidenav";
+import SideNav from "../../../../components/dashboard/sidenav";
 
 export const experimental_ppr = true;
 
