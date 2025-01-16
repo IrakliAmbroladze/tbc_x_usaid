@@ -34,22 +34,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Toggle dark mode based on localStorage or system preference
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                } else {
-                  document.documentElement.removeAttribute('data-theme');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
+      <head></head>
       <body className="page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
           <Header />

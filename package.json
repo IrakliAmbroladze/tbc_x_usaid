@@ -32,7 +32,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:e2e": "cypress open",
+    "test:e2e:ci": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -57,6 +59,7 @@
     "@types/react": "^18.3.12",
     "@typescript-eslint/parser": "^5.62.0",
     "autoprefixer": "^10.4.20",
+    "cypress": "^13.17.0",
     "eslint": "^8.57.1",
     "postcss": "^8.4.47",
     "prettier": "^3.4.2",
