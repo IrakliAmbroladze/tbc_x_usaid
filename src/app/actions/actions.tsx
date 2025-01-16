@@ -10,13 +10,17 @@ export const signUpAction = async (formData: FormData) => {
   const password = formData.get("password")?.toString();
   const supabase = await createClient();
   const origin = (await headers()).get("origin");
+  const myCookies = cookies();
+
+  const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
 
   if (!email || !password) {
-    return encodedRedirect(
-      "error",
-      "/sign-up",
-      "Email and password are required",
-    );
+    // return encodedRedirect(
+    //   "error",
+    //   "/sign-up",
+    //   "Email and password are required",
+    // );
+    return redirect(`/${langCookie}/profile`);
   }
 
   const { error } = await supabase.auth.signUp({
@@ -28,14 +32,17 @@ export const signUpAction = async (formData: FormData) => {
   });
 
   if (error) {
-    console.error(error.code + " " + error.message);
-    return encodedRedirect("error", "/sign-up", error.message);
+    // console.error(error.code + " " + error.message);
+    // return encodedRedirect("error", "/sign-up", error.message);
+    // return <div>errorhappened</div>;
+    return redirect(`/${langCookie}/profile`);
   } else {
-    return encodedRedirect(
-      "success",
-      "/sign-up",
-      "Thanks for signing up! Please check your email for a verification link.",
-    );
+    return redirect(`/${langCookie}/profile`);
+    // return encodedRedirect(
+    //   "success",
+    //   "/sign-up",
+    //   "Thanks for signing up! Please check your email for a verification link.",
+    // );
   }
 };
 

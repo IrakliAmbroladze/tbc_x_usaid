@@ -34,7 +34,7 @@ const Pricing: React.FC = () => {
 
   const subscription: Subscription = {
     name: "Product 1",
-    priceId: "price_1Qh48zLiYgWQWDVcEOexsUMj", // Stripe price ID for a subscription
+    priceId: "price_1Qh48zLiYgWQWDVcEOexsUMj",
     quantity: 1,
   };
 
