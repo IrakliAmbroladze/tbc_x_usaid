@@ -16,7 +16,12 @@ export function SubmitButton({
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" aria-disabled={pending} {...props}>
+    <Button
+      data-cy="sign-in-submit"
+      type="submit"
+      aria-disabled={pending}
+      {...props}
+    >
       {pending ? pendingText : children}
     </Button>
   );
