@@ -6,11 +6,13 @@ import { FiMenu, FiX } from "react-icons/fi";
 type NavLinkProps = {
   href: string;
   children: React.ReactNode;
+  data_cy?: string;
 };
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
+const NavLink: React.FC<NavLinkProps> = ({ href, data_cy, children }) => (
   <Link
     href={href}
+    data-cy={data_cy}
     className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
   >
     {children}
@@ -25,7 +27,7 @@ export default function HeaderClientSide(): JSX.Element {
   const navLinks = [
     { href: "/", label: t("home") },
     { href: "/dashboard", label: t("dashboard") },
-    { href: "/products", label: t("products") },
+    { href: "/products", label: t("products"), data_cy: "products-header" },
     { href: "/blog", label: t("blog") },
     { href: "/pricing", label: t("pricing") },
     { href: "/profile", label: t("profile") },
@@ -48,9 +50,11 @@ export default function HeaderClientSide(): JSX.Element {
         aria-label="Main Navigation"
       >
         <ul className="flex flex-col md:flex-row gap-3 p-4 md:p-0 md:gap-3">
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ href, label, data_cy }) => (
             <li key={href}>
-              <NavLink href={href}>{label}</NavLink>
+              <NavLink href={href} data_cy={data_cy}>
+                {label}
+              </NavLink>
             </li>
           ))}
         </ul>

@@ -58,20 +58,23 @@ export async function POST(req: Request): Promise<Response> {
       product: stripeProduct.id,
     });
 
-    const { data, error } = await supabase.from("products").insert([
-      {
-        title_ka,
-        description_ka,
-        price,
-        image,
-        category_ka,
-        category_en,
-        title_en,
-        description_en,
-        stripe_product_id: stripeProduct.id,
-        stripe_price_id: stripePrice.id,
-      },
-    ]);
+    const { data, error } = await supabase
+      .from("products")
+      .insert([
+        {
+          title_ka,
+          description_ka,
+          price,
+          image,
+          category_ka,
+          category_en,
+          title_en,
+          description_en,
+          stripe_product_id: stripeProduct.id,
+          stripe_price_id: stripePrice.id,
+        },
+      ])
+      .select("*"); // Ensure we get the inserted row back
 
     if (error) {
       console.error("Supabase error:", error.message);

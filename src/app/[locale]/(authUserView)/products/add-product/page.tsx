@@ -81,6 +81,7 @@ export default function AddProduct() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label
+              data-cy="add-new-product-title"
               htmlFor="title_ka"
               className="block text-gray-700 dark:text-white"
             >
@@ -229,6 +230,7 @@ export default function AddProduct() {
         <div className="flex justify-center">
           <button
             type="submit"
+            data-cy="submit"
             disabled={loading}
             className={`px-6 py-3 mt-4 text-white rounded-md focus:outline-none ${loading ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"}`}
           >

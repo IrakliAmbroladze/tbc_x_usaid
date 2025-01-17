@@ -17,10 +17,15 @@ export default async function Products({
     locale === "ka" ? "ახალი პროდუქტის დამატება" : "Add New Product";
   return (
     <div className="container dark:text-white mt">
-      <h2 style={{ textAlign: "center" }} className="margin-top-20px">
+      <h2
+        data-cy="product-list-title"
+        style={{ textAlign: "center" }}
+        className="margin-top-20px"
+      >
         {productTitle}
       </h2>
       <Link
+        data-cy="add-new-product"
         className="bg-green-500 text-white p-2 rounded hover:bg-green-700 active:bg-green-800 transition duration-200"
         href={"./products/add-product"}
       >
