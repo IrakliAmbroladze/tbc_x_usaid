@@ -10,13 +10,9 @@ export interface Product {
 
 export async function fetchProducts(): Promise<Product[]> {
   const appUrl = process.env.BASE_URL;
-  const productsURL = `${appUrl}/api/products`;
+  const productsURL = `/api/products`;
   try {
-    const response = await fetch(productsURL, {
-      next: {
-        revalidate: 0,
-      },
-    });
+    const response = await fetch(productsURL);
     return response.json();
   } catch (error) {
     console.error("Error fetching products:", error);

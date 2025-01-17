@@ -2,19 +2,16 @@ import { createClient } from "../../../utils/supabase/server";
 
 export async function DELETE(req: Request): Promise<Response> {
   try {
-    const { stripe_product_id } = await req.json();
+    const { id } = await req.json();
     const supabase = await createClient();
 
-    if (!stripe_product_id) {
+    if (!id) {
       return new Response(JSON.stringify({ error: "Missing product id" }), {
         status: 400,
       });
     }
 
-    const { error } = await supabase
-      .from("products")
-      .delete()
-      .eq("stripe_product_id", stripe_product_id);
+    const { error } = await supabase.from("products").delete().eq("id", id);
 
     if (error) {
       console.error("Supabase error:", error.message);

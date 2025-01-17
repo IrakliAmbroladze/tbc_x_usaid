@@ -3,15 +3,18 @@ import "./ProductCard.css";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Product } from "./fetchProducts";
+import DeleteProduct from "./delete-product";
 
 interface ProductCardProps {
   product: Product;
   locale: string;
+  onDelete: (id: number | string) => void;
 }
 
 export default function ProductCard({
   product,
   locale,
+  onDelete,
 }: ProductCardProps): JSX.Element {
   const title = locale === "ka" ? product.title_ka : product.title_en;
   const description =
@@ -31,13 +34,15 @@ export default function ProductCard({
         {description || "აღწერა არ არის ხელმისაწვდომი"}
       </p>
       <div>
-        <button className="button">{t("Add to cart")}</button>
+        <DeleteProduct product_id={product.id} onDelete={onDelete} />
+
         <Link
           href={`/${locale}/products/${product.id}`}
           className="moreCardBtn"
         >
           {t("More details")}
         </Link>
+        {/* <button className="button">{t("Add to cart")}</button> */}
       </div>
     </div>
   );

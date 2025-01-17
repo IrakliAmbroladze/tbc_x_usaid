@@ -2,6 +2,7 @@ import React from "react";
 import { fetchProducts, Product } from "./fetchProducts";
 import { ProductList } from "./ProductList";
 import { Link } from "i18n/routing";
+import ClientSideProductList from "./client-side-productlist";
 
 interface ProductsProps {
   params: { locale: string };
@@ -10,7 +11,7 @@ interface ProductsProps {
 export default async function Products({
   params,
 }: ProductsProps): Promise<JSX.Element> {
-  const productList: Product[] = await fetchProducts();
+  // const productList: Product[] = await fetchProducts();
   const { locale } = params;
   const productTitle = locale === "ka" ? "პროდუქტები" : "Item shop";
   const add_new_product =
@@ -33,7 +34,7 @@ export default async function Products({
       </Link>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}></div>
-      <ProductList productList={productList} locale={locale} />
+      <ClientSideProductList locale={locale} />
     </div>
   );
 }

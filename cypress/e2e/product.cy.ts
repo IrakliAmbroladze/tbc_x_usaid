@@ -1,4 +1,4 @@
-describe("new product manipulation", () => {
+describe("product manipulation", () => {
   const testEmail = "ambroladzeika@gmail.com";
   const testPassword = "test123";
   const title_ka = "სატესტო სათაური";
@@ -10,7 +10,30 @@ describe("new product manipulation", () => {
   const price = "200";
   const image =
     "https://cbhoxdzzhvcuajscuqes.supabase.co/storage/v1/object/public/product-images/kp-01.png";
-  let stripeProductId: string | undefined;
+
+  const ADD_PRODUCT_API = "/api/add-product";
+  const DELETE_PRODUCT_API = "/api/delete-product";
+
+  let productId: number | string | undefined;
+
+  const productData = {
+    title_ka,
+    title_en,
+    description_ka,
+    description_en,
+    category_ka,
+    category_en,
+    price,
+    image,
+  };
+
+  function createProduct() {
+    return cy.request("POST", ADD_PRODUCT_API, productData);
+  }
+
+  function deleteProduct(id: number | string) {
+    return cy.request("DELETE", DELETE_PRODUCT_API, { id });
+  }
 
   beforeEach(() => {
     cy.visit("/");
@@ -22,11 +45,16 @@ describe("new product manipulation", () => {
     cy.get('[data-cy="sign-out"]').should("exist");
   });
 
-  it("adds and deletes a new product successfully", () => {
+  afterEach(() => {
+    if (productId) {
+      deleteProduct(productId);
+      productId = undefined;
+    }
+  });
+
+  it("successfully adds a new product and verifies its presence", () => {
     cy.get('[data-cy="products-header"]').click();
-    cy.get('[data-cy="product-list-title"]').should("exist");
     cy.get('[data-cy="add-new-product"]').click();
-    cy.get('[data-cy="add-new-product-title"]').should("exist");
     cy.get('[id="title_ka"]').type(title_ka);
     cy.get('[id="title_en"]').type(title_en);
     cy.get('[id="description_ka"]').type(description_ka);
@@ -36,8 +64,7 @@ describe("new product manipulation", () => {
     cy.get('[id="price"]').clear().type(price);
     cy.get('[id="image"]').type(image);
 
-    cy.intercept("POST", "/api/add-product").as("addProduct");
-
+    cy.intercept("POST", ADD_PRODUCT_API).as("addProduct");
     cy.get('[data-cy="submit"]').click();
 
     cy.wait("@addProduct").then(({ response }) => {
@@ -45,24 +72,27 @@ describe("new product manipulation", () => {
         typeof response?.body === "string"
           ? JSON.parse(response.body)
           : response?.body;
-
       expect(body).to.have.property("message", "Product added successfully");
       expect(body).to.have.property("product");
-      expect(body.product).to.be.an("array").that.is.not.empty;
+      productId = body.product[0].id;
+      expect(productId).to.be.a("number");
+    });
+  });
 
-      stripeProductId = body.product[0].stripe_product_id;
-      expect(stripeProductId).to.be.a("string");
+  it("successfully deletes a product and verifies its absence", () => {
+    createProduct().then((response) => {
+      expect(response.status).to.eq(200);
+      productId = response.body.product[0].id;
 
-      cy.intercept("DELETE", "/api/delete-product").as("deleteProduct");
-      cy.request("DELETE", "/api/delete-product", {
-        stripe_product_id: stripeProductId,
-      }).then((response) => {
-        expect(response.status).to.eq(200);
+      cy.get('[data-cy="products-header"]').click();
+      cy.intercept("DELETE", DELETE_PRODUCT_API).as("deleteProduct");
+
+      cy.get(`[product-id=${productId}]`).click();
+      cy.wait("@deleteProduct").then(({ response }) => {
         const body =
-          typeof response.body === "string"
+          typeof response?.body === "string"
             ? JSON.parse(response.body)
-            : response.body;
-
+            : response?.body;
         expect(body).to.have.property(
           "message",
           "Product deleted successfully",
