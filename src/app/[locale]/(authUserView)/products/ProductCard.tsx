@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Product } from "./fetchProducts";
 import DeleteProduct from "./delete-product";
+import Image from "next/image";
 
 interface ProductCardProps {
   product: Product;
@@ -23,14 +24,17 @@ export default function ProductCard({
 
   return (
     <div key={product.id} className="item ">
-      <img
+      <Image
+        width={120}
+        height={67.5}
         src={product.image}
         alt={title || "პროდუქტის სურათი"}
         className="item-img"
+        layout="responsive"
       />
       <h4 className="item-name ">{title || "სათაური არ არის ხელმისაწვდომი"}</h4>
       <div>{product.price} ₾</div>
-      <p className="item-desc">
+      <p className="item-desc line-clamp-1">
         {description || "აღწერა არ არის ხელმისაწვდომი"}
       </p>
       <div>

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Language from "./language";
 import HeaderAuth from "./header-auth";

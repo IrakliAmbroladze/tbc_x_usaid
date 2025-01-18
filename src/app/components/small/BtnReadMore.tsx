@@ -1,8 +1,9 @@
+import { Link } from "i18n/routing";
 import React from "react";
 
 export default function BtnReadMore(): JSX.Element {
   return (
-    <a
+    <Link
       href="/blog"
       style={{
         color: "black",
@@ -10,6 +11,6 @@ export default function BtnReadMore(): JSX.Element {
       }}
     >
       Read more
-    </a>
+    </Link>
   );
 }

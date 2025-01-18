@@ -2,7 +2,7 @@ import React from "react";
 import BtnGlobal from "app/components/small/btn-global";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 
 export default function UnAuthUserAlert(): JSX.Element {
   const t = useTranslations("HomePage");

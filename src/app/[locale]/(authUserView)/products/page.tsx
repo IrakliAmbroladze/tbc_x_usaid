@@ -1,6 +1,4 @@
 import React from "react";
-import { fetchProducts, Product } from "./fetchProducts";
-import { ProductList } from "./ProductList";
 import { Link } from "i18n/routing";
 import ClientSideProductList from "./client-side-productlist";
 

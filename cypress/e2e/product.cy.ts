@@ -1,3 +1,4 @@
+export {};
 describe("product manipulation", () => {
   const testEmail = "ambroladzeika@gmail.com";
   const testPassword = "test123";

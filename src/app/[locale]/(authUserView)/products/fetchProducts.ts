@@ -9,7 +9,6 @@ export interface Product {
 }
 
 export async function fetchProducts(): Promise<Product[]> {
-  const appUrl = process.env.BASE_URL;
   const productsURL = `/api/products`;
   try {
     const response = await fetch(productsURL);

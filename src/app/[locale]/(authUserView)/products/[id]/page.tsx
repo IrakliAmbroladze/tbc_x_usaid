@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface SingleProduct {
   id: string | number;
   title_ka: string;
@@ -41,7 +43,10 @@ const Product = ({ product, locale }: ProductProps): JSX.Element => {
       className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 mt-32"
     >
       <div className="relative group">
-        <img
+        <Image
+          width={384}
+          height={240}
+          layout="responsive"
           src={product.image}
           alt={product.title_ka}
           className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"

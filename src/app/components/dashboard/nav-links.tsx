@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Link } from "../../../i18n/routing";
-import { usePathname } from "next/navigation";
 
 interface LinkItem {
   name: string;
@@ -17,8 +16,6 @@ const links: LinkItem[] = [
 ];
 
 export default function NavLinks(): JSX.Element {
-  const pathname = usePathname();
-
   return (
     <>
       {links.map((link) => (

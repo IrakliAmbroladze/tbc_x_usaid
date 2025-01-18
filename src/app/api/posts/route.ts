@@ -6,7 +6,7 @@ const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 
 export const GET = async () => {
   try {
-    let { data: posts, error } = await supabase.from("posts").select("*");
+    const { data: posts, error } = await supabase.from("posts").select("*");
 
     if (error) {
       return new Response(JSON.stringify({ error: error.message }), {

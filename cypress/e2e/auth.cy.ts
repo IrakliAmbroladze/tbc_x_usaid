@@ -1,3 +1,4 @@
+export {};
 describe("authorization", () => {
   const testEmail = "ambroladzeika@gmail.com";
   const testPassword = "test123";
