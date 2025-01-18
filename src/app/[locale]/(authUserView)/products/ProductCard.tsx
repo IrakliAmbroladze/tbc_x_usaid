@@ -3,7 +3,7 @@ import "./ProductCard.css";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Product } from "./fetchProducts";
-import DeleteProduct from "./delete-product";
+import { DeleteProductBtn, BuyProductBtn } from "./cart-buttons";
 import Image from "next/image";
 
 interface ProductCardProps {
@@ -23,13 +23,16 @@ export default function ProductCard({
   const t = useTranslations("Add");
 
   return (
-    <div key={product.id} className="item ">
+    <div
+      key={product.id}
+      className="flex flex-col items-center gap-4 mt-8 border border-r-stone-200 p-2 rounded-xl"
+    >
       <Image
         width={120}
         height={67.5}
         src={product.image}
         alt={title || "პროდუქტის სურათი"}
-        className="item-img"
+        className="item-img rounded-md"
         layout="responsive"
       />
       <h4 className="item-name ">{title || "სათაური არ არის ხელმისაწვდომი"}</h4>
@@ -37,14 +40,14 @@ export default function ProductCard({
       <p className="item-desc line-clamp-1">
         {description || "აღწერა არ არის ხელმისაწვდომი"}
       </p>
-      <div>
-        <DeleteProduct product_id={product.id} onDelete={onDelete} />
+      <div className="flex gap-2">
+        <DeleteProductBtn product_id={product.id} onDelete={onDelete} />
+        <BuyProductBtn product_id={product.id} />
 
-        <Link
-          href={`/${locale}/products/${product.id}`}
-          className="moreCardBtn"
-        >
-          {t("More details")}
+        <Link href={`/${locale}/products/${product.id}`}>
+          <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+            {t("More details")}
+          </button>
         </Link>
         {/* <button className="button">{t("Add to cart")}</button> */}
       </div>

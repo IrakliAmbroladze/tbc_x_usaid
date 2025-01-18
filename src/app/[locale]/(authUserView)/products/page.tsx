@@ -25,7 +25,7 @@ export default async function Products({
       </h2>
       <Link
         data-cy="add-new-product"
-        className="bg-green-500 text-white p-2 rounded hover:bg-green-700 active:bg-green-800 transition duration-200"
+        className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
         href={"./products/add-product"}
       >
         {add_new_product}

@@ -56,14 +56,14 @@ describe("product manipulation", () => {
   it("successfully adds a new product and verifies its presence", () => {
     cy.get('[data-cy="products-header"]').click();
     cy.get('[data-cy="add-new-product"]').click();
-    cy.get('[id="title_ka"]').type(title_ka);
-    cy.get('[id="title_en"]').type(title_en);
-    cy.get('[id="description_ka"]').type(description_ka);
-    cy.get('[id="description_en"]').type(description_en);
-    cy.get('[id="category_ka"]').type(category_ka);
-    cy.get('[id="category_en"]').type(category_en);
+    cy.get('[id="title_ka"]').clear().type(title_ka);
+    cy.get('[id="title_en"]').clear().type(title_en);
+    cy.get('[id="description_ka"]').clear().type(description_ka);
+    cy.get('[id="description_en"]').clear().type(description_en);
+    cy.get('[id="category_ka"]').clear().type(category_ka);
+    cy.get('[id="category_en"]').clear().type(category_en);
     cy.get('[id="price"]').clear().type(price);
-    cy.get('[id="image"]').type(image);
+    cy.get('[id="image"]').clear().type(image);
 
     cy.intercept("POST", ADD_PRODUCT_API).as("addProduct");
     cy.get('[data-cy="submit"]').click();

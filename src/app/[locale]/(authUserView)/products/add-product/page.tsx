@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 
 export default function AddProduct() {
   const initialFormData = {
-    title_ka: "",
-    description_ka: "",
-    price: 0,
-    image: "",
-    category_ka: "",
-    category_en: "",
-    title_en: "",
-    description_en: "",
+    title_ka: "სატესტო სათაური",
+    description_ka: "სატესტო აღწერა",
+    price: 400,
+    image:
+      "https://cbhoxdzzhvcuajscuqes.supabase.co/storage/v1/object/public/product-images/kp-01.png",
+    category_ka: "დეზინფექცია",
+    category_en: "Disinfection",
+    title_en: "Test Title",
+    description_en: "Test Description",
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -216,7 +217,7 @@ export default function AddProduct() {
               სურათის ბმული / Image URL
             </label>
             <input
-              type="text"
+              type="url"
               id="image"
               name="image"
               value={formData.image}
