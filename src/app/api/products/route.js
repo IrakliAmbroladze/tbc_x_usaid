@@ -1,10 +1,12 @@
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
+// const supabaseUrl = "https://cbhoxdzzhvcuajscuqes.supabase.co";
+// const supabaseKey = process.env.SUPABASE_KEY;
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { createClient } from "../../../utils/supabase/server";
 
 export const GET = async () => {
+  const supabase = await createClient();
+  // const supabase = createClient(supabaseUrl, supabaseKey);
   try {
     let { data: products, error } = await supabase.from("products").select("*");
 

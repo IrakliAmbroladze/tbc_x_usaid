@@ -1,9 +1,5 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_KEY!;
-const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
-
 interface Product {
   id: string | number;
   title_ka: string;
@@ -15,6 +11,9 @@ interface Product {
 }
 
 async function fetchProduct(id: string): Promise<Product | null> {
+  const supabaseUrl = process.env.SUPABASE_URL!;
+  const supabaseKey = process.env.SUPABASE_KEY!;
+  const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
   try {
     const { data, error } = await supabase
       .from("products")
@@ -35,7 +34,7 @@ async function fetchProduct(id: string): Promise<Product | null> {
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ): Promise<Response> {
   const { id } = params;
 

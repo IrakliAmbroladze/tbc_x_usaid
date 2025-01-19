@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { stripe } from "app/lib/stripe";
+// import { stripe } from "app/lib/stripe";
 import { createClient } from "../../../utils/supabase/server";
+import Stripe from "stripe";
 
 export async function POST(req: Request): Promise<Response> {
   const supabase = await createClient();
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+    apiVersion: "2024-12-18.acacia",
+  });
 
   const {
     data: { user },
