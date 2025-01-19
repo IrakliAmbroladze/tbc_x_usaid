@@ -4,12 +4,12 @@ import { createClient } from "../../../../utils/supabase/client";
 
 export default function SignInWithGithub() {
   const signInWithGithub = async () => {
-    const appUrl = "http://localhost:3000";
+    const appUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const supabase = await createClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `${appUrl}/auth/callback`,
+        redirectTo: `${appUrl}/api/auth/callback`,
       },
     });
     if (error) {
