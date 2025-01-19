@@ -17,12 +17,12 @@ const ClientSideProductList = ({ locale }: ProductListProps): JSX.Element => {
       const result = await fetchProducts();
       setProductList(result);
     };
-    loadProducts(); // Invoke the async function here
+    loadProducts();
   }, []);
 
   const handleDelete = async (id: number | string) => {
     try {
-      const response = await fetch("http://localhost:3000/api/delete-product", {
+      const response = await fetch("/api/delete-product", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
