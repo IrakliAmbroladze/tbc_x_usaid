@@ -15,8 +15,8 @@ export const ProductList = ({
   onDelete,
 }: ProductListProps): JSX.Element => {
   return (
-    <div className="container margin-bottom-20px">
-      <div className="items margin-top-20px">
+    <div className="w-full max-w-[1110px] mx-auto mb-5">
+      <div className="items mt-5">
         {productList.map((product) => (
           <ProductCard
             key={product.id}

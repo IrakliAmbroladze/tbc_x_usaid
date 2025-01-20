@@ -40,7 +40,7 @@ const Post = ({ post }: PostProps): JSX.Element => {
   return (
     <div
       key={post.id}
-      className="container mx-auto p-6 bg-white shadow-lg rounded-lg my-6 border border-gray-200 hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out"
+      className="w-full max-w-[1110px] mx-auto mx-auto p-6 bg-white shadow-lg rounded-lg my-6 border border-gray-200 hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out"
     >
       <h1 className="text-3xl font-bold text-gray-800 mb-4 border-b-2 border-black">
         {langCookie == "ka" ? post.title_ka : post.title_en}

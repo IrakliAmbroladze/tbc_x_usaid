@@ -15,11 +15,11 @@ export default async function Products({
   const add_new_product =
     locale === "ka" ? "ახალი პროდუქტის დამატება" : "Add New Product";
   return (
-    <div className="container dark:text-white mt">
+    <div className="w-full max-w-[1110px] mx-auto dark:text-white mt">
       <h2
         data-cy="product-list-title"
         style={{ textAlign: "center" }}
-        className="margin-top-20px"
+        className="mt-5"
       >
         {productTitle}
       </h2>

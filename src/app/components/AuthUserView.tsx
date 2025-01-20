@@ -5,10 +5,12 @@ interface AuthUserViewProps {
   children: React.ReactNode;
 }
 
-export default function AuthUserView({ children }: AuthUserViewProps): JSX.Element {
+export default function AuthUserView({
+  children,
+}: AuthUserViewProps): JSX.Element {
   return (
     <>
-      <main>{children}</main>
+      <main className="flex flex-1 flex-col">{children}</main>
       <Footer />
     </>
   );
