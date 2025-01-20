@@ -10,7 +10,7 @@ export default function HomePage(): JSX.Element {
   return (
     <main className="flex flex-1 flex-col">
       <div className="flex flex-1 flex-col items-center w-full max-w-[1110px] mx-auto mb-5">
-        <div className="flex flex-col bg-[#222e46] w-full h-[30vh] rounded-lg mb-8 p-2 items-center justify-center md:flex-row md:pr-8 md:items-end md:justify-between md:gap-0">
+        <div className="flex flex-col bg-[#222e46] w-full md:h-[30vh] rounded-lg mb-1 md:mb-8 p-1 md:p-2 items-center justify-center md:flex-row md:pr-8 md:items-end md:justify-between md:gap-0">
           <Image
             src={"/assets/images/killer_logo_white-blue.png"}
             height={200}
@@ -30,8 +30,8 @@ export default function HomePage(): JSX.Element {
           </div>
         </div>
         <div className="flex flex-1 flex-col md:flex-row w-full">
-          <div className="px-2 text-xl leading-8 rounded-lg w-full md:w-2/5 content-center text-black bg-[#f9fafb] dark:bg-stone-700 dark:text-white">
-            <p className="text-center md:text-start mb-5">
+          <div className="px-2 text-xl leading-8 rounded-lg w-full md:w-2/5 content-center text-black bg-[#f9fafb] dark:bg-stone-700 dark:text-white mb-1">
+            <p className="text-center md:text-start p-2">
               <strong>Welcome to Killers. </strong>
               <span>This is a pest service company to help you in making </span>
               <strong>disinfection, </strong>
