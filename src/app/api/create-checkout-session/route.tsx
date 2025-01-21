@@ -31,14 +31,19 @@ export async function POST(req: Request): Promise<Response> {
 
     const myCookies = cookies();
     const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
+    const host = req.headers.get("host");
     const getBaseUrl = () => {
-      if (process.env.NEXT_PUBLIC_URL) {
+      if (
+        process.env.NEXT_PUBLIC_URL &&
+        `https://${host}` === process.env.NEXT_PUBLIC_URL
+      ) {
         return process.env.NEXT_PUBLIC_URL;
-      } else if (process.env.VERCEL_URL) {
-        return `https://${process.env.VERCEL_URL}`;
-      } else {
-        return "http://localhost:3000";
       }
+
+      if (process.env.VERCEL_URL) {
+        return `https://${process.env.VERCEL_URL}`;
+      }
+      return "http://localhost:3000";
     };
 
     const session = await stripe.checkout.sessions.create({
