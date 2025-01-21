@@ -1,9 +1,10 @@
-import createMiddleware from 'next-intl/middleware';
-import {routing} from './i18n/routing';
- 
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
+
 export default createMiddleware(routing);
- 
+
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(ka|en)/:path*']
+  matcher: ["/", "/(ka|en)/:path*"],
+  exclude: ["/api/*"],
 };

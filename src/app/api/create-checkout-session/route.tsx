@@ -31,14 +31,17 @@ export async function POST(req: Request): Promise<Response> {
 
     const myCookies = cookies();
     const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : "http://localhost:3000";
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: transformedItems,
       mode: "subscription",
       customer: customer.id,
-      success_url: `${process.env.NEXT_PUBLIC_URL}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_URL}/${langCookie}/pricing`,
+      success_url: `${baseUrl}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/${langCookie}/pricing`,
     });
 
     const { error } = await supabase

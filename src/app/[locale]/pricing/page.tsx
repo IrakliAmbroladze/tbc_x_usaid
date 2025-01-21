@@ -47,7 +47,10 @@ const Pricing: React.FC = () => {
         throw new Error("Stripe failed to initialize");
       }
 
-      const response = await fetch("/api/create-checkout-session", {
+      // const fetchUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/create-checkout-session`;
+      const fetchUrl = "/api/create-checkout-session";
+
+      const response = await fetch(fetchUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
