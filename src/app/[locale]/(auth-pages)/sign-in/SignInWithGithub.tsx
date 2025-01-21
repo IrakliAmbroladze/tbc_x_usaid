@@ -1,15 +1,16 @@
 "use client";
 import Image from "next/image";
 import { createClient } from "../../../../utils/supabase/client";
+import { getBaseUrl } from "@/utils/url";
 
 export default function SignInWithGithub() {
   const signInWithGithub = async () => {
-    const appUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const supabase = await createClient();
+    console.log("url: ", getBaseUrl());
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `${appUrl}/api/auth/callback`,
+        redirectTo: `${getBaseUrl()}/api/auth/callback`,
       },
     });
     if (error) {

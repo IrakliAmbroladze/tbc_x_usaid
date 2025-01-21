@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
-// import { stripe } from "app/lib/stripe";
 import { createClient } from "../../../utils/supabase/server";
 import Stripe from "stripe";
+import { getBaseUrl } from "@/utils/url";
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: NextRequest): Promise<Response> {
   const supabase = await createClient();
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: "2024-12-18.acacia",
@@ -31,28 +31,16 @@ export async function POST(req: Request): Promise<Response> {
 
     const myCookies = cookies();
     const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
-    const host = req.headers.get("host");
-    const getBaseUrl = () => {
-      if (
-        process.env.NEXT_PUBLIC_URL &&
-        `https://${host}` === process.env.NEXT_PUBLIC_URL
-      ) {
-        return process.env.NEXT_PUBLIC_URL;
-      }
-
-      if (process.env.VERCEL_URL) {
-        return `https://${process.env.VERCEL_URL}`;
-      }
-      return "http://localhost:3000";
-    };
+    const url = getBaseUrl(req);
+    console.log(url);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: transformedItems,
       mode: "subscription",
       customer: customer.id,
-      success_url: `${getBaseUrl()}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${getBaseUrl()}/${langCookie}/pricing`,
+      success_url: `${url}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${url}/${langCookie}/pricing`,
     });
 
     const { error } = await supabase
