@@ -1,8 +1,5 @@
-import React from "react";
-import "./ProductCard.css";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Product } from "./fetchProducts";
 import { DeleteProductBtn, BuyProductBtn } from "./cart-buttons";
 import Image from "next/image";
 
@@ -10,6 +7,16 @@ interface ProductCardProps {
   product: Product;
   locale: string;
   onDelete: (id: number | string) => void;
+}
+
+export interface Product {
+  id: string | number;
+  title_ka: string;
+  title_en: string;
+  image: string;
+  description_ka: string;
+  description_en: string;
+  price: number;
 }
 
 export default function ProductCard({
@@ -28,16 +35,17 @@ export default function ProductCard({
       className="flex flex-col items-center gap-4 mt-8 border border-r-stone-200 p-2 rounded-xl"
     >
       <Image
-        width={120}
-        height={67.5}
+        width={240}
+        height={135}
         src={product.image}
         alt={title || "პროდუქტის სურათი"}
-        className="item-img rounded-md"
-        layout="responsive"
+        className="rounded-md w-auto h-auto"
+        priority
+        crossOrigin="anonymous"
       />
       <h4 className="item-name ">{title || "სათაური არ არის ხელმისაწვდომი"}</h4>
       <div>{product.price} ₾</div>
-      <p className="item-desc line-clamp-1">
+      <p className="text-[0.9rem] line-clamp-1">
         {description || "აღწერა არ არის ხელმისაწვდომი"}
       </p>
       <div className="flex gap-2">
@@ -49,7 +57,6 @@ export default function ProductCard({
             {t("More details")}
           </button>
         </Link>
-        {/* <button className="button">{t("Add to cart")}</button> */}
       </div>
     </div>
   );

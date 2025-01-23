@@ -66,7 +66,7 @@ const PostList: FC<PostListProps> = ({ postList }) => {
   const langCookie = cookies().get("NEXT_LOCALE")?.value || "en";
 
   return (
-    <div className="w-full max-w-[1110px] mx-auto mx-auto mt-8 mb-8 px-4">
+    <div className="w-full max-w-[1110px] mx-auto mt-8 mb-8 px-4">
       <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white">
         {langCookie == "ka" ? "ბ ლ ო გ ი" : "B L O G"}
       </h2>

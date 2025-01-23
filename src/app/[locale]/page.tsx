@@ -13,9 +13,11 @@ export default function HomePage(): JSX.Element {
         <div className="flex flex-col bg-[#222e46] w-full md:h-[30vh] rounded-lg mb-1 md:mb-8 p-1 md:p-2 items-center justify-center md:flex-row md:pr-8 md:items-end md:justify-between md:gap-0">
           <Image
             src={"/assets/images/killer_logo_white-blue.png"}
-            height={200}
-            width={200}
+            height={190}
+            width={190}
             alt="logo"
+            priority
+            className="w-auto"
           />
           <div className="text-center mb-2 text-white">
             <h1
@@ -42,10 +44,12 @@ export default function HomePage(): JSX.Element {
           </div>
           <div className="flex-1 relative">
             <Image
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg h-auto"
               src={"/assets/images/welcome-image.jpg"}
               alt="Welcome_Image"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </div>
