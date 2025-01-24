@@ -9,6 +9,8 @@ interface ProductListProps {
   query?: string;
   sortBy?: string;
   order?: string;
+  minPrice?: number;
+  maxPrice?: number;
 }
 
 export interface Product {
@@ -25,6 +27,8 @@ async function fetchProducts(
   sortBy: string,
   query: string,
   order: string,
+  minPrice: number,
+  maxPrice: number,
 ): Promise<Product[]> {
   const productsURL = `/api/products`;
   try {
@@ -35,6 +39,8 @@ async function fetchProducts(
         sortBy: `${sortBy}`,
         query: `${query}`,
         order: `${order}`,
+        minPrice: `${minPrice}`,
+        maxPrice: `${maxPrice}`,
       },
     });
     return response.json();
@@ -49,18 +55,28 @@ const ProductList = ({
   sortBy,
   query,
   order,
+  minPrice,
+  maxPrice,
 }: ProductListProps): JSX.Element => {
   const [productList, setProductList] = useState<Product[]>([]);
   const apiSortBy = sortBy || "";
   const apiQuery = query || "";
   const apiOrder = order || "";
+  const apiMinPrice = minPrice || 0;
+  const apiMaxPrice = maxPrice || 1000000;
   useEffect(() => {
     const loadProducts = async () => {
-      const result = await fetchProducts(apiSortBy, apiQuery, apiOrder);
+      const result = await fetchProducts(
+        apiSortBy,
+        apiQuery,
+        apiOrder,
+        apiMinPrice,
+        apiMaxPrice,
+      );
       setProductList(result);
     };
     loadProducts();
-  }, [apiSortBy, apiQuery, apiOrder]);
+  }, [apiSortBy, apiQuery, apiOrder, apiMinPrice, apiMaxPrice]);
 
   const handleDelete = async (id: number | string) => {
     try {
@@ -76,7 +92,6 @@ const ProductList = ({
         throw new Error(`Error: ${response.status} - ${await response.text()}`);
       }
 
-      // Update the product list after successful deletion
       setProductList((prevList) =>
         prevList.filter((product) => product.id !== id),
       );
@@ -101,17 +116,6 @@ const ProductList = ({
     description_en: string;
     price: number;
   }
-
-  // async function fetchProducts(): Promise<Product[]> {
-  //   const productsURL = `/api/products`;
-  //   try {
-  //     const response = await fetch(productsURL);
-  //     return response.json();
-  //   } catch (error) {
-  //     console.error("Error fetching products:", error);
-  //     return [];
-  //   }
-  // }
 
   const ProductList = ({
     productList,

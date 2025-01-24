@@ -6,6 +6,22 @@ export const GET = async (req: Request): Promise<Response> => {
   const order = headers.get("order") || "asc";
   const query = headers.get("query") || "";
 
+  const minPriceHeader = headers.get("minPrice");
+  let minPrice = 0;
+
+  if (minPriceHeader !== null) {
+    const parsedPrice = Number(minPriceHeader);
+    minPrice = isNaN(parsedPrice) || parsedPrice < 0 ? 0 : parsedPrice;
+  }
+
+  const maxPriceHeader = headers.get("maxPrice");
+  let maxPrice = 1000000;
+
+  if (maxPriceHeader !== null) {
+    const parsedPrice = Number(maxPriceHeader);
+    maxPrice = isNaN(parsedPrice) || parsedPrice < 0 ? 0 : parsedPrice;
+  }
+
   const supabase = await createClient();
 
   const createResponse = (body: object, status: number) =>
@@ -19,7 +35,9 @@ export const GET = async (req: Request): Promise<Response> => {
       .from("products")
       .select("*")
       .ilike("title_en", `%${query}%`)
-      .order(sortBy, { ascending: order === "asc" });
+      .order(sortBy, { ascending: order === "asc" })
+      .gte("price", minPrice)
+      .lte("price", maxPrice);
 
     if (error) {
       return createResponse({ error: error.message }, 500);

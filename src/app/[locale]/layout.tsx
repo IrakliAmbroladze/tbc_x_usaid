@@ -6,13 +6,11 @@ import Header from "../components/Header";
 import "./global.css";
 import { Metadata } from "next";
 
-// Define metadata
 export const metadata: Metadata = {
   title: "Killers",
   description: "Pest service",
 };
 
-// Define a type for locales
 type Locale = (typeof routing.locales)[number];
 
 interface LocaleLayoutProps {
@@ -24,12 +22,10 @@ export default async function LocaleLayout({
   children,
   params: { locale },
 }: LocaleLayoutProps) {
-  // Validate locale
   if (!routing.locales.includes(locale)) {
     notFound();
   }
 
-  // Pass the locale as an object to getMessages
   const messages = await getMessages({ locale });
 
   return (

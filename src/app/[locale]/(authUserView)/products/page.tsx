@@ -5,7 +5,13 @@ import { SortingButtons } from "./search-and-sort";
 
 interface ProductsProps {
   params: { locale: string };
-  searchParams: { query: string; order: string; sortBy: string };
+  searchParams: {
+    query?: string;
+    order?: string;
+    sortBy?: string;
+    minPrice?: number;
+    maxPrice?: number;
+  };
 }
 
 export default async function Products({
@@ -15,12 +21,10 @@ export default async function Products({
   const { query } = searchParams || "";
   const { order } = searchParams || "";
   const { sortBy } = searchParams || "";
-  console.log("query is :", query);
-  console.log("order is :", order);
-  console.log("sortBy is :", sortBy);
+  const { minPrice } = searchParams || 0;
+  const { maxPrice } = searchParams || 1000000;
 
   const { locale } = params;
-  console.log("params", params);
   const productTitle = locale === "ka" ? "პროდუქტები" : "Item shop";
   const add_new_product =
     locale === "ka" ? "ახალი პროდუქტის დამატება" : "Add New Product";
@@ -51,6 +55,8 @@ export default async function Products({
         query={query}
         order={order}
         sortBy={sortBy}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
       />
     </div>
   );
