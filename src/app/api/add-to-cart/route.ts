@@ -23,7 +23,7 @@ export async function POST(req: Request): Promise<Response> {
             quantity,
           },
         ],
-        { onConflict: "user_id, product_id" }, // Ensures update instead of insert
+        { onConflict: "user_id, product_id" },
       )
       .select("*");
 

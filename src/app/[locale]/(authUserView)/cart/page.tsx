@@ -1,102 +1,173 @@
-import { createClient } from "@/lib/supabase/server";
-import { headers } from "next/headers";
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
+import CartItem from "./CartItem";
 
 interface cartProduct {
   id: string | number;
-  title_ka: string;
   title_en: string;
   image: string;
-  description_ka: string;
-  description_en: string;
   price: number;
   quantity: number;
 }
 
-const CartPage = async () => {
-  const supabase = await createClient();
+const CartPage = () => {
+  const [cart, setCart] = useState<cartProduct[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  const supabase = createClient();
 
-  const host = headers().get("host");
-  const cartURL =
-    host === "localhost:3000"
-      ? `http://${host}/api/cart`
-      : `https://${host}/api/cart`;
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
 
-  let cart = [];
-  try {
-    const response = await fetch(cartURL, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${session?.access_token}`,
-      },
-    });
+        if (!session?.access_token) {
+          throw new Error("User is not authenticated");
+        }
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch cart data");
+        const response = await fetch("/api/cart", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${session.access_token}`,
+          },
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch cart data");
+        const data = await response.json();
+        setCart(data);
+      } catch (error) {
+        console.error("Error fetching cart:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCart();
+  }, [supabase]);
+
+  const updateQuantity = async (id: string | number, newQuantity: number) => {
+    if (newQuantity < 1) return;
+
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item,
+      ),
+    );
+
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!session?.access_token) {
+        throw new Error("User is not authenticated");
+      }
+
+      const response = await fetch(`/api/update`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ product_id: id, quantity: newQuantity }),
+      });
+
+      if (!response.ok) throw new Error("Failed to update quantity");
+    } catch (error) {
+      console.error("Error updating quantity:", error);
     }
+  };
 
-    cart = await response.json();
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
+  const removeItem = async (id: string | number) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!session?.access_token) {
+        throw new Error("User is not authenticated");
+      }
+
+      const response = await fetch(`/api/remove`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ product_id: id }),
+      });
+
+      if (!response.ok) throw new Error("Failed to remove item");
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
+  };
+
+  const clearCart = async () => {
+    setCart([]);
+
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      const response = await fetch(`/api/clear`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.access_token}`,
+        },
+      });
+
+      if (!response.ok) throw new Error("Failed to clear cart");
+    } catch (error) {
+      console.error("Error clearing cart:", error);
+    }
+  };
+
+  const total = cart.reduce(
+    (sum, product) => sum + product.price * product.quantity,
+    0,
+  );
 
   return (
-    <div className="w-[1100px] mx-auto">
-      <div className="py-10">
-        <h1 className="text-2xl font-bold mb-4 text-center">Shopping Cart</h1>
+    <div className="w-[1100px] mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4 text-center">Shopping Cart</h1>
 
-        {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
-        ) : (
-          <>
-            <ul>
-              {cart.map((product: cartProduct) => (
-                <li
-                  key={product.id}
-                  className="flex flex-col justify-between p-4 border-b"
-                >
-                  <div
-                    key={product.id}
-                    className="flex items-center gap-4 mt-1 border border-r-stone-200 p-2 rounded-xl"
-                  >
-                    <Image
-                      width={240}
-                      height={135}
-                      src={product.image}
-                      alt={product.title_en || "პროდუქტის სურათი"}
-                      className="rounded-md w-auto h-auto"
-                      priority
-                      crossOrigin="anonymous"
-                    />
-                    <div className="flex flex-col">
-                      <span>Product ID: {product.id}</span>
-                      <span>Quantity: {product.quantity}</span>
-                      <h4 className="item-name ">
-                        {product.title_en || "სათაური არ არის ხელმისაწვდომი"}
-                      </h4>
-                      <div>{product.price} ₾</div>
-                      <p className="text-[0.9rem] line-clamp-1">
-                        {product.description_en ||
-                          "აღწერა არ არის ხელმისაწვდომი"}
-                      </p>
-                      <div className="flex gap-2">
-                        <button className="text-red-500">Remove</button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">
-              Clear Cart
-            </button>
-          </>
-        )}
-      </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : cart.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <>
+          <span className="text-xl font-bold mb-4 text-green-700">
+            Total amount: {total} ₾
+          </span>
+          <ul>
+            {cart.map((product) => (
+              <CartItem
+                key={product.id}
+                product={product}
+                updateQuantity={updateQuantity}
+                removeItem={removeItem}
+              />
+            ))}
+          </ul>
+          <button
+            onClick={clearCart}
+            className="mt-4 bg-red-400 text-white px-4 py-2 rounded-md"
+          >
+            Clear Cart
+          </button>
+        </>
+      )}
     </div>
   );
 };

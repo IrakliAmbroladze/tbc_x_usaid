@@ -51,8 +51,6 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
       if (!response.ok) {
         throw new Error("Failed to add product to cart.");
       }
-
-      console.log("User with ID:", user.id, "clicked product #:", product_id);
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
