@@ -1,7 +1,7 @@
 import { signOutAction } from "../actions/actions";
 import { Link } from "../../i18n/routing";
 import { Button } from "./ui/button";
-import { createClient } from "../../utils/supabase/server";
+import { createClient } from "../../lib/supabase/server";
 
 export default async function AuthButton() {
   const supabase = await createClient();

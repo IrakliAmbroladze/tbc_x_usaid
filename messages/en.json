@@ -15,7 +15,8 @@
     "contact": "Contact",
     "about": "About",
     "pricing": "Pricing",
-    "logout": "Logout"
+    "logout": "Logout",
+    "cart": "Cart"
   },
   "ThemeToggle": {
     "theme": "Theme",

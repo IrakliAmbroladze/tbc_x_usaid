@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { DeleteProductBtn, BuyProductBtn } from "./cart-buttons";
 import Image from "next/image";
+import { AddToCartButton } from "@/components/AddToCartButton";
 
 interface ProductCardProps {
   product: Product;
@@ -51,6 +52,7 @@ export default function ProductCard({
       <div className="flex gap-2">
         <DeleteProductBtn product_id={product.id} onDelete={onDelete} />
         <BuyProductBtn product_id={product.id} />
+        <AddToCartButton product_id={product.id} />
 
         <Link href={`/${locale}/products/${product.id}`}>
           <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">

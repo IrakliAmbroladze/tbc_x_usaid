@@ -1,5 +1,5 @@
 // import { stripe } from "../../lib/stripe";
-import { createClient } from "../../../utils/supabase/server";
+import { createClient } from "../../../lib/supabase/server";
 import Stripe from "stripe";
 
 export async function POST(req: Request): Promise<Response> {

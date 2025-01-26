@@ -1,4 +1,4 @@
-import { createClient } from "../../../utils/supabase/server";
+import { createClient } from "../../../lib/supabase/server";
 import UnAuthUserAlert from "../../components/UnAuthUserAlert";
 import AuthUserView from "../../components/AuthUserView";
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { createClient } from "../../../utils/supabase/server";
+import { createClient } from "../../../lib/supabase/server";
 import Stripe from "stripe";
 import { getBaseUrl } from "@/utils/url";
 

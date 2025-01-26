@@ -2,7 +2,7 @@
 // const supabaseUrl = process.env.SUPABASE_URL!;
 // const supabaseKey = process.env.SUPABASE_KEY!;
 
-import { createClient } from "../../../utils/supabase/server";
+import { createClient } from "../../../lib/supabase/server";
 
 export const GET = async () => {
   const supabase = await createClient();
