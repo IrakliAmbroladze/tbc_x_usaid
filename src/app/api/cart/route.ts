@@ -8,21 +8,25 @@ export async function GET(req: Request): Promise<Response> {
     });
 
   try {
-    const { headers } = req;
-    const user_id = headers.get("user_id");
     const supabase = await createClient();
 
-    if (!user_id) {
-      return createResponse({ error: "Missing user_id" }, 400);
+    const authHeader = req.headers.get("Authorization")?.replace("Bearer ", "");
+    if (!authHeader) {
+      return createResponse({ error: "Missing auth token" }, 401);
     }
 
-    // Fetch product_id and quantity from the "cart" table
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser(authHeader);
+    if (error || !user) {
+      return createResponse({ error: "Invalid or expired token" }, 401);
+    }
+
     const { data: cartItems, error: cartError } = await supabase
       .from("cart")
       .select("product_id, quantity")
-      .eq("user_id", user_id);
-
-    // .select("product_id, quantity");
+      .eq("user_id", user.id);
 
     if (cartError) {
       console.error("Supabase error:", cartError.message);
@@ -33,10 +37,8 @@ export async function GET(req: Request): Promise<Response> {
       return createResponse({ error: "No products in cart" }, 404);
     }
 
-    // Extract product_ids
     const productIds = cartItems.map((item) => item.product_id);
 
-    // Fetch product details from the "products" table
     const { data: products, error: productError } = await supabase
       .from("products")
       .select("*")
@@ -47,12 +49,11 @@ export async function GET(req: Request): Promise<Response> {
       return createResponse({ error: "Failed to fetch product details" }, 500);
     }
 
-    // Merge quantity from cartItems into the product details
     const productsWithQuantity = products.map((product) => {
       const cartItem = cartItems.find((item) => item.product_id === product.id);
       return {
         ...product,
-        quantity: cartItem ? cartItem.quantity : 0, // Add quantity field
+        quantity: cartItem ? cartItem.quantity : 0,
       };
     });
 

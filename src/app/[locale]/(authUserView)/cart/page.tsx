@@ -17,13 +17,8 @@ const CartPage = async () => {
   const supabase = await createClient();
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    console.error("Error fetching user:");
-    return <p>Error fetching user. Please log in.</p>;
-  }
+    data: { session },
+  } = await supabase.auth.getSession();
 
   const host = headers().get("host");
   const cartURL =
@@ -36,8 +31,7 @@ const CartPage = async () => {
     const response = await fetch(cartURL, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        user_id: `${user.id}`,
+        Authorization: `Bearer ${session?.access_token}`,
       },
     });
 
