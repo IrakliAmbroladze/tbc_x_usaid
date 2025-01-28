@@ -20,12 +20,26 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   try {
     const {
-      items,
-    }: { items: { name: string; priceId: string; quantity: number }[] } =
-      await req.json();
+      cartProducts,
+    }: {
+      cartProducts: {
+        id?: number;
+        title_en: string;
+        image: string;
+        price: number;
+        quantity: number;
+      }[];
+    } = await req.json();
 
-    const transformedItems = items.map((item) => ({
-      price: item.priceId,
+    const transformedItems = cartProducts.map((item) => ({
+      price_data: {
+        currency: "gel",
+        product_data: {
+          name: item.title_en,
+          images: [item.image],
+        },
+        unit_amount: item.price * 100,
+      },
       quantity: item.quantity,
     }));
 
@@ -37,13 +51,10 @@ export async function POST(req: NextRequest): Promise<Response> {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: transformedItems,
-      mode: "subscription",
+      mode: "payment",
       customer: customer.id,
       success_url: `${url}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${url}/${langCookie}/pricing`,
-      metadata: {
-        user_id: String(user?.id),
-      },
+      cancel_url: `${url}/${langCookie}/cart`,
     });
 
     const { error } = await supabase

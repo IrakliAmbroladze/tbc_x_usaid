@@ -54,7 +54,7 @@
   },
   "ThankYou": {
     "title": "Thank You!",
-    "message": "Your subscription has been successfully activated.",
+    "message": "The payment has been successful.",
     "details": "If you have any questions, feel free to contact our support team.",
     "returnHome": "Return to Homepage",
     "returnPricing": "Return to Pricing page",
