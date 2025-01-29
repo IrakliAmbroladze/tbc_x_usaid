@@ -1,4 +1,4 @@
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/server";
 
 interface post {
   id: number;
@@ -12,9 +12,7 @@ interface post {
   views: string;
 }
 async function fetchpost(id: string): Promise<post | null> {
-  const supabaseUrl = process.env.SUPABASE_URL!;
-  const supabaseKey = process.env.SUPABASE_KEY!;
-  const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
+  const supabase = await createClient();
 
   try {
     const { data, error } = await supabase

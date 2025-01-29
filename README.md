@@ -70,8 +70,8 @@
      - Supabase:
 
        ```
-       SUPABASE_URL=your_supabase_url
-       SUPABASE_KEY=your_supabase_key
+       NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+       NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
        ```
 
      - Auth0:

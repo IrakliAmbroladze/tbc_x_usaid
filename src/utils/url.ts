@@ -8,10 +8,10 @@ export const getBaseUrl = (req?: NextRequest): string => {
   if (req) {
     const host = req.headers.get("host");
     if (
-      process.env.NEXT_PUBLIC_URL &&
-      `https://${host}` === process.env.NEXT_PUBLIC_URL
+      process.env.NEXT_PUBLIC_BASE_URL &&
+      `https://${host}` === process.env.NEXT_PUBLIC_BASE_URL
     ) {
-      return process.env.NEXT_PUBLIC_URL;
+      return process.env.NEXT_PUBLIC_BASE_URL;
     }
 
     if (process.env.VERCEL_URL) {

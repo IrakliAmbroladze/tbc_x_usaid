@@ -18,7 +18,7 @@ interface ProductProps {
 }
 
 const fetchProduct = async (id: string): Promise<SingleProduct | null> => {
-  const appUrl = process.env.BASE_URL;
+  const appUrl = process.env.NEXT_PUBLIC_BASE_URL;
   try {
     const response = await fetch(`${appUrl}/api/products/${id}`);
     if (!response.ok) {

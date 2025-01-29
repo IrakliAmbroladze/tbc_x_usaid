@@ -1,8 +1,11 @@
-import { createClient } from "../../../lib/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req: Request): Promise<Response> {
   try {
-    const supabase = await createClient();
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SECRET_KEY!,
+    );
     const { email, password }: { email: string; password: string } =
       await req.json();
 
