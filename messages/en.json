@@ -16,7 +16,8 @@
     "about": "About",
     "pricing": "Pricing",
     "logout": "Logout",
-    "cart": "Cart"
+    "cart": "Cart",
+    "orders": "Orders"
   },
   "ThemeToggle": {
     "theme": "Theme",

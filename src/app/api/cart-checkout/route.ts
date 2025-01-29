@@ -55,6 +55,9 @@ export async function POST(req: NextRequest): Promise<Response> {
       customer: customer.id,
       success_url: `${url}/${langCookie}/pricing/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${url}/${langCookie}/cart`,
+      metadata: {
+        user_id: String(user?.id),
+      },
     });
 
     const { error } = await supabase
