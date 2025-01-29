@@ -7,13 +7,20 @@ type NavLinkProps = {
   href: string;
   children: React.ReactNode;
   data_cy?: string;
+  onClick?: () => void;
 };
 
-const NavLink: React.FC<NavLinkProps> = ({ href, data_cy, children }) => (
+const NavLink: React.FC<NavLinkProps> = ({
+  href,
+  data_cy,
+  children,
+  onClick,
+}) => (
   <Link
     href={href}
     data-cy={data_cy}
     className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
+    onClick={onClick}
   >
     {children}
   </Link>
@@ -33,6 +40,7 @@ export default function HeaderClientSide(): JSX.Element {
     { href: "/cart", label: t("cart") },
     { href: "/orders", label: t("orders") },
     { href: "/profile", label: t("profile") },
+    { href: "/contact", label: t("contact") },
   ];
 
   return (
@@ -54,7 +62,11 @@ export default function HeaderClientSide(): JSX.Element {
         <ul className="flex flex-col md:flex-row gap-3 p-4 md:p-0 md:gap-3">
           {navLinks.map(({ href, label, data_cy }) => (
             <li key={href}>
-              <NavLink href={href} data_cy={data_cy}>
+              <NavLink
+                href={href}
+                data_cy={data_cy}
+                onClick={() => setMenuOpen(false)}
+              >
                 {label}
               </NavLink>
             </li>
