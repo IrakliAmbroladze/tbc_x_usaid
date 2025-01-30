@@ -10,8 +10,10 @@ export default function Header(): JSX.Element {
         <HeaderClientSide />
         <div className="flex items-center gap-3">
           <HeaderAuth />
-          <ThemeToggle />
           <Language />
+          <div className="w-9 h-9">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>

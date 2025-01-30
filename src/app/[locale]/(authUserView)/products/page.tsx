@@ -33,7 +33,7 @@ export default async function Products({
       <h2
         data-cy="product-list-title"
         style={{ textAlign: "center" }}
-        className="m-5"
+        className="m-5 dark:text-white text-black"
       >
         {productTitle}
       </h2>

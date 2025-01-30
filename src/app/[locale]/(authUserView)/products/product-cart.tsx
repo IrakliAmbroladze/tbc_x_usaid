@@ -33,7 +33,7 @@ export default function ProductCard({
   return (
     <div
       key={product.id}
-      className="flex flex-col items-center gap-4 mt-8 border border-r-stone-200 p-2 rounded-xl"
+      className="flex flex-col items-center gap-4 mt-8 border border-r-stone-200 p-2 rounded-xl dark:text-white text-black"
     >
       <Image
         width={240}

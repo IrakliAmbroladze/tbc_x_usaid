@@ -140,7 +140,7 @@ const CartPage = () => {
   );
 
   return (
-    <div className="w-[1100px] mx-auto py-10">
+    <div className="w-[1100px] mx-auto py-10 dark:text-white text-black">
       <h1 className="text-2xl font-bold mb-4 text-center">Shopping Cart</h1>
 
       {loading ? (

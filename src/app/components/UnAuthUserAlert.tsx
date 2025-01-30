@@ -11,7 +11,7 @@ export default function UnAuthUserAlert(): JSX.Element {
   const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
 
   return (
-    <div className="gap-4 flex flex-1 flex-col justify-center items-center">
+    <div className="gap-4 flex flex-1 flex-col justify-center items-center dark:text-white text-black">
       <h2>User is not logged in. Please, </h2>
       <BtnGlobal href={`/${langCookie}/sign-in`} height="4rem" width="10rem">
         {t("login")} ⭬

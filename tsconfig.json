@@ -39,7 +39,7 @@
     "src/app/components/UnAuthUserAlert.tsx",
     "src/app/[locale]/(authUserView)/loading.tsx",
     "src/app/api/products/route.ts",
-    "src/app/components/ThemeToggle.js",
+    "src/app/components/ThemeToggle.tsx",
     "src/app/components/language.js",
     "src/app/api/posts/[id]/route.js",
     "src/app/actions/actions.tsx",

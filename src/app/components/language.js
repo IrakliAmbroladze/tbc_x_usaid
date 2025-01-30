@@ -19,7 +19,7 @@ export default function Language() {
   };
 
   return (
-    <div className="m-2">
+    <div className="m-2 dark:text-white text-black">
       <p className="sr-only">Change language</p>
       <button
         onClick={() => onSelectChange(localActive === "en" ? "ka" : "en")}

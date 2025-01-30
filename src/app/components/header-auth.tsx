@@ -11,7 +11,7 @@ export default async function AuthButton() {
   } = await supabase.auth.getUser();
 
   return user ? (
-    <div className="flex items-center gap-4">
+    <div className="flex dark:text-white text-black items-center gap-4">
       <span className="truncate w-24 block lg:w-auto lg:inline">
         {user.email}
       </span>
@@ -23,7 +23,7 @@ export default async function AuthButton() {
       </form>
     </div>
   ) : (
-    <div className="flex gap-2">
+    <div className="flex gap-2 dark:text-white text-black">
       <Button asChild size="sm" variant={"outline"}>
         <Link data-cy="sign-in" href="/sign-in">
           Sign in

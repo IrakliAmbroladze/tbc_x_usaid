@@ -19,7 +19,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   <Link
     href={href}
     data-cy={data_cy}
-    className="dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
+    className="text-black dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
     onClick={onClick}
   >
     {children}
@@ -56,7 +56,7 @@ export default function HeaderClientSide(): JSX.Element {
       <nav
         className={`${
           menuOpen ? "block" : "hidden"
-        } absolute top-12 left-0 w-full bg-white shadow-md dark:bg-stone-800 md:static md:block md:shadow-none`}
+        } absolute top-12 left-0 w-full shadow-md dark:bg-stone-800 md:static md:block md:shadow-none`}
         aria-label="Main Navigation"
       >
         <ul className="flex flex-col md:flex-row gap-3 p-4 md:p-0 md:gap-3">

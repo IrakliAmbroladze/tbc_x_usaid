@@ -63,7 +63,7 @@ const OrdersPage = () => {
   );
 
   return (
-    <div className="p-4">
+    <div className="p-4 dark:text-white text-black">
       <h1 className="text-2xl font-bold mb-4">Ordered Products</h1>
       {Object.entries(groupedOrders).map(([key, items]) => {
         const [paymentId, date] = key.split("-");
@@ -87,12 +87,16 @@ const OrdersPage = () => {
                     {item.title_en}
                   </h3>
                   {item.description_en && (
-                    <p className="text-gray-500">{item.description_en}</p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      {item.description_en}
+                    </p>
                   )}
-                  <p className="text-gray-800 font-bold mt-2">
+                  <p className="text-gray-800 dark:text-gray-300 font-bold mt-2">
                     Price: ${item.price}
                   </p>
-                  <p className="text-gray-700">Quantity: {item.quantity}</p>
+                  <p className="text-gray-700 dark:text-gray-400">
+                    Quantity: {item.quantity}
+                  </p>
                 </div>
               ))}
             </div>

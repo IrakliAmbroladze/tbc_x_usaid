@@ -18,7 +18,7 @@ const CartItem = ({ product, updateQuantity, removeItem }: CartItemProps) => {
   const [newQuantity, setNewQuantity] = useState(product.quantity);
 
   return (
-    <li className="flex justify-between items-center p-4 border-b">
+    <li className="flex justify-between items-center p-4 border-b dark:text-white text-black">
       <div className="flex items-center gap-4">
         <Image
           src={product.image}
