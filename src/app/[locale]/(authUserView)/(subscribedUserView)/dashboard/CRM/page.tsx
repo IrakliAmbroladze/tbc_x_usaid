@@ -27,6 +27,8 @@ const CRM = () => {
           throw new Error("User is not authenticated");
         }
 
+        console.log(session);
+
         const response = await fetch("/api/dashboard/customers", {
           method: "GET",
           headers: {
@@ -49,24 +51,55 @@ const CRM = () => {
   }, [supabase]);
 
   return (
-    <div className="w-[1100px] mx-auto py-10 dark:text-white text-black">
-      <h1 className="text-2xl font-bold mb-4 text-center">Customers</h1>
+    <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+      <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">
+        Customers
+      </h1>
 
       {loading ? (
-        <p>Loading...</p>
+        <p className="text-center text-gray-700 dark:text-gray-300">
+          Loading...
+        </p>
       ) : customers.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="text-center text-gray-700 dark:text-gray-300">
+          No customers found.
+        </p>
       ) : (
-        <table>
-          <tbody>
-            {customers.map((customer) => (
-              <tr key={customer.customer_id}>
-                <td>{customer.customer_id}</td>
-                <td>{customer.name}</td>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse border border-gray-300 dark:border-gray-700">
+            <thead>
+              <tr className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+                <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">
+                  ID
+                </th>
+                <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">
+                  Name
+                </th>
+                <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">
+                  Description
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {customers.map((customer) => (
+                <tr
+                  key={customer.customer_id}
+                  className="odd:bg-gray-100 dark:odd:bg-gray-800 text-black dark:text-gray-200"
+                >
+                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                    {customer.customer_id}
+                  </td>
+                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                    {customer.name}
+                  </td>
+                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                    {customer.description}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
