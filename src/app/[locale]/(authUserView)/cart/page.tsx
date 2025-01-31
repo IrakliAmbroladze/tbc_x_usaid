@@ -25,7 +25,6 @@ const CartPage = () => {
         const {
           data: { session },
         } = await supabase.auth.getSession();
-        console.log(session);
 
         if (!session?.access_token) {
           throw new Error("User is not authenticated");

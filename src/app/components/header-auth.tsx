@@ -2,6 +2,7 @@ import { signOutAction } from "../actions/actions";
 import { Link } from "../../i18n/routing";
 import { Button } from "./ui/button";
 import { createClient } from "../../lib/supabase/server";
+import { PowerIcon } from "@heroicons/react/24/outline";
 
 export default async function AuthButton() {
   const supabase = await createClient();
@@ -18,7 +19,8 @@ export default async function AuthButton() {
 
       <form action={signOutAction}>
         <Button data-cy="sign-out" type="submit" variant={"outline"}>
-          Sign out
+          <PowerIcon className="w-4 md:hidden" />
+          <span className="hidden md:block">sign out</span>
         </Button>
       </form>
     </div>
