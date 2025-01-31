@@ -30,10 +30,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    const customerIds = invoiceItems.map((item) => String(item.customer_id)); // Ensure customer_id is treated as a string
+    const customerIds = invoiceItems.map((item) => String(item.customer_id));
     const productIds = invoiceItems.map((item) => item.product_id);
 
-    // Fetch customer data
     const { data: customers, error: customerError } = await supabase
       .from("customers")
       .select("customer_id, name")
@@ -61,7 +60,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Map customer data by customer_id
     const customerMap = customers.reduce(
       (acc, customer) => {
         acc[String(customer.customer_id)] = customer.name; // Ensure customer_id is treated as a string
@@ -70,7 +68,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       {} as Record<string, string>,
     );
 
-    // Map product data by product_id
     const productMap = products.reduce(
       (acc, product) => {
         acc[product.id] = { title_en: product.title_en, price: product.price };
@@ -79,7 +76,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       {} as Record<number, { title_en: string; price: number }>,
     );
 
-    // Combine data into invoiceItems
     const combinedInvoiceItems = invoiceItems.map((item) => {
       const customerName =
         customerMap[String(item.customer_id)] || "Unknown Customer"; // Ensure customer_id is treated as a string

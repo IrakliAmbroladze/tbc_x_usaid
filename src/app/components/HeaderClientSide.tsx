@@ -46,7 +46,7 @@ export default function HeaderClientSide(): JSX.Element {
   return (
     <>
       <button
-        className="block md:hidden text-2xl"
+        className="block md:hidden text-2xl text-stone-900 dark:text-gray-200"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle navigation menu"
       >
@@ -56,7 +56,7 @@ export default function HeaderClientSide(): JSX.Element {
       <nav
         className={`${
           menuOpen ? "block" : "hidden"
-        } absolute top-12 left-0 w-full shadow-md dark:bg-stone-800 md:static md:block md:shadow-none`}
+        } absolute top-12 left-0 w-full shadow-md dark:bg-stone-800 bg-gray-200 md:static md:block md:shadow-none`}
         aria-label="Main Navigation"
       >
         <ul className="flex flex-col md:flex-row gap-3 p-4 md:p-0 md:gap-3">

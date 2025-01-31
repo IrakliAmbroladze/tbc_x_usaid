@@ -8,9 +8,9 @@ export default function SideNav(): JSX.Element {
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
         href="/dashboard"
-        className="mb-2 flex h-40 justify-center rounded-md bg-[#222e46] p-4 md:h-40"
+        className=" hidden mb-2 md:flex h-40 justify-center rounded-md bg-[#222e46] p-4 md:h-40"
       >
-        <div className="w-32 md:w-40">
+        <div className="w-32 md:w-40 ">
           <Image
             src="/assets/images/killer_logo_white-blue.png"
             height={300}
@@ -20,7 +20,16 @@ export default function SideNav(): JSX.Element {
         </div>
       </Link>
 
-      <div className="flex grow flex-row justify-start space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+      <div
+        className="flex
+      grow
+      flex-row
+      justify-start
+      space-x-2
+      md:flex-col
+      md:space-x-0
+      md:space-y-2"
+      >
         <NavLinks />
       </div>
     </div>

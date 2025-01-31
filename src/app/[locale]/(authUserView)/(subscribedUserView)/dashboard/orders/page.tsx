@@ -124,8 +124,8 @@ const OrderPage = () => {
     const [newDeliveryDate, setNewDeliveryDate] = useState(order.delivery_date);
 
     return (
-      <li className="flex justify-between items-center p-4 border-b dark:text-white text-black">
-        <div className="flex items-center gap-4">
+      <li className="flex flex-col justify-between items-center p-4 border-b dark:text-white text-black">
+        <div className="flex items-center gap-4 m-6">
           <div>
             <h3 className="text-lg font-semibold">{order.customer_id}</h3>
             <p className="text-gray-600">
@@ -204,7 +204,7 @@ const OrderPage = () => {
   };
 
   return (
-    <div className="py-10 dark:text-white text-black">
+    <div className="py-2 dark:text-white text-black">
       <h1 className="text-2xl font-bold mb-4 text-center">Orders</h1>
 
       {loading ? (

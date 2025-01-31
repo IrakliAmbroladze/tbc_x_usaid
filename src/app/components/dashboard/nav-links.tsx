@@ -11,7 +11,7 @@ const links: LinkItem[] = [
   { name: "CRM", href: "/dashboard/crm" },
   { name: "Sales", href: "/dashboard/sales" },
   { name: "Orders", href: "/dashboard/orders" },
-  { name: "Accounting", href: "/dashboard/accounting" },
+  { name: "Acc", href: "/dashboard/accounting" },
   { name: "Reports", href: "/dashboard/reports" },
 ];
 
