@@ -40,15 +40,15 @@ const PostCard = ({ post }: PostCardProps): JSX.Element => {
   const langCookie = cookies().get("NEXT_LOCALE")?.value || "en";
   const t = useTranslations("Add");
   return (
-    <div className="flex flex-col bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out">
-      <h3 className="text-lg font-semibold text-gray-800 mb-2 border-b-2 border-black">
+    <div className="flex flex-col bg-white dark:bg-stone-500 text-black shadow-md rounded-lg p-4 border border-gray-200 hover:shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out">
+      <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2 border-b-2 border-black">
         {langCookie == "ka" ? post.title_ka : post.title_en}
       </h3>
-      <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+      <p className="text-sm text-gray-600 dark:text-gray-200 line-clamp-3 mb-4">
         {langCookie == "ka" ? post.body_ka : post.body_en}
       </p>
       <div className="mt-auto flex justify-between">
-        <div className="flex justify-center text-black pt-2 font-medium text-sm ">
+        <div className="flex justify-center text-black pt-2 font-medium text-sm dark:text-gray-400 ">
           {t("views")}: {post.views}
         </div>
         <Link

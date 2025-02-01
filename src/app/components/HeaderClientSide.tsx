@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../i18n/routing";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 type NavLinkProps = {
   href: string;
   children: React.ReactNode;
@@ -19,7 +19,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   <Link
     href={href}
     data-cy={data_cy}
-    className="text-black dark:text-white no-underline transition duration-300 p-2 hover:text-gray-400"
+    className="text-black dark:text-white no-underline transition duration-300 p-2 hover:text-white dark:hover:text-yellow-400 hover:text-shadow "
     onClick={onClick}
   >
     {children}
@@ -46,33 +46,33 @@ export default function HeaderClientSide(): JSX.Element {
   return (
     <>
       <button
-        className="block md:hidden text-2xl text-stone-900 dark:text-gray-200"
+        className="text-2xl text-stone-900 dark:text-gray-200 flex items-center"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle navigation menu"
       >
-        {menuOpen ? <FiX /> : <FiMenu />}
+        Menu
+        {menuOpen ? <FiArrowDown /> : <FiArrowUp />}
       </button>
-
-      <nav
-        className={`${
-          menuOpen ? "block" : "hidden"
-        } absolute top-12 left-0 w-full shadow-md dark:bg-stone-800 bg-gray-200 md:static md:block md:shadow-none`}
-        aria-label="Main Navigation"
-      >
-        <ul className="flex flex-col md:flex-row gap-3 p-4 md:p-0 md:gap-3">
-          {navLinks.map(({ href, label, data_cy }) => (
-            <li key={href}>
-              <NavLink
-                href={href}
-                data_cy={data_cy}
-                onClick={() => setMenuOpen(false)}
-              >
-                {label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {menuOpen && (
+        <nav
+          className={`absolute h-svh top-12 left-0 w-full shadow-md dark:bg-stone-800/20 bg-stone-50/20 backdrop-blur-md text-6xl`}
+          aria-label="Main Navigation"
+        >
+          <ul className="flex flex-col gap-3 p-4 max-w-[1110px] mx-auto">
+            {navLinks.map(({ href, label, data_cy }) => (
+              <li key={href}>
+                <NavLink
+                  href={href}
+                  data_cy={data_cy}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </>
   );
 }

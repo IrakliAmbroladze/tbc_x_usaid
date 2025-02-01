@@ -13,9 +13,7 @@ export default async function AuthButton() {
 
   return user ? (
     <div className="flex dark:text-white text-black items-center gap-4">
-      <span className="truncate w-24 block lg:w-auto lg:inline">
-        {user.email}
-      </span>
+      <span className="hidden sm:w-auto sm:inline">{user.email}</span>
 
       <form action={signOutAction}>
         <Button data-cy="sign-out" type="submit" variant={"outline"}>

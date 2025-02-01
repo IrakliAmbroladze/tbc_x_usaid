@@ -91,7 +91,7 @@ export function SortingButtons() {
       {menuOpen && (
         <div
           ref={menuRef}
-          className="absolute mt-2 p-4 bg-white border rounded-lg shadow-lg z-10"
+          className="absolute mt-2 p-4 bg-white dark:bg-stone-800 border rounded-lg shadow-lg z-10"
         >
           <div>
             <b>Sort By:</b>
@@ -110,8 +110,8 @@ export function SortingButtons() {
               <button
                 className={`px-4 py-2 rounded-lg ${
                   selectedOrder === "asc"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200"
+                    ? "bg-blue-600 text-white "
+                    : "bg-gray-200 dark:bg-gray-600"
                 }`}
                 onClick={() => handleOrderChange("asc")}
               >
@@ -120,8 +120,8 @@ export function SortingButtons() {
               <button
                 className={`px-4 py-2 rounded-lg ${
                   selectedOrder === "desc"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200"
+                    ? "bg-blue-600 text-white "
+                    : "bg-gray-200 dark:bg-gray-600"
                 }`}
                 onClick={() => handleOrderChange("desc")}
               >
@@ -149,7 +149,7 @@ export function SortingButtons() {
           </div>
           <div className="flex justify-between mt-4">
             <button
-              className="px-4 py-2 bg-gray-200 rounded-lg"
+              className="px-4 py-2 bg-gray-200 rounded-lg dark:bg-gray-600"
               onClick={handleClear}
             >
               Clear
@@ -198,7 +198,7 @@ export function Search(): JSX.Element {
   return (
     <div className="relative w-full sm:w-96 md:w-[500px]">
       <input
-        className="bg-stone-100 placeholder-gray-500 w-full px-4 py-2 rounded-lg pr-10"
+        className="bg-stone-100 dark:bg-stone-500 text-stone-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-200 w-full px-4 py-2 rounded-lg pr-10"
         placeholder="search"
         value={query}
         onChange={(e) => {
@@ -211,7 +211,7 @@ export function Search(): JSX.Element {
         <button
           type="button"
           onClick={clearSearch}
-          className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black"
+          className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black dark:text-gray-200 dark:hover:text-blue-200"
         >
           ✕
         </button>

@@ -32,8 +32,8 @@ export default function HomePage(): JSX.Element {
           </div>
         </div>
         <div className="flex flex-1 flex-col md:flex-row w-full">
-          <div className="px-2 text-xl leading-8 rounded-lg w-full md:w-2/5 content-center text-black bg-[#f9fafb] dark:bg-stone-700 dark:text-white mb-1">
-            <p className="text-center md:text-start p-2">
+          <div className="px-2 text-xl leading-8 rounded-lg w-full md:w-2/5 content-center text-black bg-stone-50 dark:bg-stone-700 dark:text-white mb-1">
+            <p className="text-center md:text-start p-2 text-stone-950 dark:text-stone-200">
               <strong>Welcome to Killers. </strong>
               <span>This is a pest service company to help you in making </span>
               <strong>disinfection, </strong>
