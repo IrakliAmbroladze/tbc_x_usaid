@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
 
       console.log("Cart data moved to orders and deleted from cart.");
     } else if (session.mode === "subscription") {
-      console.log("suuuuuuuuuuuuuuuuuuuuubscription");
+      console.log("subscription");
     }
   }
 

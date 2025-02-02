@@ -1,4 +1,4 @@
-// import { stripe } from "../../lib/stripe";
+import { NextResponse } from "next/server";
 import { createClient } from "../../../lib/supabase/server";
 import Stripe from "stripe";
 
@@ -78,7 +78,7 @@ export async function POST(req: Request): Promise<Response> {
           stripe_price_id: stripePrice.id,
         },
       ])
-      .select("*"); // Ensure we get the inserted row back
+      .select("*");
 
     if (error) {
       console.error("Supabase error:", error.message);
@@ -95,14 +95,10 @@ export async function POST(req: Request): Promise<Response> {
       }),
       { status: 200 },
     );
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      console.error("Error adding product:", err.message);
-    } else {
-      console.error("Unknown error:", err);
-    }
-    return new Response(JSON.stringify({ error: "Internal server error" }), {
-      status: 500,
-    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Unknown error" },
+      { status: 500 },
+    );
   }
 }

@@ -54,6 +54,7 @@ describe("product manipulation", () => {
   });
 
   it("successfully adds a new product and verifies its presence", () => {
+    cy.get('[data-cy="menu"]').click();
     cy.get('[data-cy="products-header"]').click();
     cy.get('[data-cy="add-new-product"]').click();
     cy.get('[id="title_ka"]').clear().type(title_ka);
@@ -85,6 +86,7 @@ describe("product manipulation", () => {
       expect(response.status).to.eq(200);
       productId = response.body.product[0].id;
 
+      cy.get('[data-cy="menu"]').click();
       cy.get('[data-cy="products-header"]').click();
       cy.intercept("DELETE", DELETE_PRODUCT_API).as("deleteProduct");
 

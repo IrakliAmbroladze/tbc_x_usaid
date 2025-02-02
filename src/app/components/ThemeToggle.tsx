@@ -25,9 +25,9 @@ export default function ThemeToggle() {
     );
 
   return (
-    <div className="relative dark:text-white text-black">
+    <div className="relative dark:text-[#f0eff4] text-black">
       <button
-        className="p-2 rounded-md border dark:border-gray-700 border-gray-300 bg-white dark:bg-gray-800 flex items-center gap-2"
+        className="p-2 rounded-md border border-[#f0eff4]  flex items-center gap-2"
         onClick={() => setDropdownOpen(!dropdownOpen)}
       >
         {theme === "system" ? (
@@ -40,9 +40,9 @@ export default function ThemeToggle() {
       </button>
 
       {dropdownOpen && (
-        <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 border dark:border-gray-700 border-gray-300 rounded-md shadow-lg">
+        <div className="absolute right-0 mt-2 w-40 dark:bg-stone-800/50 bg-stone-50/50 border backdrop-blur-md dark:border-gray-700 border-gray-300 rounded-md shadow-lg ">
           <button
-            className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-[#ffa552] dark:hover:text-[#ffa552] "
             onClick={() => {
               setTheme("light");
               setDropdownOpen(false);
@@ -51,7 +51,7 @@ export default function ThemeToggle() {
             <FiSun /> Light Mode
           </button>
           <button
-            className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-[#ffa552] dark:hover:text-[#ffa552] "
             onClick={() => {
               setTheme("dark");
               setDropdownOpen(false);
@@ -60,7 +60,7 @@ export default function ThemeToggle() {
             <FiMoon /> Dark Mode
           </button>
           <button
-            className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-[#ffa552] dark:hover:text-[#ffa552] "
             onClick={() => {
               setTheme("system");
               setDropdownOpen(false);

@@ -3,6 +3,7 @@ import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useTranslations } from "next-intl";
+import { lusitana } from "@/ui/fonts.ts";
 
 export default function Language() {
   const t = useTranslations("Language");
@@ -23,7 +24,7 @@ export default function Language() {
       <p className="sr-only">Change language</p>
       <button
         onClick={() => onSelectChange(localActive === "en" ? "ka" : "en")}
-        className="focus:outline-none bg-transparent text-xs p-1 cursor-pointer dark:bg-stone-800 dark:bg-opacity-90"
+        className={`${lusitana.className} focus:outline-none bg-transparent text-xs p-1 cursor-pointer dark:bg-stone-800 dark:bg-opacity-90`}
         disabled={isPending}
       >
         {localActive === "en" ? t("english") : t("georgian")}

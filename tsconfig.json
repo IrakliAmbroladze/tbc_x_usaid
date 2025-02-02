@@ -6,7 +6,8 @@
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"],
       "@/utils/*": ["utils/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@/ui/*": ["ui/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -44,7 +45,8 @@
     "src/app/api/posts/[id]/route.js",
     "src/app/actions/actions.tsx",
     "src/app/[locale]/pricing/components/basic-plan.jsx",
-    "src/app/[locale]/pricing/page.tsx"
+    "src/app/[locale]/pricing/page.tsx",
+    "tailwind.config.ts"
   ],
   "exclude": ["node_modules"]
 }

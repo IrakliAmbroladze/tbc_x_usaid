@@ -3,6 +3,7 @@ import { Link } from "../../i18n/routing";
 import { Button } from "./ui/button";
 import { createClient } from "../../lib/supabase/server";
 import { PowerIcon } from "@heroicons/react/24/outline";
+import { lusitana } from "@/ui/fonts";
 
 export default async function AuthButton() {
   const supabase = await createClient();
@@ -12,8 +13,12 @@ export default async function AuthButton() {
   } = await supabase.auth.getUser();
 
   return user ? (
-    <div className="flex dark:text-white text-black items-center gap-4">
-      <span className="hidden sm:w-auto sm:inline">{user.email}</span>
+    <div
+      className={`${lusitana.className} flex dark:text-white text-black items-center gap-4`}
+    >
+      <Link href={"./profile"} className="hidden sm:w-auto sm:inline">
+        {user.email}
+      </Link>
 
       <form action={signOutAction}>
         <Button data-cy="sign-out" type="submit" variant={"outline"}>
@@ -23,7 +28,9 @@ export default async function AuthButton() {
       </form>
     </div>
   ) : (
-    <div className="flex gap-2 dark:text-white text-black">
+    <div
+      className={`${lusitana.className} flex gap-2 dark:text-white text-black`}
+    >
       <Button asChild size="sm" variant={"outline"}>
         <Link data-cy="sign-in" href="/sign-in">
           Sign in

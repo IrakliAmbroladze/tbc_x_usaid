@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import "./global.css";
 import { Metadata } from "next";
 import { Providers } from "@/components/providers";
+import { inter } from "@/ui/fonts";
 
 export const metadata: Metadata = {
   title: "Killers",
@@ -31,7 +32,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground">
+      <body
+        className={`page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground ${inter.className} antialiased`}
+      >
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <Header />

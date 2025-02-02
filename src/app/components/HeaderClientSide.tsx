@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../i18n/routing";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
+import { lusitana } from "@/ui/fonts";
 type NavLinkProps = {
   href: string;
   children: React.ReactNode;
@@ -19,7 +20,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   <Link
     href={href}
     data-cy={data_cy}
-    className="text-black dark:text-white no-underline transition duration-300 p-2 hover:text-white dark:hover:text-yellow-400 hover:text-shadow "
+    className={`${lusitana.className} text-black dark:text-[#f0eff4] no-underline transition duration-300 p-2 hover:text-[#ffa552] dark:hover:text-[#ffa552] hover:text-shadow `}
     onClick={onClick}
   >
     {children}
@@ -46,9 +47,10 @@ export default function HeaderClientSide(): JSX.Element {
   return (
     <>
       <button
-        className="text-2xl text-stone-900 dark:text-gray-200 flex items-center"
+        className={`${lusitana.className} text-2xl text-stone-900 dark:text-gray-200 flex items-center`}
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle navigation menu"
+        data-cy="menu"
       >
         Menu
         {menuOpen ? <FiArrowDown /> : <FiArrowUp />}
