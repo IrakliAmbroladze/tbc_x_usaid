@@ -3,6 +3,7 @@ import Link from "next/link";
 // import { DeleteProductBtn, BuyProductBtn } from "./cart-buttons";
 import Image from "next/image";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { lusitana } from "@/ui/fonts";
 // import { FiShoppingCart } from "react-icons/fi";
 
 interface ProductCardProps {
@@ -27,34 +28,47 @@ export default function ProductCard({
   // onDelete,
 }: ProductCardProps): JSX.Element {
   const title = locale === "ka" ? product.title_ka : product.title_en;
-  const description =
-    locale === "ka" ? product.description_ka : product.description_en;
+  // const description =
+  //   locale === "ka" ? product.description_ka : product.description_en;
   // const t = useTranslations("Add");
 
   return (
     <div
       key={product.id}
-      className="flex flex-col items-center gap-4 border border-r-stone-200 p-2 rounded-xl dark:text-white text-black "
+      className={`${lusitana.className} flex flex-col items-center gap-4  dark:text-white text-black `}
     >
-      <Link href={`/${locale}/products/${product.id}`} className="relative">
-        <Image
-          width={240}
-          height={135}
-          src={product.image}
-          alt={title || "პროდუქტის სურათი"}
-          className="rounded-md w-auto h-auto"
-          priority
-          crossOrigin="anonymous"
-        />
-      </Link>
-      {/* <div className="text-white text-xl flex group "> */}
-      <AddToCartButton product_id={product.id} />
+      <div className="px-5 bg-white rounded-[45px]">
+        <div className="bg-white rounded-[45px] relative group overflow-hidden h-80 flex items-center">
+          <Link
+            href={`/${locale}/products/${product.id}`}
+            className="overflow-hidden rounded-md "
+          >
+            <Image
+              width={240}
+              height={135}
+              src={product.image}
+              alt={title || "პროდუქტის სურათი"}
+              className="w-auto group-hover:scale-110 group-hover:transition-all group-hover:duration-[3000ms] group-hover:ease-in-out"
+              priority
+              crossOrigin="anonymous"
+            />
+            {/* <div className="text-white text-xl flex group "> */}
+          </Link>
+          <div className="absolute bottom-2 z-10 hidden group-hover:block group-hover:animate-rise0_25s w-full">
+            <AddToCartButton product_id={product.id} />
+          </div>
+        </div>
+      </div>
       {/* </div> */}
-      <h4 className="item-name ">{title || "სათაური არ არის ხელმისაწვდომი"}</h4>
-      <div>{product.price} ₾</div>
-      <p className="text-[0.9rem] line-clamp-1">
+      <div className="flex flex-col items-center">
+        <h4 className="item-name font-bold">
+          {title || "სათაური არ არის ხელმისაწვდომი"}
+        </h4>
+        <div>{product.price} ₾</div>
+      </div>
+      {/* <p className="text-[0.9rem] line-clamp-1">
         {description || "აღწერა არ არის ხელმისაწვდომი"}
-      </p>
+      </p> */}
       <div className="flex gap-2 relative">
         {/* <DeleteProductBtn product_id={product.id} onDelete={onDelete} /> */}
         {/* <BuyProductBtn product_id={product.id} /> */}

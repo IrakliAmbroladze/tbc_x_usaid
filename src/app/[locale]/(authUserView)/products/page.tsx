@@ -33,12 +33,12 @@ export default async function Products({
     <div>
       <h2
         data-cy="product-list-title"
-        className={`${lusitana.className} text-3xl sm:text-5xl md:text-8xl  m-5 dark:text-white text-black font-bold`}
+        className={`${lusitana.className} text-3xl sm:text-5xl md:text-8xl  m-5 dark:text-white text-black font-bold animate-rise0_25s`}
       >
         {productTitle}
       </h2>
       <div className="flex flex-col sm:flex-row">
-        <div className="flex flex-col sm:items-center sm:ml-5">
+        <div className="flex flex-col sm:items-center sm:ml-5 animate-rise delay-500">
           <Search />
           <SortingButtons />
           {/* <Link
@@ -49,7 +49,7 @@ export default async function Products({
             {add_new_product}
           </Link> */}
         </div>
-        <div className="w-full max-w-[1110px] mx-auto dark:text-white mt">
+        <div className="w-full max-w-[1110px] mx-auto dark:text-white mt animate-rise delay-1000">
           <ProductList
             locale={locale}
             query={query}

@@ -125,14 +125,23 @@ const ProductList = ({
     return (
       <div className="w-full max-w-[1110px] mx-auto mb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-3 gap-4 justify-items-center">
-          {productList.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              locale={locale}
-              onDelete={onDelete}
-            />
-          ))}
+          {productList.map((product, index) => {
+            return (
+              <>
+                <div
+                  className={`border border-r-stone-200 p-2 
+                    ${index % 5 !== 0 ? "rounded-[45px]" : ""}`}
+                >
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    locale={locale}
+                    onDelete={onDelete}
+                  />
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
     );

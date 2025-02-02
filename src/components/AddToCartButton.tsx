@@ -60,10 +60,17 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   return (
     <button
       onClick={handleClick}
-      className="h-12 m-2 p-2 rounded-md flex items-center group hover:bg-[#f0eff4] hover:w-full justify-center"
+      className="w-full p-10 rounded-full flex items-center justify-center bg-[#f0eff4] dark:bg-[#f0eff4] dark:text-black font-bold border-black active:border-2 "
     >
       <FiShoppingCart />
-      <span className="px-2 hidden group-hover:block text-sm">Add to Cart</span>
+      <span className="px-2  text-sm">Add to Cart</span>
     </button>
+    // <button
+    //   onClick={handleClick}
+    //   className="h-12 m-2 p-2 rounded-md flex items-center group hover:bg-[#f0eff4] hover:w-full justify-center"
+    // >
+    //   <FiShoppingCart />
+    //   <span className="px-2 hidden group-hover:block text-sm">Add to Cart</span>
+    // </button>
   );
 };
