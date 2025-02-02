@@ -1,6 +1,8 @@
 "use client";
+import { lusitana } from "@/ui/fonts";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
+import { FiFilter } from "react-icons/fi";
 import { useDebouncedCallback } from "use-debounce";
 
 export function SortingButtons() {
@@ -80,18 +82,19 @@ export function SortingButtons() {
   }, [searchParams]);
 
   return (
-    <div className="inline-block">
+    <div className={`${lusitana.className} w-full`}>
       <button
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+        className="p-3 my-4 sm:justify-between justify-center py-2 bg-[#222e46] text-white rounded-lg flex items-center w-full "
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        Filter ⚙️
+        <span className="pr-3">Filter</span>
+        <FiFilter />
       </button>
 
       {menuOpen && (
         <div
           ref={menuRef}
-          className="absolute mt-2 p-4 bg-white dark:bg-stone-800 border rounded-lg shadow-lg z-10"
+          className="text-black dark:text-[#f0eff4] absolute mt-2 p-4 bg-white dark:bg-stone-800 border rounded-lg shadow-lg z-10"
         >
           <div>
             <b>Sort By:</b>
@@ -110,8 +113,8 @@ export function SortingButtons() {
               <button
                 className={`px-4 py-2 rounded-lg ${
                   selectedOrder === "asc"
-                    ? "bg-blue-600 text-white "
-                    : "bg-gray-200 dark:bg-gray-600"
+                    ? "bg-[#86cd82] text-[#f0eff4] "
+                    : "bg-[#f0eff4] text-black"
                 }`}
                 onClick={() => handleOrderChange("asc")}
               >
@@ -120,8 +123,8 @@ export function SortingButtons() {
               <button
                 className={`px-4 py-2 rounded-lg ${
                   selectedOrder === "desc"
-                    ? "bg-blue-600 text-white "
-                    : "bg-gray-200 dark:bg-gray-600"
+                    ? "bg-[#86cd82] text-[#f0eff4] "
+                    : "bg-[#f0eff4] text-black"
                 }`}
                 onClick={() => handleOrderChange("desc")}
               >
@@ -149,13 +152,13 @@ export function SortingButtons() {
           </div>
           <div className="flex justify-between mt-4">
             <button
-              className="px-4 py-2 bg-gray-200 rounded-lg dark:bg-gray-600"
+              className="px-4 py-2 bg-[#f0eff4] rounded-lg dark:bg-[#f0eff4] text-black transition-transform duration-300 ease-in-out active:scale-95"
               onClick={handleClear}
             >
               Clear
             </button>
             <button
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+              className="px-4 py-2 bg-[#86cd82] text-[#f0eff4] rounded-lg hover:scale-110 transition-transform duration-300 ease-in-out active:scale-95"
               onClick={handleApply}
             >
               Apply
@@ -196,9 +199,9 @@ export function Search(): JSX.Element {
   };
 
   return (
-    <div className="relative w-full sm:w-96 md:w-[500px]">
+    <div className="relative w-full">
       <input
-        className="bg-stone-100 dark:bg-stone-500 text-stone-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-200 w-full px-4 py-2 rounded-lg pr-10"
+        className={`bg-stone-100 dark:bg-stone-500 text-stone-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-200 w-full px-4 py-2 rounded-lg pr-10 ${lusitana.className}`}
         placeholder="search"
         value={query}
         onChange={(e) => {

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { FiShoppingCart } from "react-icons/fi";
 
 interface AddToCartButtonProps {
   product_id: string | number;
@@ -59,9 +60,10 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   return (
     <button
       onClick={handleClick}
-      className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+      className="h-12 m-2 p-2 rounded-md flex items-center group hover:bg-[#f0eff4] hover:w-full justify-center"
     >
-      Add to Cart
+      <FiShoppingCart />
+      <span className="px-2 hidden group-hover:block text-sm">Add to Cart</span>
     </button>
   );
 };

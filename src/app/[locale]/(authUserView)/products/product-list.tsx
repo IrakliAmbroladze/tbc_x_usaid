@@ -124,7 +124,7 @@ const ProductList = ({
   }: ProductListProps): JSX.Element => {
     return (
       <div className="w-full max-w-[1110px] mx-auto mb-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-3 gap-4 justify-items-center mt-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-3 gap-4 justify-items-center">
           {productList.map((product) => (
             <ProductCard
               key={product.id}
