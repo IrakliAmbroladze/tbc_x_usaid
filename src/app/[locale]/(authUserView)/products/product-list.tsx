@@ -130,7 +130,9 @@ const ProductList = ({
               <>
                 <div
                   className={`border border-r-stone-200 p-2 
-                    ${index % 5 !== 0 ? "rounded-[45px]" : ""}`}
+                    ${index % 5 !== 0 ? "rounded-[45px]" : ""}
+                    ${index % 2 !== 0 ? "mt-20" : ""}
+                  ${index % 3 !== 0 ? "mt-10 " : ""}`}
                 >
                   <ProductCard
                     key={product.id}
