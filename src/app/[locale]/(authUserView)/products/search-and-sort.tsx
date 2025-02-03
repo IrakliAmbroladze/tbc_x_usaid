@@ -84,7 +84,7 @@ export function SortingButtons() {
   return (
     <div className={`${lusitana.className} w-full`}>
       <button
-        className="p-3 my-4 sm:justify-between justify-center py-2 bg-[#222e46] text-white rounded-lg flex items-center w-full "
+        className="hover:text-[#ffa552] p-3 my-2 sm:justify-between justify-center py-2 bg-[#222e46] text-white rounded-lg flex items-center w-full "
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <span className="pr-3">Filter</span>
@@ -199,7 +199,7 @@ export function Search(): JSX.Element {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="my-2 relative w-full">
       <input
         className={`bg-stone-100 dark:bg-stone-500 text-stone-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-200 w-full px-4 py-2 rounded-lg pr-10 ${lusitana.className}`}
         placeholder="search"

@@ -1,6 +1,6 @@
 import Link from "next/link";
 // import { useTranslations } from "next-intl";
-// import { DeleteProductBtn, BuyProductBtn } from "./cart-buttons";
+import { DeleteProductBtn, EditProductBtn } from "./cart-buttons";
 import Image from "next/image";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { lusitana } from "@/ui/fonts";
@@ -25,7 +25,7 @@ export interface Product {
 export default function ProductCard({
   product,
   locale,
-  // onDelete,
+  onDelete,
 }: ProductCardProps): JSX.Element {
   const title = locale === "ka" ? product.title_ka : product.title_en;
   // const description =
@@ -35,7 +35,7 @@ export default function ProductCard({
   return (
     <div
       key={product.id}
-      className={`${lusitana.className} flex flex-col items-center gap-4  dark:text-white text-black `}
+      className={`${lusitana.className} relative flex flex-col items-center gap-4  dark:text-white text-black `}
     >
       <div className="px-5 bg-white rounded-[45px]">
         <div className="bg-white rounded-[45px] relative group overflow-hidden h-80 flex items-center">
@@ -54,7 +54,7 @@ export default function ProductCard({
             />
             {/* <div className="text-white text-xl flex group "> */}
           </Link>
-          <div className="absolute bottom-2 z-10 hidden group-hover:block group-hover:animate-rise0_25s w-full">
+          <div className="absolute bottom-2 z-10 hidden group-hover:block group-hover:animate-rise0_25s w-full transition-transform duration-150 ease-in-out active:scale-95">
             <AddToCartButton product_id={product.id} />
           </div>
         </div>
@@ -69,13 +69,9 @@ export default function ProductCard({
       {/* <p className="text-[0.9rem] line-clamp-1">
         {description || "აღწერა არ არის ხელმისაწვდომი"}
       </p> */}
-      <div className="flex gap-2 relative">
-        {/* <DeleteProductBtn product_id={product.id} onDelete={onDelete} /> */}
-        {/* <BuyProductBtn product_id={product.id} /> */}
-
-        {/* <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-            {t("More details")}
-          </button> */}
+      <div className="flex gap-2 absolute right-0 mr-3 mt-3">
+        <EditProductBtn product_id={product.id} onDelete={onDelete} />
+        <DeleteProductBtn product_id={product.id} onDelete={onDelete} />
       </div>
     </div>
   );

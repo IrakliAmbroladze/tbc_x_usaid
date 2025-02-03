@@ -1,6 +1,7 @@
 "use client";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
+import { FiEdit3, FiX } from "react-icons/fi";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "",
@@ -30,9 +31,26 @@ export const DeleteProductBtn: React.FC<DeleteProductProps> = ({
     <button
       product-id={product_id}
       onClick={handleClick}
-      className="px-4 py-2 bg-red-300 text-white font-semibold rounded-lg shadow-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
+      className="px-2 py-2 bg-[#ff686b] text-white hover:text-black rounded-3xl shadow-sm  transition-transform duration-150 ease-in-out active:scale-95"
     >
-      Delete
+      <FiX />
+    </button>
+  );
+};
+
+export const EditProductBtn: React.FC<DeleteProductProps> = ({
+  product_id,
+}) => {
+  const handleClick = () => {
+    console.log(`"clicked" ${product_id}`);
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className="px-4 py-2 bg-[#86cd82] text-white rounded-3xl shadow-sm hover:text-black transition-transform duration-150 ease-in-out active:scale-95"
+    >
+      <FiEdit3 />
     </button>
   );
 };

@@ -1,4 +1,4 @@
-// import { Link } from "i18n/routing";
+import { Link } from "i18n/routing";
 import ProductList from "./product-list";
 import { Search } from "./search-and-sort";
 import { SortingButtons } from "./search-and-sort";
@@ -27,8 +27,8 @@ export default async function Products({
 
   const { locale } = params;
   const productTitle = locale === "ka" ? "პროდუქტები" : "P R O D U C T S";
-  // const add_new_product =
-  //   locale === "ka" ? "ახალი პროდუქტის დამატება" : "Add New Product";
+  const add_new_product =
+    locale === "ka" ? "ახალი პროდუქტის დამატება" : "Add New Product";
   return (
     <div>
       <h2
@@ -41,13 +41,13 @@ export default async function Products({
         <div className="flex flex-col sm:items-center sm:ml-5 animate-rise delay-500">
           <Search />
           <SortingButtons />
-          {/* <Link
+          <Link
             data-cy="add-new-product"
-            className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
             href={"./products/add-product"}
+            className="transition-transform duration-150 ease-in-out hover:text-[#222e46] active:scale-95 p-3 mt-2 mb-4 sm:justify-between justify-center py-2 bg-[#86cd82] text-white rounded-lg flex items-center w-full "
           >
             {add_new_product}
-          </Link> */}
+          </Link>
         </div>
         <div className="w-full max-w-[1110px] mx-auto dark:text-white mt animate-rise delay-1000">
           <ProductList
