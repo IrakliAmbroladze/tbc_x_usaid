@@ -53,7 +53,7 @@ export default function ProductCard({
       </div>
       <div className="flex gap-2 absolute right-0 mr-3 mt-3">
         <Link
-          data-cy="edit-product"
+          data-cy={`edit-${product.id}`}
           href={`./products/${product.id}/edit-product`}
           className="px-4 py-2 bg-[#86cd82] text-white rounded-3xl shadow-sm hover:text-black transition-transform duration-150 ease-in-out active:scale-95"
         >

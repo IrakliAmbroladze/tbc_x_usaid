@@ -237,6 +237,7 @@ const EditProductForm = ({ id }: { id: string }): JSX.Element => {
           <div className="flex justify-center">
             <button
               type="submit"
+              data-cy="update"
               disabled={loading}
               className={`px-6 py-3 mt-4 text-white rounded-md ${loading ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"}`}
             >
@@ -247,7 +248,9 @@ const EditProductForm = ({ id }: { id: string }): JSX.Element => {
       )}
       {error && <p className="mt-4 text-center text-red-500">{error}</p>}
       {success && isVisible && (
-        <p className="mt-4 text-center text-green-500">{success}</p>
+        <p data-cy="success" className="mt-4 text-center text-green-500">
+          {success}
+        </p>
       )}
     </>
   );

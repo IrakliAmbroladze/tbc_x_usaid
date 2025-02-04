@@ -103,4 +103,17 @@ describe("product manipulation", () => {
       });
     });
   });
+  it("successfully updates a product", () => {
+    createProduct().then((response) => {
+      expect(response.status).to.eq(200);
+      productId = response.body.product[0].id;
+
+      cy.get('[data-cy="menu"]').click();
+      cy.get('[data-cy="products-header"]').click();
+      cy.get(`[data-cy=${`edit-${productId}`}]`).click();
+      cy.get('[id="title_en"]').clear().type("testTitle");
+      cy.get(`[data-cy="update"]`).click();
+      cy.get('[data-cy="success"]').should("exist");
+    });
+  });
 });
