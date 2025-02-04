@@ -1,41 +1,21 @@
 import Image from "next/image";
+import { fetchProductById } from "@/utils/fetch-product-by-id";
+import { langIsKa } from "@/utils/lang-is-ka";
+import { Link } from "i18n/routing";
 
-interface SingleProduct {
-  id: string | number;
-  title_ka: string;
-  title_en: string;
-  image: string;
-  description_ka: string;
-  description_en: string;
-  price: number;
-}
-interface ProductPageProps {
-  params: { id: string; locale?: string };
-}
-interface ProductProps {
-  product: SingleProduct;
-  locale?: string;
-}
+const ProductPage = async ({
+  params,
+}: {
+  params: { id: string };
+}): Promise<JSX.Element> => {
+  const { id } = params;
+  const product = await fetchProductById(id);
+  if (!product) return <p>product does not exist</p>;
 
-const fetchProduct = async (id: string): Promise<SingleProduct | null> => {
-  const appUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  try {
-    const response = await fetch(`${appUrl}/api/products/${id}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch product");
-    }
-    const product: SingleProduct = await response.json();
-    return product;
-  } catch (error) {
-    console.error("Error fetching product:", error);
-    return null;
-  }
-};
-
-const Product = ({ product, locale }: ProductProps): JSX.Element => {
-  const title = locale === "ka" ? product.title_ka : product.title_en;
-  const description =
-    locale === "ka" ? product.description_ka : product.description_en;
+  const title = langIsKa() ? product.title_ka : product.title_en;
+  const description = langIsKa()
+    ? product.description_ka
+    : product.description_en;
 
   return (
     <div
@@ -44,9 +24,9 @@ const Product = ({ product, locale }: ProductProps): JSX.Element => {
     >
       <div className="relative group">
         <Image
-          width={384}
-          height={240}
-          layout="responsive"
+          width={1920}
+          height={1080}
+          style={{ width: "100%", height: "auto" }}
           src={product.image}
           alt={product.title_ka}
           className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
@@ -61,20 +41,13 @@ const Product = ({ product, locale }: ProductProps): JSX.Element => {
         <p className="text-xl text-yellow-500 mt-4 font-semibold">
           {product.price} ₾
         </p>
+        <div className="flex justify-between text-black">
+          <Link href={"./"}>go to products list</Link>
+          <Link href={`./${id}/edit-product`}>edit product</Link>
+        </div>
       </div>
     </div>
   );
-};
-
-const ProductPage = async ({
-  params,
-}: ProductPageProps): Promise<JSX.Element> => {
-  const { id, locale } = params;
-  const product = await fetchProduct(id);
-  if (!product) {
-    return <p>product does not exist</p>;
-  }
-  return <Product key={product.id} product={product} locale={locale} />;
 };
 
 export default ProductPage;

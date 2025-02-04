@@ -2,26 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import ProductCard from "./product-cart";
-
-interface ProductListProps {
-  productList?: Product[];
-  locale: string;
-  query?: string;
-  sortBy?: string;
-  order?: string;
-  minPrice?: number;
-  maxPrice?: number;
-}
-
-export interface Product {
-  id: string | number;
-  title_ka: string;
-  title_en: string;
-  image: string;
-  description_ka: string;
-  description_en: string;
-  price: number;
-}
+import { Product, ProductListProps } from "@/types/product";
 
 async function fetchProducts(
   sortBy: string,
@@ -30,15 +11,14 @@ async function fetchProducts(
   minPrice: number,
   maxPrice: number,
 ): Promise<Product[]> {
-  const productsURL = `/api/products`;
   try {
-    const response = await fetch(productsURL, {
+    const response = await fetch("/api/products", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        sortBy: `${sortBy}`,
-        query: `${query}`,
-        order: `${order}`,
+        sortBy,
+        query,
+        order,
         minPrice: `${minPrice}`,
         maxPrice: `${maxPrice}`,
       },
@@ -52,31 +32,27 @@ async function fetchProducts(
 
 const ProductList = ({
   locale,
-  sortBy,
-  query,
-  order,
-  minPrice,
-  maxPrice,
+  sortBy = "",
+  query = "",
+  order = "",
+  minPrice = 0,
+  maxPrice = 1000000,
 }: ProductListProps): JSX.Element => {
   const [productList, setProductList] = useState<Product[]>([]);
-  const apiSortBy = sortBy || "";
-  const apiQuery = query || "";
-  const apiOrder = order || "";
-  const apiMinPrice = minPrice || 0;
-  const apiMaxPrice = maxPrice || 1000000;
+
   useEffect(() => {
     const loadProducts = async () => {
       const result = await fetchProducts(
-        apiSortBy,
-        apiQuery,
-        apiOrder,
-        apiMinPrice,
-        apiMaxPrice,
+        sortBy,
+        query,
+        order,
+        minPrice,
+        maxPrice,
       );
       setProductList(result);
     };
     loadProducts();
-  }, [apiSortBy, apiQuery, apiOrder, apiMinPrice, apiMaxPrice]);
+  }, [sortBy, query, order, minPrice, maxPrice]);
 
   const handleDelete = async (id: number | string) => {
     try {
@@ -101,60 +77,26 @@ const ProductList = ({
     }
   };
 
-  interface ProductListProps {
-    productList: Product[];
-    locale: string;
-    onDelete: (id: number | string) => void;
-  }
-
-  interface Product {
-    id: string | number;
-    title_ka: string;
-    title_en: string;
-    image: string;
-    description_ka: string;
-    description_en: string;
-    price: number;
-  }
-
-  const ProductList = ({
-    productList,
-    locale,
-    onDelete,
-  }: ProductListProps): JSX.Element => {
-    return (
-      <div className="w-full max-w-[1110px] mx-auto mb-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-3 gap-4 justify-items-center">
-          {productList.map((product, index) => {
-            return (
-              <>
-                <div
-                  className={`border border-r-stone-200 p-2 
-                    ${index % 5 !== 0 ? "rounded-[45px]" : ""}
-                    ${index % 2 !== 0 ? "mt-20" : ""}
-                  ${index % 3 !== 0 ? "mt-10 " : ""}`}
-                >
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    locale={locale}
-                    onDelete={onDelete}
-                  />
-                </div>
-              </>
-            );
-          })}
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <ProductList
-      productList={productList}
-      locale={locale}
-      onDelete={handleDelete}
-    />
+    <div className="w-full max-w-[1110px] mx-auto mb-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-3 gap-4 justify-items-center">
+        {productList.map((product, index) => (
+          <div
+            key={product.id}
+            className={`border border-r-stone-200 p-2 
+              ${index % 5 !== 0 ? "rounded-[45px]" : ""}
+              ${index % 2 !== 0 ? "mt-20" : ""}
+              ${index % 3 !== 0 ? "mt-10" : ""}`}
+          >
+            <ProductCard
+              product={product}
+              locale={locale}
+              onDelete={handleDelete}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -1,9 +1,9 @@
-import { supabaseBasedOnToken } from "@/lib/supabase/supabase-token";
+import { supabaseTokenUser } from "@/lib/token-user";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const { data, error } = await (await supabaseBasedOnToken(req))
+    const { data, error } = await (await supabaseTokenUser(req))
       .from("invoices")
       .select("*")
       .order("delivery_date", { ascending: true, nullsFirst: true })
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const updates = plan_date !== undefined ? { plan_date } : { delivery_date };
 
-    const { data, error } = await (await supabaseBasedOnToken(req))
+    const { data, error } = await (await supabaseTokenUser(req))
       .from("invoices")
       .update(updates)
       .eq("id", invoice_id)
