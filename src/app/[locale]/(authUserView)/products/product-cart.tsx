@@ -38,6 +38,7 @@ export default function ProductCard({
               className="w-auto group-hover:scale-110 group-hover:transition-all group-hover:duration-[3000ms] group-hover:ease-in-out"
               priority
               crossOrigin="anonymous"
+              data-cy={`image-${product.id}`}
             />
           </Link>
           <div className="absolute bottom-2 z-10 hidden group-hover:block group-hover:animate-rise0_25s w-full transition-transform duration-150 ease-in-out active:scale-95">

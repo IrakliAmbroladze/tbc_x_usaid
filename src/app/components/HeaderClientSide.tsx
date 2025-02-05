@@ -38,7 +38,7 @@ export default function HeaderClientSide(): JSX.Element {
     { href: "/products", label: t("products"), data_cy: "products-header" },
     { href: "/blog", label: t("blog") },
     { href: "/pricing", label: t("pricing") },
-    { href: "/cart", label: t("cart") },
+    { href: "/cart", label: t("cart"), data_cy: "cart-header" },
     { href: "/orders", label: t("orders") },
     { href: "/profile", label: t("profile") },
     { href: "/contact", label: t("contact") },

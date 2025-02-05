@@ -46,7 +46,6 @@ export async function POST(req: NextRequest): Promise<Response> {
     const myCookies = cookies();
     const langCookie = myCookies.get("NEXT_LOCALE")?.value || "en";
     const url = getBaseUrl(req);
-    console.log(url);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],

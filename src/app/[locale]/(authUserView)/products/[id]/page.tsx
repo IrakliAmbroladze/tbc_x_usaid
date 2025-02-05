@@ -2,6 +2,7 @@ import Image from "next/image";
 import { fetchProductById } from "@/utils/fetch-product-by-id";
 import { langIsKa } from "@/utils/lang-is-ka";
 import { Link } from "i18n/routing";
+import { AddToCartButton } from "@/components/AddToCartButton";
 
 const ProductPage = async ({
   params,
@@ -43,6 +44,7 @@ const ProductPage = async ({
         </p>
         <div className="flex justify-between text-black">
           <Link href={"./"}>go to products list</Link>
+          <AddToCartButton product_id={product.id} />
           <Link href={`./${id}/edit-product`}>edit product</Link>
         </div>
       </div>

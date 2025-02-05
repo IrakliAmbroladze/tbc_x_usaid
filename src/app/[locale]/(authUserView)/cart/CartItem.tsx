@@ -73,6 +73,7 @@ const CartItem = ({ product, updateQuantity, removeItem }: CartItemProps) => {
         <button
           onClick={() => removeItem(product.id)}
           className="bg-red-500 text-white px-3 py-1 rounded-md"
+          data-cy={`remove-${product.id}`}
         >
           Remove
         </button>

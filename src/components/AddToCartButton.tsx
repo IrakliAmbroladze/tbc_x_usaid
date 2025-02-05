@@ -61,6 +61,7 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
     <button
       onClick={handleClick}
       className="w-full p-10 rounded-full flex items-center justify-center bg-[#f0eff4] dark:bg-[#f0eff4] dark:text-black font-bold"
+      data-cy="cartBtn"
     >
       <FiShoppingCart />
       <span className="px-2  text-sm">Add to Cart</span>

@@ -3,7 +3,7 @@ import { createClient } from "../../../lib/supabase/server";
 export const GET = async (req: Request): Promise<Response> => {
   const { headers } = req;
   const sortBy = headers.get("sortBy") || "id";
-  const order = headers.get("order") || "asc";
+  const order = headers.get("order") || "desc";
   const query = headers.get("query") || "";
 
   const minPriceHeader = headers.get("minPrice");
