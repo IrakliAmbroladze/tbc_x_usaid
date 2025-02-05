@@ -37,7 +37,8 @@
     "start": "next start",
     "test:e2e": "cypress open",
     "test:e2e:ci": "cypress run",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "cypress": "^13.17.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.1.5",
+    "husky": "^9.1.7",
     "postcss": "^8.4.47",
     "prettier": "^3.4.2",
     "prettier-eslint": "^16.3.0",
