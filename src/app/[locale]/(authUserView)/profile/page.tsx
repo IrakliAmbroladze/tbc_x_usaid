@@ -1,40 +1,9 @@
 import Image from "next/image";
-import { createClient } from "@/lib/supabase/server";
 import ProfileForm from "./profile-form";
 
 const Profile = async (): Promise<JSX.Element> => {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  const { data: session } = await supabase.auth.getSession();
-  const token = session?.session?.access_token;
-
-  const fetchdata = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/users-data`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-      return await response.json();
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-      return "";
-    }
-  };
-
-  const initialdata = (await fetchdata()).data[0];
   return (
     <>
-      <div className="text-black dark:text-[#f0eff4] text-right sm:hidden">
-        {user?.email || "not available"}
-      </div>
       <h2
         data-cy="product-list-title"
         className="text-3xl sm:text-5xl md:text-8xl  m-5 dark:text-white text-black font-bold animate-rise0_25s"
@@ -51,7 +20,7 @@ const Profile = async (): Promise<JSX.Element> => {
           priority
         />
         <div className="absolute flex flex-col items-end z-10 top-20 left-[10%] w-[80%] h-[80%] bg-[linear-gradient(0deg,#f0eff4,#5ea6c400)] text-black p-4">
-          <ProfileForm initialdata={initialdata} />
+          <ProfileForm />
         </div>
       </div>
     </>
