@@ -73,6 +73,7 @@ describe("placing an order", () => {
       cy.intercept("POST", "/api/cart-checkout", {
         statusCode: 200,
       }).as("getMessagePOST");
+      cy.wait(3000);
       cy.get('[data-cy="checkoutBtn"]').click();
       deleteProductFromCart(productId);
       cy.visit("/");

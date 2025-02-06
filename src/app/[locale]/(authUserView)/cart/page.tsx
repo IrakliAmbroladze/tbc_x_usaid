@@ -26,10 +26,11 @@ const CartPage = () => {
           data: { session },
         } = await supabase.auth.getSession();
 
-        console.log(session);
         if (!session?.access_token) {
           throw new Error("User is not authenticated");
         }
+
+        console.log(session);
 
         const response = await fetch("/api/cart", {
           method: "GET",

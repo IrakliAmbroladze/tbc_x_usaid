@@ -16,8 +16,8 @@ export default async function AuthButton() {
     <div
       className={`${lusitana.className} flex dark:text-white text-black items-center gap-4`}
     >
-      <Link href={"./profile"} className="hidden sm:w-auto sm:inline">
-        {user.email}
+      <Link href={"/profile"} className="hidden sm:w-auto sm:inline">
+        {user?.user_metadata?.user_name || user.email}
       </Link>
 
       <form action={signOutAction}>
