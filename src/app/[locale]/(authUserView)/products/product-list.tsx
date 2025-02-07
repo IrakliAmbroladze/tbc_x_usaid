@@ -71,7 +71,6 @@ const ProductList = ({
       setProductList((prevList) =>
         prevList.filter((product) => product.id !== id),
       );
-      console.log(`Product ${id} deleted`);
     } catch (error) {
       console.error("Failed to delete product:", error);
     }

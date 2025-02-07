@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PostList from "./PostList";
+import { createClient } from "@/lib/supabase/client";
 
 type Post = {
   id: number;
@@ -62,6 +63,37 @@ const PaginatedBlog = ({ locale, query = "" }: BogListProps) => {
   }, [query]);
   const totalPages = Math.max(1, Math.ceil(totalPosts / postsPerPage));
 
+  const handleDelete = async (id: number | string) => {
+    try {
+      const supabase = createClient();
+
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!session?.access_token) {
+        throw new Error("User is not authenticated");
+      }
+
+      const response = await fetch("/api/delete-post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ id }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${await response.text()}`);
+      }
+
+      setPosts((prevList) => prevList.filter((product) => product.id !== id));
+    } catch (error) {
+      console.error("Failed to delete product:", error);
+    }
+  };
+
   return (
     <div className="w-full max-w-[1110px] mx-auto mb-8 px-4">
       <div className="flex justify-end items-center gap-2 ">
@@ -85,7 +117,7 @@ const PaginatedBlog = ({ locale, query = "" }: BogListProps) => {
           {locale == "ka" ? "შემდეგი" : "Next"}
         </button>
       </div>
-      <PostList postList={posts} locale={locale} />
+      <PostList postList={posts} locale={locale} onDelete={handleDelete} />
     </div>
   );
 };

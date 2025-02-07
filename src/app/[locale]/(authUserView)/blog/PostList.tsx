@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Link } from "i18n/routing";
 import { useTranslations } from "next-intl";
 import { FiEdit3 } from "react-icons/fi";
+import { DeleteProductBtn } from "./delete-post";
 
 type Post = {
   id: number;
@@ -21,18 +22,25 @@ type Post = {
 interface PostListProps {
   postList: Post[];
   locale: string;
+  onDelete: (id: number | string) => void;
 }
 
 interface PostCardProps {
   post: Post;
+  onDelete: (id: number | string) => void;
 }
 
-const PostList: FC<PostListProps> = ({ postList, locale }) => {
+const PostList: FC<PostListProps> = ({ postList, locale, onDelete }) => {
   return (
     <div className="w-full max-w-[1110px] mx-auto mb-8 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {postList.map((post) => (
-          <PostCard key={post.id} post={post} locale={locale} />
+          <PostCard
+            key={post.id}
+            post={post}
+            locale={locale}
+            onDelete={onDelete}
+          />
         ))}
       </div>
     </div>
@@ -42,6 +50,7 @@ const PostList: FC<PostListProps> = ({ postList, locale }) => {
 const PostCard = ({
   post,
   locale,
+  onDelete,
 }: PostCardProps & { locale: string }): JSX.Element => {
   const t = useTranslations("Add");
   return (
@@ -60,6 +69,7 @@ const PostCard = ({
         >
           <FiEdit3 />
         </Link>
+        <DeleteProductBtn product_id={post.id} onDelete={onDelete} />
         <Link
           href={`/blog/${post.id}`}
           className="bg-black text-white py-2 px-4 font-medium text-sm rounded-md hover:bg-gray-500  ease-in-out"
