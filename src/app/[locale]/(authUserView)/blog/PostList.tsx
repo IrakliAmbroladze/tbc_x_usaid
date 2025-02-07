@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Link } from "i18n/routing";
 import { useTranslations } from "next-intl";
+import { FiEdit3 } from "react-icons/fi";
 
 type Post = {
   id: number;
@@ -52,9 +53,13 @@ const PostCard = ({
         {locale == "ka" ? post.body_ka : post.body_en}
       </p>
       <div className="mt-auto flex justify-between">
-        <div className="flex justify-center text-black pt-2 font-medium text-sm dark:text-gray-200 ">
-          {t("views")}: {post.views}
-        </div>
+        <Link
+          data-cy={`edit-${post.id}`}
+          href={`./blog/${post.id}/edit-blog`}
+          className="px-4 py-2 bg-[#86cd82] text-white rounded-3xl shadow-sm hover:text-black transition-transform duration-150 ease-in-out active:scale-95"
+        >
+          <FiEdit3 />
+        </Link>
         <Link
           href={`/blog/${post.id}`}
           className="bg-black text-white py-2 px-4 font-medium text-sm rounded-md hover:bg-gray-500  ease-in-out"

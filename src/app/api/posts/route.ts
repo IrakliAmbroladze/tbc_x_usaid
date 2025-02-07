@@ -18,7 +18,9 @@ export const GET = async (req: Request) => {
       supabaseQuery = supabaseQuery.ilike("title_en", `%${query}%`);
     }
 
-    const { data: posts, error } = await supabaseQuery.range(from, to);
+    const { data: posts, error } = await supabaseQuery
+      .range(from, to)
+      .order("id", { ascending: false });
 
     if (error) {
       return new Response(JSON.stringify({ error: error.message }), {
