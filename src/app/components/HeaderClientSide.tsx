@@ -57,7 +57,7 @@ export default function HeaderClientSide(): JSX.Element {
       </button>
       {menuOpen && (
         <nav
-          className={`absolute h-svh top-12 left-0 w-full shadow-md dark:bg-stone-800/20 bg-stone-50/20 backdrop-blur-md text-6xl`}
+          className={`absolute h-svh top-12 left-0 w-full shadow-md dark:bg-stone-800/20 bg-stone-50/20 backdrop-blur-md text-5xl`}
           aria-label="Main Navigation"
         >
           <ul className="flex flex-col gap-3 p-4 max-w-[1110px] mx-auto">
