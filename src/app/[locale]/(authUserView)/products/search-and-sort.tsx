@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { FiFilter } from "react-icons/fi";
 import { useDebouncedCallback } from "use-debounce";
 
-export function SortingButtons() {
+export function SortingButtons({ locale }: { locale: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -87,7 +87,7 @@ export function SortingButtons() {
         className="hover:text-[#ffa552] p-3 my-2 sm:justify-between justify-center py-2 bg-[#222e46] text-white rounded-lg flex items-center w-full "
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        <span className="pr-3">Filter</span>
+        <span className="pr-3">{locale === "ka" ? "ფილტრი" : "Filter"}</span>
         <FiFilter />
       </button>
 
@@ -170,7 +170,7 @@ export function SortingButtons() {
   );
 }
 
-export function Search(): JSX.Element {
+export function Search({ locale }: { locale: string }): JSX.Element {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -202,7 +202,7 @@ export function Search(): JSX.Element {
     <div className="my-2 relative w-full">
       <input
         className={`bg-stone-100 dark:bg-stone-500 text-stone-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-200 w-full px-4 py-2 rounded-lg pr-10 ${lusitana.className}`}
-        placeholder="search"
+        placeholder={locale == "ka" ? "ძებნა" : "search"}
         value={query}
         onChange={(e) => {
           const value = e.target.value;

@@ -3,6 +3,7 @@ import { fetchProductById } from "@/utils/fetch-product-by-id";
 import { langIsKa } from "@/utils/lang-is-ka";
 import { Link } from "i18n/routing";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { FiArrowLeft, FiEdit3 } from "react-icons/fi";
 
 const ProductPage = async ({
   params,
@@ -21,8 +22,19 @@ const ProductPage = async ({
   return (
     <div
       key={product.id}
-      className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 mt-32"
+      className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 mt-5 p-5"
     >
+      <div className="flex justify-between">
+        <Link href={"./"} className="text-black text-5xl">
+          <FiArrowLeft />
+        </Link>
+        <Link
+          href={`./${id}/edit-product`}
+          className="w-20 px-4 py-2 bg-[#86cd82] rounded-3xl shadow-sm hover:text-black transition-transform duration-150 ease-in-out active:scale-95 text-center text-black flex items-center justify-center text-xl"
+        >
+          <FiEdit3 />
+        </Link>
+      </div>
       <div className="relative group">
         <Image
           width={1920}
@@ -30,22 +42,17 @@ const ProductPage = async ({
           style={{ width: "100%", height: "auto" }}
           src={product.image}
           alt={product.title_ka}
-          className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
+          className="w-full h-60 object-cover transition-transform duration-300"
         />
-        <div className="absolute top-0 left-0 bg-black bg-opacity-60 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-          <p className="text-white text-lg font-semibold">{title}</p>
-        </div>
       </div>
       <div className="p-6">
         <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
         <p className="text-gray-600 text-sm mt-2 line-clamp-3">{description}</p>
-        <p className="text-xl text-yellow-500 mt-4 font-semibold">
+        <p className="text-xl text-yellow-500 mt-4 font-semibold text-center my-5">
           {product.price} ₾
         </p>
         <div className="flex justify-between text-black">
-          <Link href={"./"}>go to products list</Link>
           <AddToCartButton product_id={product.id} />
-          <Link href={`./${id}/edit-product`}>edit product</Link>
         </div>
       </div>
     </div>

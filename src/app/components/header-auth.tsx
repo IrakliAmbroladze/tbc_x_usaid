@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { createClient } from "../../lib/supabase/server";
 import { PowerIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/ui/fonts";
+import { langIsKa } from "@/utils/lang-is-ka";
 
 export default async function AuthButton() {
   const supabase = await createClient();
@@ -23,7 +24,9 @@ export default async function AuthButton() {
       <form action={signOutAction}>
         <Button data-cy="sign-out" type="submit" variant={"outline"}>
           <PowerIcon className="w-4 md:hidden" />
-          <span className="hidden md:block">sign out</span>
+          <span className="hidden md:block">
+            {langIsKa() ? "გამოსვლა" : "sign out"}
+          </span>
         </Button>
       </form>
     </div>

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "../../i18n/routing";
-import { FiArrowDown, FiArrowUp } from "react-icons/fi";
+import { FiArrowDown, FiArrowUp, FiMenu } from "react-icons/fi";
 import { lusitana } from "@/ui/fonts";
 type NavLinkProps = {
   href: string;
@@ -52,7 +52,7 @@ export default function HeaderClientSide(): JSX.Element {
         aria-label="Toggle navigation menu"
         data-cy="menu"
       >
-        Menu
+        <FiMenu />
         {menuOpen ? <FiArrowDown /> : <FiArrowUp />}
       </button>
       {menuOpen && (

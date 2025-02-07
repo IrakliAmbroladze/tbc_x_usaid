@@ -2,7 +2,14 @@
   "HomePage": {
     "login": "Login",
     "logout": "Logout",
-    "pestService": "Pest Service"
+    "pestService": "Pest Service",
+    "Welcome_to_Killers": "Welcome to Killers.",
+    "This_is_a_pest_service_company_to_help_you_in_making": "This is a pest service company to help you in making ",
+    "disinfection": "disinfection",
+    "disinsection": "disinsection",
+    "and": "and",
+    "deratization": "deratization",
+    "procedures": "procedures"
   },
 
   "Header": {

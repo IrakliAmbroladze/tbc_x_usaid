@@ -2,7 +2,14 @@
   "HomePage": {
     "login": "შესვლა",
     "logout": "გამოსვლა",
-    "pestService": "სანიტარული სერვისი"
+    "pestService": "სანიტარული სერვისი",
+    "Welcome_to_Killers": "გამარჯობა, ეს ქილერსია.",
+    "This_is_a_pest_service_company_to_help_you_in_making": "ჩვენ სანიტარული პროცედურების: ",
+    "disinfection": "დეზინფექციის",
+    "disinsection": "დეზინსექციისა",
+    "and": "და",
+    "deratization": "დერატიზაციის",
+    "procedures": "ჩატარებაში დაგეხმარებით"
   },
 
   "Header": {

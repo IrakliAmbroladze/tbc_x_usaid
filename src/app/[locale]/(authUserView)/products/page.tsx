@@ -39,8 +39,8 @@ export default async function Products({
       </h2>
       <div className="flex flex-col sm:flex-row">
         <div className="flex flex-col sm:items-center sm:ml-5 animate-rise delay-500">
-          <Search />
-          <SortingButtons />
+          <Search locale={locale} />
+          <SortingButtons locale={locale} />
           <Link
             data-cy="add-new-product"
             href={"./products/add-product"}

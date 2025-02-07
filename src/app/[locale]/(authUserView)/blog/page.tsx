@@ -18,7 +18,11 @@ const Blog = ({ searchParams, params }: ProductsProps) => {
       >
         {locale == "ka" ? "ბ ლ ო გ ი" : "B L O G"}
       </h2>
-      <Search />
+      <div className="flex justify-center">
+        <div className="w-72">
+          <Search />
+        </div>
+      </div>
       <PaginatedBlog locale={locale} query={query} />;
     </>
   );

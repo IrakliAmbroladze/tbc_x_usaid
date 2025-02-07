@@ -40,7 +40,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center text-black dark:text-white">
       <Card>
         <h1 className="text-2xl font-bold mb-4 text-black dark:text-white">
           Contact Us

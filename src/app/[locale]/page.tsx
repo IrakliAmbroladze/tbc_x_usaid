@@ -37,12 +37,14 @@ export default function HomePage(): JSX.Element {
             <p
               className={`${lusitana.className} text-center md:text-start p-2 text-stone-950 dark:text-stone-200`}
             >
-              <strong>Welcome to Killers. </strong>
-              <span>This is a pest service company to help you in making </span>
-              <strong>disinfection, </strong>
-              <strong>disinsection </strong>
-              <span>and </span>
-              <strong>deratization</strong> procedures.
+              <strong>{t("Welcome_to_Killers")} </strong>
+              <span>
+                {t("This_is_a_pest_service_company_to_help_you_in_making")}{" "}
+              </span>
+              <strong>{t("disinfection")}, </strong>
+              <strong>{t("disinsection")} </strong>
+              <span>{t("and")} </span>
+              <strong>{t("deratization")}</strong> {t("procedures")}.
             </p>
           </div>
           <div className="flex-1 relative">

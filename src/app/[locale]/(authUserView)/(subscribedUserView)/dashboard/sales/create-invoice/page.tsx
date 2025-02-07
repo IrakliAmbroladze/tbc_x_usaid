@@ -87,7 +87,6 @@ export default function CreateInvoice() {
 
       <h2 className="text-xl text-black font-bold mb-4">Create Invoice</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Customer Selection */}
         <label className="block">
           <span className="text-gray-700">Customer</span>
           <select
@@ -105,7 +104,6 @@ export default function CreateInvoice() {
             ))}
           </select>
         </label>
-        {/* Display Customer ID */}
         <input
           type="text"
           value={customerID ?? ""}
@@ -113,7 +111,6 @@ export default function CreateInvoice() {
           className="text-black block w-full mt-1 p-2 border rounded bg-gray-100"
         />
 
-        {/* Product Selection */}
         <label className="block">
           <span className="text-gray-700">Product</span>
           <select
@@ -131,7 +128,6 @@ export default function CreateInvoice() {
             ))}
           </select>
         </label>
-        {/* Display Product ID */}
         <input
           type="text"
           value={productID ?? ""}
@@ -139,7 +135,6 @@ export default function CreateInvoice() {
           className="text-black block w-full mt-1 p-2 border rounded bg-gray-100"
         />
 
-        {/* Quantity Input */}
         <label className="block">
           <span className="text-gray-700">Quantity</span>
           <input
