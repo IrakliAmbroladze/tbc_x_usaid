@@ -1,4 +1,4 @@
-import { createClient } from "../../../lib/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 
 export const GET = async (req: Request): Promise<Response> => {
   const { headers } = req;

@@ -67,8 +67,7 @@ describe("placing an order", () => {
       cy.get(`[data-cy=image-${productId}]`).click();
       cy.wait(3000);
       cy.get('[data-cy="cartBtn"]').should("be.visible").click();
-      cy.get('[data-cy="menu"]').click();
-      cy.get('[data-cy="cart-header"]').click();
+      cy.visit("/en/cart");
       cy.wait(3000);
       cy.intercept("POST", "/api/cart-checkout", {
         statusCode: 200,

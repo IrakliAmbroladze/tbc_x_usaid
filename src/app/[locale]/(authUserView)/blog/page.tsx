@@ -1,7 +1,15 @@
 import PaginatedBlog from "./PaginatedBlog";
+import { Search } from "./search-blog";
 
-const Blog = ({ params }: { params: { locale: string } }) => {
+interface ProductsProps {
+  params: { locale: string };
+  searchParams: {
+    query?: string;
+  };
+}
+const Blog = ({ searchParams, params }: ProductsProps) => {
   const { locale } = params;
+  const query = searchParams?.query || "";
   return (
     <>
       <h2
@@ -10,7 +18,8 @@ const Blog = ({ params }: { params: { locale: string } }) => {
       >
         {locale == "ka" ? "ბ ლ ო გ ი" : "B L O G"}
       </h2>
-      <PaginatedBlog locale={locale} />;
+      <Search />
+      <PaginatedBlog locale={locale} query={query} />;
     </>
   );
 };
