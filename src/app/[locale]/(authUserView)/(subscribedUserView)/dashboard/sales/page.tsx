@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { Link } from "i18n/routing";
 
 type OrderData = {
   id: number;
@@ -31,8 +32,6 @@ const Invoices = () => {
           throw new Error("User is not authenticated");
         }
 
-        console.log(session);
-
         const response = await fetch("/api/dashboard/invoices", {
           method: "GET",
           headers: {
@@ -55,6 +54,7 @@ const Invoices = () => {
   }, [supabase]);
   return (
     <div className="max-w-7xl mx-auto p-6">
+      <Link href={"./sales/create-invoice"}> create-invoice </Link>
       <h1 className="text-3xl font-bold text-center mb-6 text-black dark:text-white">
         Invoice List
       </h1>
