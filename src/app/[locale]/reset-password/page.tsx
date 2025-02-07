@@ -4,11 +4,16 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
-export default function ResetPasswordPage() {
+export default function ResetPasswordPage({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const { locale } = params;
   const supabase = createClient();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const token = searchParams.get("token") || searchParams.get("code");
+  const accessToken = searchParams.get("code");
 
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -19,7 +24,7 @@ export default function ResetPasswordPage() {
     setMessage("");
     setError("");
 
-    if (!token) {
+    if (!accessToken) {
       setError("Invalid or missing reset token.");
       return;
     }
@@ -30,7 +35,7 @@ export default function ResetPasswordPage() {
       setError(error.message);
     } else {
       setMessage("Password reset successful! Redirecting...");
-      setTimeout(() => router.push("/login"), 3000);
+      setTimeout(() => router.push(`/${locale}/sign-in`), 3000);
     }
   };
 
