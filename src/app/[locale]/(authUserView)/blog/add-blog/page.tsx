@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 
-export default function AddPostPage() {
+export default function AddPostPage({
+  params,
+}: {
+  params: { locale: string };
+}) {
   const [titleKa, setTitleKa] = useState("");
   const [bodyKa, setBodyKa] = useState("");
   const [titleEn, setTitleEn] = useState("");
   const [bodyEn, setBodyEn] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const { locale } = params;
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -51,78 +56,84 @@ export default function AddPostPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+    <div className="m-10 p-6 bg-white dark:bg-stone-700 rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
-        Add New Post
+        {locale == "ka" ? "პოსტის დამატება" : "Add Post"}
       </h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label
-            htmlFor="titleKa"
-            className="block text-lg font-medium text-gray-700 dark:text-gray-200"
-          >
-            Title (KA):
-          </label>
-          <input
-            type="text"
-            id="titleKa"
-            value={titleKa}
-            onChange={(e) => setTitleKa(e.target.value)}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="bodyKa"
-            className="block text-lg font-medium text-gray-700 dark:text-gray-200"
-          >
-            Body (KA):
-          </label>
-          <textarea
-            id="bodyKa"
-            value={bodyKa}
-            onChange={(e) => setBodyKa(e.target.value)}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="titleEn"
-            className="block text-lg font-medium text-gray-700 dark:text-gray-200"
-          >
-            Title (EN):
-          </label>
-          <input
-            type="text"
-            id="titleEn"
-            value={titleEn}
-            onChange={(e) => setTitleEn(e.target.value)}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="bodyEn"
-            className="block text-lg font-medium text-gray-700 dark:text-gray-200"
-          >
-            Body (EN):
-          </label>
-          <textarea
-            id="bodyEn"
-            value={bodyEn}
-            onChange={(e) => setBodyEn(e.target.value)}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
-          />
+      <form onSubmit={handleSubmit} className="space-y-10 ">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <div>
+              <label
+                htmlFor="titleKa"
+                className="block text-lg font-medium text-gray-700 dark:text-gray-200"
+              >
+                სათაური
+              </label>
+              <input
+                type="text"
+                id="titleKa"
+                value={titleKa}
+                onChange={(e) => setTitleKa(e.target.value)}
+                required
+                className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="bodyKa"
+                className="block text-lg font-medium text-gray-700 dark:text-gray-200"
+              >
+                მთავარი ტექსტი
+              </label>
+              <textarea
+                id="bodyKa"
+                value={bodyKa}
+                onChange={(e) => setBodyKa(e.target.value)}
+                required
+                className="min-h-40 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
+              />
+            </div>
+          </div>
+          <div>
+            <div>
+              <label
+                htmlFor="titleEn"
+                className="block text-lg font-medium text-gray-700 dark:text-gray-200"
+              >
+                Title
+              </label>
+              <input
+                type="text"
+                id="titleEn"
+                value={titleEn}
+                onChange={(e) => setTitleEn(e.target.value)}
+                required
+                className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="bodyEn"
+                className="block text-lg font-medium text-gray-700 dark:text-gray-200"
+              >
+                Body
+              </label>
+              <textarea
+                id="bodyEn"
+                value={bodyEn}
+                onChange={(e) => setBodyEn(e.target.value)}
+                required
+                className="min-h-40 w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-300"
+              />
+            </div>
+          </div>
         </div>
         <button
           type="submit"
-          className="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-md shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600 dark:focus:ring-blue-400"
+          className="py-3 px-6 bg-gray-600 text-white font-bold rounded-md shadow-lg hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-400"
         >
-          Add Post
+          {locale == "ka" ? "დამატება" : "Add"}
         </button>
       </form>
 
