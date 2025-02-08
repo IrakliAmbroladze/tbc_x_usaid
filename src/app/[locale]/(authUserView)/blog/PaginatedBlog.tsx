@@ -96,7 +96,7 @@ const PaginatedBlog = ({ locale, query = "" }: BogListProps) => {
 
   return (
     <div className="w-full max-w-[1110px] mx-auto mb-8 px-4">
-      <div className="flex justify-end items-center gap-2 ">
+      <div className="flex justify-center items-center gap-2 ">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
