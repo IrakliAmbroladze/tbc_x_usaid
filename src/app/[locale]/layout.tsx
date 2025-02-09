@@ -32,6 +32,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/png" href="/assets/images/logoBlue.png" />
+      </head>
       <body
         className={`page-wrapper bg-white dark:bg-stone-800 bg-background text-foreground ${lusitana.className} antialiased`}
       >

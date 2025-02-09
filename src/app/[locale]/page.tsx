@@ -13,19 +13,19 @@ export default function HomePage(): JSX.Element {
       <div className="flex flex-1 flex-col items-center w-full max-w-[1110px] mx-auto mb-5">
         <div className="flex flex-col bg-[#222e46] w-full rounded-lg mb-1 md:mb-8 p-1 md:p-2 items-center justify-center md:flex-row md:pr-8 md:items-end md:justify-between md:gap-0">
           <Image
-            src="/assets/images/killer_logo_white-blue.png"
-            height={892}
-            width={1177}
+            src="/assets/images/logoWhite.png"
+            height={450}
+            width={450}
             alt="logo"
             priority
-            className="w-64 my-5"
+            className="w-40 md:w-60 my-5 md:my-10"
           />
           <div className="text-center mb-2 text-white">
             <h1
               className={`${
                 langCookie == "ka"
-                  ? "hidden md:block text-6xl"
-                  : "hidden md:block md:text-8xl"
+                  ? "hidden md:block text-6xl my-5"
+                  : "hidden md:block md:text-8xl my-5"
               } ${lusitana.className}`}
             >
               {t("pestService")}

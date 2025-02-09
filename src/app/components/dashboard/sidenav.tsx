@@ -6,19 +6,17 @@ import NavLinks from "./nav-links";
 export default function SideNav(): JSX.Element {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
-      <Link
-        href="/dashboard"
-        className=" hidden mb-2 md:flex h-40 justify-center rounded-md bg-[#222e46] p-4 md:h-40"
-      >
-        <div className="w-32 md:w-40 ">
+      <div className=" cursor-pointer mb-2 flex h-40 justify-center rounded-md bg-[#222e46] p-4 items-center">
+        <Link href="/dashboard">
           <Image
-            src="/assets/images/killer_logo_white-blue.png"
-            height={300}
-            width={300}
+            src="/assets/images/logoWhite.png"
+            height={450}
+            width={450}
             alt="logo"
+            className="h-28 w-auto"
           />
-        </div>
-      </Link>
+        </Link>
+      </div>
 
       <div
         className="flex
