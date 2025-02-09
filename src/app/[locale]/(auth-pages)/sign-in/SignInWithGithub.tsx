@@ -3,7 +3,7 @@ import Image from "next/image";
 import { createClient } from "../../../../lib/supabase/client";
 import { getBaseUrl } from "@/utils/url";
 
-export default function SignInWithGithub() {
+export default function SignInWithGithub({ locale }: { locale: string }) {
   const signInWithGithub = async () => {
     const supabase = await createClient();
     console.log("url: ", getBaseUrl());
@@ -39,7 +39,7 @@ export default function SignInWithGithub() {
           width={20}
           height={20}
         />
-        Sign in with GitHub
+        {locale === "ka" ? "GitHub-ით შესვლა" : "Sign in with GitHub"}
       </button>
     </form>
   );

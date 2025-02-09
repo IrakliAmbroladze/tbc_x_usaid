@@ -36,12 +36,12 @@ export default async function AuthButton() {
     >
       <Button asChild size="sm" variant={"outline"}>
         <Link data-cy="sign-in" href="/sign-in">
-          Sign in
+          {langIsKa() ? "შესვლა" : "Sign in"}
         </Link>
       </Button>
       <Button asChild size="sm" variant={"default"}>
         <Link data-cy="sign-up" href="/sign-up">
-          Sign up
+          {langIsKa() ? "რეგისტრაცია" : "Sign up"}
         </Link>
       </Button>
     </div>
