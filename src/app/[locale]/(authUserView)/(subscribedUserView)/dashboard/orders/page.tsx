@@ -10,6 +10,12 @@ export interface orderItem {
   plan_date: string;
   delivery_date: string;
   date: string;
+  customers: {
+    name: string;
+  };
+  products: {
+    title_en: string;
+  };
 }
 
 const OrderPage = () => {
@@ -124,12 +130,16 @@ const OrderPage = () => {
     const [newDeliveryDate, setNewDeliveryDate] = useState(order.delivery_date);
 
     return (
-      <li className="flex flex-col justify-between items-center p-4 border-b dark:text-white text-black">
+      <li className="flex justify-between items-center p-4 border-b dark:text-white text-black">
         <div className="flex items-center gap-4 m-6">
           <div>
             <h3 className="text-lg font-semibold">{order.customer_id}</h3>
+            <p className="text-gray-600">{order.customers.name}</p>
             <p className="text-gray-600">
-              {order.date} ₾ x {order.quantity}
+              product: <b>{order.products.title_en}</b>
+            </p>
+            <p className="text-gray-600">
+              Qty: x {order.quantity} {"pcs"}
             </p>
           </div>
         </div>

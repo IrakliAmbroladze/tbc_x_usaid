@@ -89,7 +89,7 @@ const AccountingPage = () => {
     const [isPaid, setIsPaid] = useState(order.payment);
 
     return (
-      <li className="flex flex-col gap-10 justify-between items-center p-4 border-b dark:text-white text-black">
+      <li className="flex gap-10 justify-between items-center p-4 border-b dark:text-white text-black mx-9">
         <div className="flex items-center gap-4">
           <div className="flex text-center flex-col">
             <h2>invoice # {order.id}</h2>
@@ -138,7 +138,9 @@ const AccountingPage = () => {
 
   return (
     <div className="py-2 dark:text-white text-black">
-      <h1 className="text-2xl font-bold mb-4 text-center">Orders</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">
+        Accounts Receivable{" "}
+      </h1>
 
       {loading ? (
         <p>Loading...</p>

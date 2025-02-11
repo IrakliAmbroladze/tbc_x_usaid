@@ -5,7 +5,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
     const { data, error } = await (await supabaseTokenUser(req))
       .from("invoices")
-      .select("*")
+      .select("*, customers(name), products(title_en)")
       .order("delivery_date", { ascending: true, nullsFirst: true })
       .order("plan_date", { ascending: true, nullsFirst: true })
       .order("date", { ascending: false });
