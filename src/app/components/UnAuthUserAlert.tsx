@@ -12,14 +12,13 @@ export default function UnAuthUserAlert(): JSX.Element {
 
   return (
     <div className="gap-4 flex flex-1 flex-col justify-center items-center dark:text-white text-black">
-      <h2>User is not logged in. Please, </h2>
+      <h2>{t("no_user_message")} </h2>
       <BtnGlobal href={`/${langCookie}/sign-in`} height="4rem" width="10rem">
         {t("login")} ⭬
       </BtnGlobal>
       <h2>
-        or go to{" "}
         <Link className="underline" href="/">
-          home page
+          {t("returnHome")}
         </Link>
       </h2>
     </div>

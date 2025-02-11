@@ -9,7 +9,9 @@
     "disinsection": "disinsection",
     "and": "and",
     "deratization": "deratization",
-    "procedures": "procedures"
+    "procedures": "procedures",
+    "no_user_message": "No user found, please login to continue.",
+    "returnHome": "or return to home page"
   },
 
   "Header": {
@@ -26,6 +28,19 @@
     "cart": "Cart",
     "orders": "Orders"
   },
+
+  "Contact": {
+    "title": "C O N T A C T",
+    "body": "Reach out to us for any inquiries or feedback. We are here to help!",
+    "phone": "Phone",
+    "email": "Email",
+    "sendMessage": "or send us a message using the form below:",
+    "your_name": "Your name",
+    "your_email": "Your email",
+    "your_message": "Your message",
+    "send_message": "Send message"
+  },
+
   "ThemeToggle": {
     "theme": "Theme",
     "light": "Light",

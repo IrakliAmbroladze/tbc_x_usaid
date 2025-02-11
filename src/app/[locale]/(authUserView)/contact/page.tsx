@@ -5,8 +5,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslations } from "next-intl";
 
 const ContactPage: React.FC = () => {
+  const t = useTranslations("Contact");
+
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (
@@ -40,40 +43,51 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center text-black dark:text-white">
-      <Card>
-        <h1 className="text-2xl font-bold mb-4 text-black dark:text-white">
-          Contact Us
-        </h1>
-        <p className="text-gray-600 dark:text-white mb-6">
-          Reach out to us for any inquiries or feedback. We&apos;re here to
-          help!
-        </p>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            type="text"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            name="name"
-          />
-          <Input
-            type="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            name="email"
-          />
-          <Textarea
-            placeholder="Your Message"
-            value={form.message}
-            onChange={handleChange}
-            name="message"
-          />
-          <Button text="Send Message" type="submit" />
-        </form>
-      </Card>
-    </div>
+    <>
+      <h2
+        data-cy="product-list-title"
+        className="text-3xl sm:text-5xl md:text-8xl  m-5 dark:text-white text-black font-bold animate-rise0_25s"
+      >
+        {t("title")}
+      </h2>
+      <div className="flex items-center justify-center text-black dark:text-white">
+        <Card>
+          <p className="text-gray-600 dark:text-white mb-6">{t("body")}</p>
+          <p className="text-gray-600 dark:text-white mb-6">
+            {`${t("phone")}: +995 555 12-34-56`}
+          </p>
+          <p className="text-gray-600 dark:text-white mb-6">
+            {`${t("email")}: contact@killers.ge`}
+          </p>
+          <p className="text-gray-600 dark:text-white mb-6">
+            {t("sendMessage")}
+          </p>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              type="text"
+              placeholder={t("your_name")}
+              value={form.name}
+              onChange={handleChange}
+              name="name"
+            />
+            <Input
+              type="email"
+              placeholder={t("your_email")}
+              value={form.email}
+              onChange={handleChange}
+              name="email"
+            />
+            <Textarea
+              placeholder={t("your_message")}
+              value={form.message}
+              onChange={handleChange}
+              name="message"
+            />
+            <Button text={t("send_message")} type="submit" />
+          </form>
+        </Card>
+      </div>
+    </>
   );
 };
 

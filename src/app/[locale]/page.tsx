@@ -18,7 +18,7 @@ export default function HomePage(): JSX.Element {
             width={450}
             alt="logo"
             priority
-            className="w-40 md:w-60 my-5 md:my-10"
+            className="w-40 my-5 md:my-10"
           />
           <div className="text-center mb-2 text-white">
             <h1

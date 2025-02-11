@@ -12,7 +12,7 @@ export interface FormData {
   country: string;
 }
 
-const ProfileForm = () => {
+const ProfileForm = ({ langIsKa }: { langIsKa: boolean }) => {
   const [loading, setLoading] = useState(true);
 
   const [formData, setFormData] = useState<FormData>({
@@ -111,7 +111,9 @@ const ProfileForm = () => {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <p className="text-[#8898aa]">
+          {langIsKa ? "იტვირთება ..." : "loading ..."}
+        </p>
       ) : (
         <form onSubmit={handleSubmit} className="mt-1 w-full mb-52">
           <div className="flex justify-end mb-10">
@@ -119,73 +121,85 @@ const ProfileForm = () => {
               type="submit"
               className="bg-[#222e46] text-white px-4 py-2 rounded hover:scale-105 active:scale-95 transition-transform duration-150 ease-in-out"
             >
-              Save profile details
+              {langIsKa ? "პროფილის დეტალების შენახვა" : "Save profile details"}
             </button>
           </div>
           <div className="flex flex-col md:w-4/5 mx-auto md:pl-16 dark:text-[#ffa552]">
             <div className="pl-6 w-full">
               <div className="form-group focused">
-                <label className={labelStyle}>First name</label>
+                <label className={labelStyle}>
+                  {langIsKa ? "სახელი" : "First name"}
+                </label>
                 <input
                   type="text"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
                   className={inputStyle}
-                  placeholder="Your first name"
+                  placeholder={langIsKa ? "შენი სახელი" : "Your first name"}
                 />
               </div>
-              <label className={labelStyle}>Last name</label>
+              <label className={labelStyle}>
+                {langIsKa ? "გვარი" : "Last name"}
+              </label>
               <input
                 type="text"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
                 className={inputStyle}
-                placeholder="Your surname"
+                placeholder={langIsKa ? "შენი გვარი" : "Your last name"}
               />
             </div>
           </div>
           <hr className="my-6" />
           <h6 className="text-sm py-1 tracking-wider text-[#8898aa] dark:text-white mb-6">
-            CONTACT INFORMATION
+            {langIsKa ? "საკონტაქტო ინფორმაცია" : "CONTACT INFORMATION"}
           </h6>
           <div className="pl-6">
-            <label className={labelStyle}>Phone</label>
+            <label className={labelStyle}>
+              {langIsKa ? "ტელეფონი" : "Phone"}
+            </label>
             <input
               type="text"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
               className={inputStyle}
-              placeholder="e.x. +995 593 12-34-56"
+              placeholder={`${langIsKa ? "მაგ." : "e.x."} +995 593 12-34-56`}
             />
-            <label className={labelStyle}>Address</label>
+            <label className={labelStyle}>
+              {langIsKa ? "მისამართი" : "Address"}
+            </label>
             <input
               name="address"
               value={formData.address}
               onChange={handleInputChange}
               className={inputStyle}
-              placeholder="e.x. Nutsubidze str."
+              placeholder={
+                langIsKa ? "მაგ. ნუცუბიძის 1" : "e.x. Nutsubidze str."
+              }
               type="text"
             />
-            <label className={labelStyle}>City</label>
+            <label className={labelStyle}>{langIsKa ? "ქალაქი" : "City"}</label>
             <input
               type="text"
               name="city"
               value={formData.city}
               onChange={handleInputChange}
               className={inputStyle}
-              placeholder="e.x. Tbilisi"
+              placeholder={langIsKa ? "მაგ. თბილისი" : "e.x. Tbilisi"}
             />
-            <label className={labelStyle}>Country</label>
+            <label className={labelStyle}>
+              {langIsKa ? "ქვეყანა" : "Country"}
+            </label>
             <input
               type="text"
               name="country"
               value={formData.country}
               onChange={handleInputChange}
               className={inputStyle}
-              placeholder="e.x. Georgia"
+              placeholder={langIsKa ? "მაგ. საქართველო" : "e.x. Georgia"}
             />
           </div>
         </form>
@@ -194,7 +208,9 @@ const ProfileForm = () => {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-[#f0eff4] p-6 rounded-lg shadow-lg text-center">
             <p className="text-lg text-[#86cd82] font-semibold">
-              Information saved successfully!
+              {langIsKa
+                ? "მონაცემები შენახულია!"
+                : "Information saved successfully!"}
             </p>
           </div>
         </div>

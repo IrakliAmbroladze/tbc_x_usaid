@@ -29,12 +29,17 @@ export default async function Layout({
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
       <div className="bg-white dark:bg-gray-500 rounded-lg shadow-lg p-8 text-center max-w-md">
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          {langCookie == "ka" ? "არა გამომწერი" : "Not subscribed"}
+          {langCookie == "ka"
+            ? "მომხარებელი არ არის გამომწერი"
+            : "Not subscribed"}
         </p>
         <h1 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
           {langCookie == "ka" ? "გთხოვთ, მიჰყვეთ ბმულს" : " Please, visit"}
         </h1>
-        <Link href="/pricing">
+        <Link
+          href="/pricing"
+          className="text-blue-500 dark:text-blue-300 bg-blue-100 dark:bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-600"
+        >
           {langCookie == "ka" ? "ფასის გვერდი" : "Pricing Page"}
         </Link>
       </div>
