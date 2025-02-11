@@ -3,6 +3,7 @@ import ProductList from "./product-list";
 import { Search } from "./search-and-sort";
 import { SortingButtons } from "./search-and-sort";
 import { lusitana } from "@/ui/fonts";
+import { FiPackage, FiShoppingCart } from "react-icons/fi";
 
 interface ProductsProps {
   params: { locale: string };
@@ -31,6 +32,18 @@ export default async function Products({
     locale === "ka" ? "ახალი პროდუქტის დამატება" : "Add New Product";
   return (
     <div>
+      <Link
+        href={"/cart"}
+        className="bg-blue-950 fixed right-1 top-16 z-50 m-2 p-1 rounded-full text-white"
+      >
+        <FiShoppingCart size={20} />
+      </Link>
+      <Link
+        href={"/orders"}
+        className="bg-green-950 fixed right-9 top-16 z-50 m-2 p-1 rounded-full text-white"
+      >
+        <FiPackage size={20} />
+      </Link>
       <h2
         data-cy="product-list-title"
         className={`${lusitana.className} text-3xl sm:text-5xl md:text-8xl  m-5 dark:text-white text-black font-bold animate-rise0_25s`}

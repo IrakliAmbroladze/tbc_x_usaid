@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import CartItem from "./CartItem";
 import CheckoutCart from "@/components/checkout-cart";
+import { FiArrowLeft } from "react-icons/fi";
+import { Link } from "i18n/routing";
 
 export interface cartProduct {
   id: string | number;
@@ -13,9 +15,11 @@ export interface cartProduct {
   quantity: number;
 }
 
-const CartPage = () => {
+const CartPage = ({ params }: { params: { locale: string } }) => {
   const [cart, setCart] = useState<cartProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const { locale } = params;
+  const langIsKa = locale == "ka";
 
   const supabase = createClient();
 
@@ -140,16 +144,23 @@ const CartPage = () => {
 
   return (
     <div className="w-[1100px] mx-auto py-10 dark:text-white text-black">
-      <h1 className="text-2xl font-bold mb-4 text-center">Shopping Cart</h1>
+      <h1 className="text-2xl font-bold mb-4 text-left">
+        {langIsKa ? "კ ა ლ ა თ ა" : "Shopping Cart"}
+      </h1>
+      <h1 className="text-2xl font-bold mb-4 text-left">
+        <Link href="/products">
+          <FiArrowLeft />
+        </Link>
+      </h1>
 
       {loading ? (
-        <p>Loading...</p>
+        <p>{langIsKa ? "იტვრითება ..." : "Loading..."}</p>
       ) : cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
           <span className="text-xl font-bold mb-4 text-green-700">
-            Total amount: {total} ₾
+            {langIsKa ? "ჯამური ღირებულება" : "Total amount"}: {total} ₾
           </span>
           <ul>
             {cart.map((product) => (
@@ -166,7 +177,7 @@ const CartPage = () => {
             onClick={clearCart}
             className="m-2 bg-red-400 hover:bg-red-500 active:bg-red-600 text-white px-4 py-2 rounded-md"
           >
-            Clear Cart
+            {langIsKa ? "გასუფთავება" : "Clear Cart"}
           </button>
         </>
       )}

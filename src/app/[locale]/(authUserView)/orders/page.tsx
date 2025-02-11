@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import Image from "next/image";
+import { FiArrowLeft } from "react-icons/fi";
+import { Link } from "i18n/routing";
 
 export interface orderProduct {
   id: string | number;
@@ -12,7 +14,7 @@ export interface orderProduct {
   quantity: number;
   stripe_payment_id: string;
   created_at: string;
-  description_en?: string; // Added to match usage
+  description_en?: string;
 }
 
 const OrdersPage = () => {
@@ -49,7 +51,6 @@ const OrdersPage = () => {
     fetchOrders();
   }, [supabase]);
 
-  // Fixed grouping logic
   const groupedOrders = orders.reduce<Record<string, orderProduct[]>>(
     (acc, order) => {
       const key = `${order.stripe_payment_id}-${order.created_at.split("T")[0]}`;
@@ -65,6 +66,12 @@ const OrdersPage = () => {
   return (
     <div className="p-4 dark:text-white text-black">
       <h1 className="text-2xl font-bold mb-4">Ordered Products</h1>
+      <h1 className="text-2xl font-bold mb-4 text-left">
+        <Link href="/products">
+          <FiArrowLeft />
+        </Link>
+      </h1>
+      {Object.entries(groupedOrders).length === 0 && <p>No orders found</p>}
       {Object.entries(groupedOrders).map(([key, items]) => {
         const [paymentId, date] = key.split("-");
         return (
@@ -92,7 +99,7 @@ const OrdersPage = () => {
                     </p>
                   )}
                   <p className="text-gray-800 dark:text-gray-300 font-bold mt-2">
-                    Price: ${item.price}
+                    Price: {item.price}₾
                   </p>
                   <p className="text-gray-700 dark:text-gray-400">
                     Quantity: {item.quantity}
